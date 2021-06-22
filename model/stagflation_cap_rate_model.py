@@ -356,6 +356,7 @@ def main(args=None):
 
         for task in [namespace.command]:
             command = getattr(_Command, task)
+            print(parser.prog)
             command.value.command(
                 _ExitStatusArgumentParser(
                     prog="{} {}".format(parser.prog, command.name),
