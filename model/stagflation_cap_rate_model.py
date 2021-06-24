@@ -40,8 +40,8 @@ class _ExitStatus(enum.Enum):
     invocation = _ExitStatusPair(1, "invocation")
     unknown = _ExitStatusPair(2, "unknown error")
     keyboard_interrupt = _ExitStatusPair(3, "keyboard interrupt")
-
-
+    file_path = _ExitStatusPair(4, "file path invalid")
+    read_in = _ExitStatusPair(5, "read in data error")
 
 def _main_parser_usage(parser):
     """Return the usage string for the main parser."""
@@ -100,13 +100,24 @@ def _load_fred_data(namespace):
 
 def _load_cr_data(namespace):
     """Load Excel file containing Office and MF Cap Rates"""
+    with _exit_on_error("file_path", Exception):
+        cr_path = os.path.join(os.path.dirname(os.path.dirname(__file__)),"data","green_street_cr_data.xlsx")
+
+    with _exit_on_error("read_in", Exception):
+        cr_data = pd.read_excel(cr_path)
+
+
+    """
+    for andrew:
+        produce a clean dataframe where the columns of the dataframe match the columns of the excel [Apartment...Office....]
+        contain only as many rows as there are dates
+            
     v_print(
-        name="groupings",
-        value=groupings,
+        name="cr_data",
+        value=cr_data,
         namespace=namespace,
     )
 
-    pass
 
 
 def _produce_trailing_avgs(data, namespace):
@@ -126,7 +137,7 @@ def _analyze_accuracy(data, namespace):
 
 def _ingest(namespace):
     """Run import functions"""
-    print(namespace)
+    _load_cr_data(namespace)
 
 
 def _analyze(parser, args):
@@ -207,11 +218,12 @@ def _add_verbose_flag(parser):
 
 
 def _parse_ingest(parser, args):
-    _add_input_path_ingest(parser)
-    _add_output_path_ingest(parser)
-    _add_verbose_flag(parser)
-    namespace = parser.parse_args(args)
-    _ingest(namespace)
+    with _exit_on_error("unknown", Exception):
+        _add_input_path_ingest(parser)
+        _add_output_path_ingest(parser)
+        _add_verbose_flag(parser)
+        namespace = parser.parse_args(args)
+        _ingest(namespace)
 
 
 def _parse_analyze(parser, args):
@@ -356,7 +368,6 @@ def main(args=None):
 
         for task in [namespace.command]:
             command = getattr(_Command, task)
-            print(parser.prog)
             command.value.command(
                 _ExitStatusArgumentParser(
                     prog="{} {}".format(parser.prog, command.name),
