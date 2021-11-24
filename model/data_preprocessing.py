@@ -27,8 +27,19 @@ for file in os.listdir(os.path.join(os.path.dirname(os.path.dirname(__file__)),"
             master_df = pd.concat([master_df,df[msa_label]],axis=1)
         else:
             master_df = df    
-
-master_df.to_csv('test_output.csv', index=False)
+# index repair work - need to better understand
+master_df.index = master_df["date"]
+master_df = master_df.drop(labels=["date"], axis=1, inplace=False)
+# perform pct change arithmetic
+master_df = master_df.pct_change()
+# reset index - again need to better understand
+master_df = master_df.reset_index()
+# melt data set to flatten tabular data
+master_df = master_df.melt(id_vars= "date", var_name="msa")
+# get rid of na values
+master_df = master_df.dropna()
+#print to csv
+master_df.to_csv('gdp_output.csv', index=False)
 
 # CPI file prep
 for file in os.listdir(os.path.join(os.path.dirname(os.path.dirname(__file__)),"data")):
@@ -38,24 +49,80 @@ for file in os.listdir(os.path.join(os.path.dirname(os.path.dirname(__file__)),"
         # define in file where the dataframe is
         df = df.iloc[1:,0:20]
         # label columns
-        df.columns = ["Date","Boston", "Philadelphia", "Chicago", "Dallas", "Houston", "Atlanta", "Miami", 
+        df.columns = ["date","Boston", "Philadelphia", "Chicago", "Dallas", "Houston", "Atlanta", "Miami", 
         "SanFrancisco", "Tampa", "Minneapolis", "StLouis", "Seattle", "Denver", "WashingtonDC", 
         "LosAngeles", "Baltimore", "SanDiego", "Phoenix", "NewYork"]
         # convert date column to date format
-        df["Date"] = pd.to_datetime(df["Date"])
-        df["Date"] = df["Date"].dt.to_period("Y")
+        df["date"] = pd.to_datetime(df["date"])
+        df["date"] = df["date"].dt.to_period("Y")
         # condense to annual rows and take mean of all monthly values
-        df = df.groupby(["Date"]).mean()
+        df = df.groupby(["date"]).mean()
+        df = df.reset_index()
+        df.index = df["date"]
+        df = df.drop(labels=["date"], axis = 1, inplace=False)
+        
+        df = df.pct_change()
+        df = df.dropna()
+        df = df.reset_index()
+        df = df.melt(id_vars = "date", var_name = "msa")
+        
+df.to_csv('cpi_output.csv', index=False)
+
         
 # Cap Rate file prep
 for file in os.listdir(os.path.join(os.path.dirname(os.path.dirname(__file__)),"data")):
     if file.endswith("cr.xlsx"):
         filepath = os.path.join(os.path.dirname(os.path.dirname(__file__)),"data",file)
         df = pd.read_excel(filepath)
+        #df = df.transpose()
+        # remove duplicative Geography Name row/column
+        df = df.drop(labels=["Geography Name"], axis=1, inplace=False)
+        # melt to annualize
+        df = df.melt(id_vars = "MSA", var_name = "year")
+        # correct all years
+        df.year = df.year.apply(lambda x: x[1:5])        
+        #group by mean to annualize
+        df = df.groupby(["MSA","year"]).mean()
+        # reset index before pivot
+        df = df.reset_index()
+        #pivot to set up for difference
+        df = df.pivot_table(columns = ["year"],
+                            index = ["MSA"])
+        
+        # diff
+        df = df.sort_index(axis=1, level=1).droplevel(0, axis=1)
+        df = df.diff(axis = 1)
+        
+        # re-insert index
+        df = df.reset_index()
+        
+        # drop n/a's
+        df = df.dropna(axis = 1)
+        
+        #melt again
+        df = df.melt(id_vars = "MSA", var_name = "year")
+        df = df[["year", "MSA", "value"]]
+        
+        # print to csv
+        df.to_csv('cr_output.csv', index=False)
+       
         
 
-# print df to csv        
-#df.to_csv('cpi_output.csv', index=True)
+        
+        
+     
+    
+        # reset index to re-introduce MSA column
+        #df = df.reset_index()
+        # melt
+        #df = df.melt(id_vars = "MSA", var_name = "year")
+        #df.year = df.year.apply(lambda x: x[1:5])        
+        #df = df.groupby(["MSA","year"]).mean()
+       #df.index = df["MSA"]
+       #df = df.drop("MSA", axis = 1)
+       #df = df.diff(axis = 0)
+
+
         
 print(df.head()) 
 
@@ -68,6 +135,9 @@ print(df.head())
 
 
 """
+
+pandas melt to convert from PIVOT to end goal
+
 #figure out how to name just MSA df["MSA"] = file
        # if master_df:
            # master_df = master_df.join(df,how="left",left_on=date,right_on=date)
