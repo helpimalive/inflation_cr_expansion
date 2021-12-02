@@ -1,0 +1,155 @@
+\begin{filecontents*}{example.eps}
+gsave
+newpath
+  20 20 moveto
+  20 220 lineto
+  220 220 lineto
+  220 20 lineto
+closepath
+2 setlinewidth
+gsave
+  .4 setgray fill
+grestore
+stroke
+grestore
+\end{filecontents*}
+
+\RequirePackage{fix-cm}
+\documentclass{svjour3}                     % onecolumn (standard format)
+\smartqed  % flush right qed marks, e.g. at end of proof
+\usepackage{graphicx}
+\usepackage{mathptmx}      % use Times fonts if available on your TeX system
+
+
+% insert here the call for the packages your document requires
+\usepackage{natbib}
+\usepackage{csvsimple}
+\usepackage{breakcites}
+\usepackage{caption}
+\usepackage{blindtext}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{longtable,array}
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{pdflscape}
+
+\begin{document}
+\title{x}
+\date{}
+\subtitle{x}
+\titlerunning{x}        
+\author{Matt Larriva, CFA         \and
+        Peter Linneman, PhD.
+}
+
+%\authorrunning{Short form of author list} % if too long for running head
+
+%\institute{M. Larriva\at
+%              \email{mlarriva@fcpdc.com}           %  \\
+%             \emph{Present address:} of F. Author  %  if needed
+%           \and
+%           P. Linneman\at
+%              \email{plinneman@linnemanassociates.com} %  \\ 
+%}
+
+%\date{Received: date / Accepted: date}
+% The correct dates will be entered by the editor
+
+\maketitle
+
+\begin{abstract}
+
+
+\subsection*{Purpose}
+
+
+\subsection*{Design/Methodology/Approach}
+
+\subsection*{Findings}
+
+\subsection*{Originality}
+
+\subsection*{Practical Implications}
+
+\keywords{VECM \and Capitalisation Rates \and Real Estate Markets \and Multifamily Cap Rate \and Office Cap Rate \and VECM \and United States}
+
+\end{abstract}
+
+\pagebreak
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+
+\section{Introduction}
+\label{intro}
+At 16 trillion dollars, the value of commercial real estate in the United States \citep*{NAREITsize} represents half of a percent of the world's total wealth \citep*{CSsize}. And at 65\% home-ownership in the United States \citep*{fred_2020}, real estate represents a more invested-in asset class than equities--only 55\% of Americans own stock \citep*{saad_2020}. As such, the value of this asset class and the underlying determinants are of importance not only to owners and operators but also to the economy as a whole. 
+
+
+\section{Literature Review}
+
+
+\section{Data}
+
+ 
+\section{Selection, Specification, and Analysis of Vector Error Correction Model:}
+ 
+\section{Results}
+
+\subsection{Analysis of Results}
+
+
+\section{Conclusion}
+
+\pagebreak
+
+
+% Authors must disclose all relationships or interests that 
+% could have direct or potential influence or impart bias on 
+% the work: 
+%
+\section*{Declarations}
+\subsection{Funding}
+This research is a part of one author's role as VP of Research and Data Analytics at a Real Estate Private Equity firm. 
+
+\subsection{Conflict of interest}
+One author works for a Real Estate Private Equity firm which has ownership interest in many office and multifamily assets throughout the US. 
+
+\subsection{Availability of data and material}
+Data available upon request.
+
+\subsection{Code availability}
+Code available upon request.
+
+\subsection{Authors' contributions}
+Each of the authors confirms that this manuscript has not been previously published and is not currently under consideration by any other journal.
+
+
+% BibTeX users please use one of
+%\bibliographystyle{spbasic2}      % basic style, author-year citations
+\bibliographystyle{apalike}
+%\bibliographystyle{spmpsci}      % mathematics and physical sciences
+%\bibliographystyle{spphys}       % APS-like style for physics
+%\bibliography{}   % name your BibTeX data base
+
+% Non-BibTeX users please use
+%\begin{thebibliography}{}
+%
+% and use \bibitem to create references. Consult the Instructions
+% for authors for reference list style.
+%
+%\bibitem{RefJ}
+% Format for Journal Reference
+%Author, Article title, Journal, Volume, page numbers (year)
+% Format for books
+%\bibitem{RefB}
+%Author, Book title, page numbers. Publisher, place (year)
+% etc
+%\end{thebibliography}
+\bibliography{bib} 
+
+\end{document}
+% end of file template.tex
+

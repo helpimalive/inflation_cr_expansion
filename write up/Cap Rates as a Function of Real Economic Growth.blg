@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (MiKTeX 2.9.7400 64-bit)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Cap Rates as a Function of Real Economic Growth.aux
+The style file: apalike.bst
+Database file #1: bib.bib
+You've used 4 entries,
+            1935 wiz_defined-function locations,
+            493 strings with 4085 characters,
+and the built_in function-call counts, 1095 in all, are:
+= -- 105
+> -- 39
+< -- 3
++ -- 12
+- -- 12
+* -- 74
+:= -- 217
+add.period$ -- 10
+call.type$ -- 4
+change.case$ -- 26
+chr.to.int$ -- 4
+cite$ -- 4
+duplicate$ -- 46
+empty$ -- 71
+format.name$ -- 16
+if$ -- 200
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 2
+newline$ -- 21
+num.names$ -- 12
+pop$ -- 21
+preamble$ -- 1
+purify$ -- 26
+quote$ -- 0
+skip$ -- 40
+stack$ -- 0
+substring$ -- 48
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 24
+warning$ -- 0
+while$ -- 8
+width$ -- 0
+write$ -- 46
