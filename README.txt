@@ -12,7 +12,7 @@
 		Pull MSA-level data 
 			Cap Rates (major sector combined)
 			GDP
-			DONE: CPI
+			DONE: CPI - will indicate specific markets to pull
 	Familiarize with Research Paper format
 	
 	11/21-11/27
