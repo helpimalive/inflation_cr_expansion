@@ -81,48 +81,28 @@ def _exit_on_error(name, *error_types):
 ######################
 
 
-def _get_fred_data(namespace):
-    """Retrieve CPI and GDP data from FRED using API"""
-    pass
-
-
-def _save_fred_data(data, namespace):
-    """Save the FRED data as pickle file in the location named by namespace"""
-    pass
-
-
-def _load_fred_data(namespace):
-    """Retrieving FRED data from pickle file in namespace location"""
-    with _exit_on_error("invalid_path", Exception):
-        with open(namespace.input_path, "rb") as f:
-            df = pickle.load(f)
-
-
-def _load_cr_data(namespace):
-    """Load Excel file containing Office and MF Cap Rates"""
+def _load_data(namespace):
+    """Load Excel file containing cap rates, CPI, and GDP"""
     with _exit_on_error("file_path", Exception):
-        cr_path = os.path.join(os.path.dirname(os.path.dirname(__file__)),"data","green_street_cr_data.xlsx")
+        filepath = os.path.join(os.path.dirname(os.path.dirname(__file__)),"data","gdp_cpi_cr_combined.csv")
 
     with _exit_on_error("read_in", Exception):
-        cr_data = pd.read_excel(cr_path)
+        preprocessed_dataframe = pd.read_excel(filepath)
 
-
-    """
-    for andrew:
-        produce a clean dataframe where the columns of the dataframe match the columns of the excel [Apartment...Office....]
-        contain only as many rows as there are dates
-            
     v_print(
-        name="cr_data",
-        value=cr_data,
+        name="raw_data_frame",
+        value=preprocessed_dataframe,
         namespace=namespace,
     )
-
-
+    
+    return preprocessed_dataframe
 
 def _produce_trailing_avgs(data, namespace):
     """Produce trailing averages n periods for each FRED series"""
-    pass
+    # Takes the output from _load_data, a flat dataframe with CR, CPI, and GDP by MSA
+    # Returns a pivoted dataframe of trailing averages
+    df = data 
+    
 
 
 def _generate_signal(data, namespace):
@@ -134,14 +114,18 @@ def _analyze_accuracy(data, namespace):
     """Analyze variance bias tradeoff in estimations of cap rate expansions"""
     pass
 
-
-def _ingest(namespace):
-    """Run import functions"""
-    _load_cr_data(namespace)
-
+############################
+#   The Command Functions  #
+############################
 
 def _analyze(parser, args):
     """Run analysis functions"""
+    namespace = parser.parse_args(args)
+    preprocessed_dataframe = _load_data(namespace)
+    _produce_trailing_avgs(data = preprocessed_dataframe, namespace)
+
+def _graph(parser, args):
+    """Run the graph functions"""
     namespace = parser.parse_args(args)
 
 
@@ -313,12 +297,11 @@ class _ExitStatusArgumentParser(argparse.ArgumentParser):
 
 _CommandPair = collections.namedtuple("_CommandPair", ("command", "description"))
 
-
 class _Command(enum.Enum):
     """The commands"""
-
-    ingest = _CommandPair(_parse_ingest, "ingest, clean, and store FRED data")
     analyze = _CommandPair(_parse_analyze, "analyze logic for cap rate expansion")
+    graph = _CommandPair(_parse_graph, "graph the result of the analysis")
+
 
 
 def main(args=None):

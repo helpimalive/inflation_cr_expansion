@@ -14,6 +14,8 @@
 			GDP
 			DONE: CPI - will indicate specific markets to pull
 	Familiarize with Research Paper format
+#TODO will need to update CPI figs in Jan when they're published for 2020
+
 	
 	11/21-11/27
 	Together
