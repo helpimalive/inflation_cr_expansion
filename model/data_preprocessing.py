@@ -45,13 +45,11 @@ df_gdp = master_df
 for file in os.listdir(os.path.join(os.path.dirname(os.path.dirname(__file__)),"data")):
     if file.endswith("cpi.xlsx"):
         filepath = os.path.join(os.path.dirname(os.path.dirname(__file__)),"data",file)
-        df = pd.read_excel(filepath)
-        # define in file where the dataframe is
-        df = df.iloc[1:,0:20]
+        full = pd.read_excel(filepath)
         # label columns
-        df.columns = ["date","Boston", "Philadelphia", "Chicago", "Dallas", "Houston", "Atlanta", "Miami", 
-        "SanFrancisco", "Tampa", "Minneapolis", "StLouis", "Seattle", "Denver", "WashingtonDC", 
-        "LosAngeles", "Baltimore", "SanDiego", "Phoenix", "NewYork"]
+
+        df = pd.DataFrame(full.iloc[2:].values,columns=full.iloc[0].values)
+        # define in file where the dataframe is
         # convert date column to date format
         df["date"] = df['date'].apply(lambda x: str(x)[0:4])
         # condense to annual rows and take mean of all monthly values
