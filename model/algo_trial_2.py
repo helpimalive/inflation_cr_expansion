@@ -127,7 +127,9 @@ for mean_pers_one in np.arange(1, 2):
                         columns=results.columns,
                     )
                     results = pd.concat([results, trial])
-print(obs)
 print(df_flag)
-print(results.values)
-results.to_csv(r"C:\users\matth\desktop\results.csv")
+df_cr = df[df["metric"] == "cap_rate"]
+df_cr = df_cr.pivot(index="year", columns="MSA", values="value")
+print(df_cr)
+df_flag.to_csv(r"C:\users\matth\desktop\df_msa_flag.csv")
+df_cr.to_csv(r"C:\users\matth\desktop\df_cr.csv")

@@ -80,6 +80,9 @@ def _exit_on_error(name, *error_types):
 # Core functionality #
 ######################
 
+def _preprocess_raw(namespace):
+    '''To preprocess raw dataframes into a single input'''
+    pass
 
 def _load_data(namespace):
     """Load Excel file containing cap rates, CPI, and GDP"""
@@ -97,21 +100,28 @@ def _load_data(namespace):
     
     return preprocessed_dataframe
 
-def _produce_trailing_avgs(data, namespace):
-    """Produce trailing averages n periods for each FRED series"""
+def _execute_msa_cr_flag_algo(data, namespace):
+    """Runs the algorithm that decides whether a cap rate expansion will occur in the next year or not"""
     # Takes the output from _load_data, a flat dataframe with CR, CPI, and GDP by MSA
-    # Returns a pivoted dataframe of trailing averages
-    df = data 
-    
-
-
-def _generate_signal(data, namespace):
-    """Create a signal if conditions are fulfilled in the GDP and CPI series"""
+    # Returns a flat dataframe of [msa,date,cap rate,cap_rate_expansion_flag,cap_rate_expansion]
     pass
 
+def _execute_national_cr_flag_algo(data, namespace):
+    """Runs the algorithm that decides whether a cap rate expansion will occur in the next year or not"""
+    # Takes the output from _load_data, a flat dataframe with CR, CPI, and GDP by MSA
+    # Returns a flat dataframe of [msa,date,cap rate,cap_rate_expansion_flag,cap_rate_expansion]
+    pass
 
 def _analyze_accuracy(data, namespace):
     """Analyze variance bias tradeoff in estimations of cap rate expansions"""
+    pass
+
+def _graph_msa_results(namespace):
+    """Make graphs of the results of the MSA-level forecasts of cap rate expansions"""
+    pass
+
+def _graph_msa_results(namespace):
+    """Make graphs of the results of the MSA-level forecasts of cap rate expansions"""
     pass
 
 ############################

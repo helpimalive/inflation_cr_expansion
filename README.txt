@@ -3,33 +3,31 @@
 # Notes on Usage
 
 # Schedule
-	11/14-11/20
-	Matt:
-	1) Formalize macro model in python
-	
-	Walker:
-	2) Validate MSA-level models in python
-		Pull MSA-level data 
-			Cap Rates (major sector combined)
-			GDP
-			DONE: CPI - will indicate specific markets to pull
-	Familiarize with Research Paper format
-#TODO will need to update CPI figs in Jan when they're published for 2020
+		Matt:
+		DONE at the MSA level; we can leave the national one in excel
+		1) Formalize macro model in python
 
-	
-	11/21-11/27
-	Together
-		Write script in python to wrangle data into a single dataframe
-	Matt
-		Forecast cap rate expansion based on forecasted conditions
-	
-	11/28-12/4
-	Walker start; Matt Review
-		3) Write Prior Research Section
-	
-	12/5-12/11
-	Walker start; Matt Review
-		4) Prepare Exhibits
+		Walker:
+		DONE
+		2) Validate MSA-level models in python
+			Pull MSA-level data 
+				Cap Rates (major sector combined)
+				GDP
+				DONE: CPI - will indicate specific markets to pull
+
+Walker: Familiarize with Research Paper format
+		
+		DONE
+		Together
+			Write script in python to wrangle data into a single dataframe
+		
+		DONE
+		Matt
+			Forecast cap rate expansion based on forecasted conditions
+
+Matt:
+Walker start; Matt Review: 	prior research section (done by by end of January)
+Walker start; Matt Review:  exhibits (graphs of MSAs outputs) (use matplotlib) (give walker a template to use)
 	
 	12/12-12/19
 	Walker start; Matt Review
@@ -48,3 +46,14 @@
 	
 	
 # TODO
+
+San Antonio: no CPI; All items in South - Size Class B/C, all urban consumers, not seasonally adjusted
+San Jose: no CPI; used All items in San Francisco-Oakland-Hayward, CA, all urban consumers, not seasonally adjusted
+Charlotte: nothing
+Indianapolis: All items in Midwest - Size Class B/C, all urban consumers, not seasonally adjusted
+Columbus: All items in Midwest - Size Class B/C, all urban consumers, not seasonally adjusted
+Jacksonville: 	All items in South - Size Class B/C, all urban consumers, not seasonally adjusted
+
+Today:
+Review ChiSq tables,
+Coding format and sections 
