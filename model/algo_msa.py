@@ -127,4 +127,3 @@ for mean_pers_one in np.arange(2, 3):
                     )
                     results = pd.concat([results, trial])
 
-print(results)
