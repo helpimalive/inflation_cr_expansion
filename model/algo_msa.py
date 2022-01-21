@@ -4,14 +4,14 @@ from scipy.stats import chi2_contingency
 
 df = pd.read_csv(
     "C:\\Users\\matth\\Documents\\GitHub"
-    "\\inflation_cr_expansion\\data\\National_CR_GDP_CPI.csv"
+    "\\inflation_cr_expansion\\data\\gdp_cpi_cr_combined.csv"
 )
 
 results = pd.DataFrame(
     columns=[
         "mean_pers_one",
         "mean_pers_two",
-        "forward_pred",
+        "consec_pers",
         "pct_delta_pers_one",
         "pct_delta_pers_two",
         "true_pos",
@@ -20,48 +20,49 @@ results = pd.DataFrame(
         "pval",
     ]
 )
+for mean_pers_one in np.arange(1, 2):
+    for mean_pers_two in np.arange(4, 5):
+        for consec_pers in np.arange(1, 2):
+            for pct_delta_pers_one in np.arange(4, 5):
+                for pct_delta_pers_two in np.arange(0, 1):
 
-df.index = pd.to_datetime(df['date'])
-df.drop(['year','date'],axis=1,inplace=True)
-for mean_pers_one in np.arange(2, 3):
-    for mean_pers_two in np.arange(5, 6):
-        for forward_pred in np.arange(8, 9):
-            for pct_delta_pers_one in np.arange(5, 6):
-                for pct_delta_pers_two in np.arange(3, 4):
-                    consec_pers = 1
-
-                    df_cpi = df['CPI'].pct_change()
+                    df_cpi = df[df["metric"] == "cpi"]
+                    df_cpi = df_cpi.pivot(index="year", columns="MSA", values="value")
+                    df_cpi = df_cpi.pct_change()
                     df_mean = df_cpi.rolling(mean_pers_one).mean()
                     df_comp = df_cpi > df_mean.shift(pct_delta_pers_one)
                     df_consec = df_comp.rolling(consec_pers).sum() == (consec_pers)
                     df_cpi_flag = df_consec[~df_mean.isna()]
-                    df_cpi_flag = df_cpi_flag.iloc[pct_delta_pers_one:]
-                    
-                    df_gdp = df['GDP'].pct_change()
+
+                    df_gdp = df[df["metric"] == "gdp"]
+                    df_gdp = df_gdp.pivot(index="year", columns="MSA", values="value")
+                    df_gdp = df_gdp.pct_change()
                     df_mean = df_gdp.rolling(mean_pers_two).mean()
+
                     df_comp = df_gdp < df_mean.shift(pct_delta_pers_two)
                     df_consec = df_comp.rolling(consec_pers).sum() == (consec_pers)
                     df_gdp_flag = df_consec[~df_mean.isna()]
-                    df_gdp_flag = df_gdp_flag.iloc[pct_delta_pers_two:]
-
                     df_flag = (df_gdp_flag == 1) & (df_cpi_flag == 1)
 
-                    cr_shift = forward_pred
-                    df_cr = df['CR'].diff(cr_shift)
-                    # df_cr = df_cr > 0
-                    df_cr = df_cr.shift(-cr_shift).dropna()
+                    df_cr = df[df["metric"] == "cap_rate"]
+                    df_cr = df_cr.pivot(index="year", columns="MSA", values="value")
+                    df_cr = df_cr.diff()
+                    df_cr = df_cr > 0
+
+                    # Uncomment to consider a cap rate expansion one that happens in either
+                    # of the next two years
+                    # df_cr = df_cr.rolling(2).sum()
+                    df_cr = df_cr.shift(-1)
                     df_cr = df_cr > 0
 
                     mutual_dates = set(df_flag.dropna().index).intersection(
                         df_cr.dropna().index
                     )
-                    mutual_dates = mutual_dates.intersection(
+                    mutual_dates = set(mutual_dates).intersection(
                         df_gdp_flag.dropna().index
                     )
-
                     df_flag = df_flag[df_flag.index.isin(mutual_dates)]
                     df_cr = df_cr[df_cr.index.isin(mutual_dates)]
-
                     positive_accuracy = df_flag == df_cr
                     positive_accuracy = positive_accuracy[df_flag == True]
                     true_positives = positive_accuracy.sum().sum()
@@ -114,7 +115,7 @@ for mean_pers_one in np.arange(2, 3):
                             [
                                 mean_pers_one,
                                 mean_pers_two,
-                                forward_pred,
+                                consec_pers,
                                 pct_delta_pers_one,
                                 pct_delta_pers_two,
                                 true_positive_rate,
@@ -127,3 +128,4 @@ for mean_pers_one in np.arange(2, 3):
                     )
                     results = pd.concat([results, trial])
 
+return(df_cr,df_flag,results)

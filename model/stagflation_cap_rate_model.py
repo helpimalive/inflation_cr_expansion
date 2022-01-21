@@ -20,6 +20,7 @@ import shutil
 import time
 import numpy as np
 import pandas as pd
+from scipy.stats import chi2_contingency
 
 __version__ = "0.0.0"
 
@@ -87,10 +88,15 @@ def _preprocess_raw(namespace):
 def _load_data(namespace):
     """Load Excel file containing cap rates, CPI, and GDP"""
     with _exit_on_error("file_path", Exception):
-        filepath = os.path.join(os.path.dirname(os.path.dirname(__file__)),"data","gdp_cpi_cr_combined.csv")
+        if namespace.msa_or_nation == "msa":
+            filepath = os.path.join(os.path.dirname(os.path.dirname(__file__)),"data","gdp_cpi_cr_combined.csv")
+        elif namespace.msa_or_nation == "national":
+            filepath = os.path.join(os.path.dirname(os.path.dirname(__file__)),"data","National_CR_GDP_CPI.csv")            
+        else:
+            raise(Exception,"namespace has a bad flag")
 
     with _exit_on_error("read_in", Exception):
-        preprocessed_dataframe = pd.read_excel(filepath)
+        preprocessed_dataframe = pd.read_csv(filepath)
 
     v_print(
         name="raw_data_frame",
@@ -100,29 +106,273 @@ def _load_data(namespace):
     
     return preprocessed_dataframe
 
-def _execute_msa_cr_flag_algo(data, namespace):
+def _execute_msa_cr_flag_algo(df, namespace):
     """Runs the algorithm that decides whether a cap rate expansion will occur in the next year or not"""
     # Takes the output from _load_data, a flat dataframe with CR, CPI, and GDP by MSA
-    # Returns a flat dataframe of [msa,date,cap rate,cap_rate_expansion_flag,cap_rate_expansion]
-    pass
+    # Returns cap rates analzed; flags generated; statistical metrics of accuracy
+    results = pd.DataFrame(
+    columns=[
+        "mean_pers_one",
+        "mean_pers_two",
+        "consec_pers",
+        "pct_delta_pers_one",
+        "pct_delta_pers_two",
+        "true_pos",
+        "false_negatives",
+        "capture",
+        "pval",
+        ]
+    )
+    mean_pers_one = 1 
+    mean_pers_two = 4
+    consec_pers = 1
+    pct_delta_pers_one = 4
+    pct_delta_pers_two = 0
 
-def _execute_national_cr_flag_algo(data, namespace):
+    df_cpi = df[df["metric"] == "cpi"]
+    df_cpi = df_cpi.pivot(index="year", columns="MSA", values="value")
+    df_cpi = df_cpi.pct_change()
+    df_mean = df_cpi.rolling(mean_pers_one).mean()
+    df_comp = df_cpi > df_mean.shift(pct_delta_pers_one)
+    df_consec = df_comp.rolling(consec_pers).sum() == (consec_pers)
+    df_cpi_flag = df_consec[~df_mean.isna()]
+
+    df_gdp = df[df["metric"] == "gdp"]
+    df_gdp = df_gdp.pivot(index="year", columns="MSA", values="value")
+    df_gdp = df_gdp.pct_change()
+    df_mean = df_gdp.rolling(mean_pers_two).mean()
+
+    df_comp = df_gdp < df_mean.shift(pct_delta_pers_two)
+    df_consec = df_comp.rolling(consec_pers).sum() == (consec_pers)
+    df_gdp_flag = df_consec[~df_mean.isna()]
+    df_flag = (df_gdp_flag == 1) & (df_cpi_flag == 1)
+
+    df_cr = df[df["metric"] == "cap_rate"]
+    df_cr = df_cr.pivot(index="year", columns="MSA", values="value")
+    df_cr = df_cr.diff()
+    df_cr = df_cr > 0
+
+    # Uncomment to consider a cap rate expansion one that happens in either
+    # of the next two years
+    # df_cr = df_cr.rolling(2).sum()
+    df_cr = df_cr.shift(-1)
+    df_cr = df_cr > 0
+
+    mutual_dates = set(df_flag.dropna().index).intersection(
+        df_cr.dropna().index
+    )
+    mutual_dates = set(mutual_dates).intersection(
+        df_gdp_flag.dropna().index
+    )
+    df_flag = df_flag[df_flag.index.isin(mutual_dates)]
+    df_cr = df_cr[df_cr.index.isin(mutual_dates)]
+    positive_accuracy = df_flag == df_cr
+    positive_accuracy = positive_accuracy[df_flag == True]
+    true_positives = positive_accuracy.sum().sum()
+    total_potential_positives = df_cr == True
+    total_potential_positives = total_potential_positives.sum().sum()
+    total_positive_flags = df_flag.sum().sum()
+    if positive_accuracy.count().sum() != 0:
+        true_positive_rate = true_positives / total_positive_flags
+    else:
+        true_positive_rate = np.nan
+    false_positives = total_positive_flags - true_positives
+    capture = true_positives / total_potential_positives
+
+    negative_accuracy = df_flag == df_cr
+    negative_accuracy = negative_accuracy[df_flag == False]
+    negative_accuracy = negative_accuracy.astype(bool)
+    false_negatives = negative_accuracy == 0
+    false_negatives = false_negatives.sum().sum()
+    total_potential_negatives = df_cr == False
+    total_potential_negatives = total_potential_negatives.sum().sum()
+    total_negative_flags = df_flag == 0
+    total_negative_flags = total_negative_flags.sum().sum()
+
+    if negative_accuracy.sum().sum() != 0:
+        false_negative_rate = false_negatives / total_negative_flags
+    else:
+        false_negative_rate = np.nan
+    true_negative = total_negative_flags - false_negatives
+
+    obs = np.array(
+        [
+            [true_positives, false_positives],
+            [false_negatives, true_negative],
+        ]
+    )
+
+    if 0 not in obs:
+        chi2, p, dof, ex = chi2_contingency(obs, correction=False)
+    else:
+        p = np.nan
+
+    trial = pd.DataFrame(
+        [
+            [
+                mean_pers_one,
+                mean_pers_two,
+                consec_pers,
+                pct_delta_pers_one,
+                pct_delta_pers_two,
+                true_positive_rate,
+                false_negative_rate,
+                capture,
+                p,
+            ]
+        ],
+        columns=results.columns,
+    )
+    results = pd.concat([results, trial])
+
+    
+    v_print(
+        name=["results","df_flag","df_cr"],
+        value=[results,df_flag,df_cr],
+        namespace=namespace,
+    )
+
+
+    return(df_cr,df_flag,results)
+
+
+def _execute_national_cr_flag_algo(df, namespace):
     """Runs the algorithm that decides whether a cap rate expansion will occur in the next year or not"""
     # Takes the output from _load_data, a flat dataframe with CR, CPI, and GDP by MSA
     # Returns a flat dataframe of [msa,date,cap rate,cap_rate_expansion_flag,cap_rate_expansion]
-    pass
+        
+    results = pd.DataFrame(
+        columns=[
+            "mean_pers_one",
+            "mean_pers_two",
+            "forward_pred",
+            "pct_delta_pers_one",
+            "pct_delta_pers_two",
+            "true_pos",
+            "false_negatives",
+            "capture",
+            "pval",
+        ]
+    )
+
+    df.index = pd.to_datetime(df['date'])
+    df.drop(['year','date'],axis=1,inplace=True)
+    mean_pers_one = 2
+    mean_pers_two = 5
+    forward_pred = 8
+    pct_delta_pers_one = 5
+    pct_delta_pers_two = 3
+    consec_pers = 1
+
+    df_cpi = df['CPI'].pct_change()
+    df_mean = df_cpi.rolling(mean_pers_one).mean()
+    df_comp = df_cpi > df_mean.shift(pct_delta_pers_one)
+    df_consec = df_comp.rolling(consec_pers).sum() == (consec_pers)
+    df_cpi_flag = df_consec[~df_mean.isna()]
+    df_cpi_flag = df_cpi_flag.iloc[pct_delta_pers_one:]
+
+    df_gdp = df['GDP'].pct_change()
+    df_mean = df_gdp.rolling(mean_pers_two).mean()
+    df_comp = df_gdp < df_mean.shift(pct_delta_pers_two)
+    df_consec = df_comp.rolling(consec_pers).sum() == (consec_pers)
+    df_gdp_flag = df_consec[~df_mean.isna()]
+    df_gdp_flag = df_gdp_flag.iloc[pct_delta_pers_two:]
+
+    df_flag = (df_gdp_flag == 1) & (df_cpi_flag == 1)
+
+    cr_shift = forward_pred
+    df_cr = df['CR'].diff(cr_shift)
+    # df_cr = df_cr > 0
+    df_cr = df_cr.shift(-cr_shift).dropna()
+    df_cr = df_cr > 0
+
+    mutual_dates = set(df_flag.dropna().index).intersection(
+        df_cr.dropna().index
+    )
+    mutual_dates = mutual_dates.intersection(
+        df_gdp_flag.dropna().index
+    )
+
+    df_flag = df_flag[df_flag.index.isin(mutual_dates)]
+    df_cr = df_cr[df_cr.index.isin(mutual_dates)]
+
+    positive_accuracy = df_flag == df_cr
+    positive_accuracy = positive_accuracy[df_flag == True]
+    true_positives = positive_accuracy.sum().sum()
+    total_potential_positives = df_cr == True
+    total_potential_positives = total_potential_positives.sum().sum()
+    total_positive_flags = df_flag.sum().sum()
+    if positive_accuracy.count().sum() != 0:
+        true_positive_rate = true_positives / total_positive_flags
+    else:
+        true_positive_rate = np.nan
+    false_positives = total_positive_flags - true_positives
+    capture = true_positives / total_potential_positives
+
+    negative_accuracy = df_flag == df_cr
+    negative_accuracy = negative_accuracy[df_flag == False]
+    negative_accuracy = negative_accuracy.astype(bool)
+    false_negatives = negative_accuracy == 0
+    false_negatives = false_negatives.sum().sum()
+    total_potential_negatives = df_cr == False
+    total_potential_negatives = total_potential_negatives.sum().sum()
+    total_negative_flags = df_flag == 0
+    total_negative_flags = total_negative_flags.sum().sum()
+
+    if negative_accuracy.sum().sum() != 0:
+        false_negative_rate = false_negatives / total_negative_flags
+    else:
+        false_negative_rate = np.nan
+    true_negative = total_negative_flags - false_negatives
+
+    obs = np.array(
+        [
+            [true_positives, false_positives],
+            [false_negatives, true_negative],
+        ]
+    )
+
+    if 0 not in obs:
+        chi2, p, dof, ex = chi2_contingency(obs, correction=False)
+    else:
+        p = np.nan
+
+    trial = pd.DataFrame(
+        [
+            [
+                mean_pers_one,
+                mean_pers_two,
+                forward_pred,
+                pct_delta_pers_one,
+                pct_delta_pers_two,
+                true_positive_rate,
+                false_negative_rate,
+                capture,
+                p,
+            ]
+        ],
+        columns=results.columns,
+    )
+    results = pd.concat([results, trial])
+    
+    v_print(
+        name=["results","df_flag","df_cr"],
+        value=[results,df_flag,df_cr],
+        namespace=namespace,
+    )
+    
+    return (results,df_flag,df_cr)
+
 
 def _analyze_accuracy(data, namespace):
     """Analyze variance bias tradeoff in estimations of cap rate expansions"""
+
     pass
 
 def _graph_msa_results(namespace):
     """Make graphs of the results of the MSA-level forecasts of cap rate expansions"""
     pass
 
-def _graph_msa_results(namespace):
-    """Make graphs of the results of the MSA-level forecasts of cap rate expansions"""
-    pass
 
 ############################
 #   The Command Functions  #
@@ -132,7 +382,10 @@ def _analyze(parser, args):
     """Run analysis functions"""
     namespace = parser.parse_args(args)
     preprocessed_dataframe = _load_data(namespace)
-    _produce_trailing_avgs(data = preprocessed_dataframe, namespace)
+    if namespace.msa_or_nation == "msa":
+        post_processed_dataframe = _execute_msa_cr_flag_algo(preprocessed_dataframe,namespace)
+    elif namespace.msa_or_nation == "national":
+        post_processed_dataframe = _execute_national_cr_flag_algo(preprocessed_dataframe, namespace)
 
 def _graph(parser, args):
     """Run the graph functions"""
@@ -143,48 +396,14 @@ def _graph(parser, args):
 #   Argument Adders    #
 ########################
 
-
-def _add_look_back_flag(parser):
-    """Add the look-back periods to the parser."""
+def _add_msa_national_flag(parser):
+    """Add the flag dictating MSA or National Analysis"""
     parser.add_argument(
-        "-b",
-        "--look-back",
-        type=int,
-        default=100,
-        help="the periods to use to create the groupings",
-    )
-
-
-def _add_hold_pers_flag(parser):
-    """Add the hold-periods to the parser."""
-    parser.add_argument(
-        "-p",
-        "--hold-pers",
-        type=int,
-        default=100,
-        help="the number of periods to hold the recommendations",
-    )
-
-
-def _add_start_flag(parser):
-    """Add the date to start the analysis to the parser"""
-    parser.add_argument(
-        "-s",
-        "--start-date",
-        type=datetime.date.fromisoformat,
-        default=None,
-        help="the date to start the analysis",
-    )
-
-def _add_input_path_ingest(parser):
-    """Add the input path to where the CR data resides"""
-    parser.add_argument(
-        "-cr",
-        "--cap-rate",
-        type = pathlib.Path,
-        default = os.getcwd(),
-        help="the input path to the CR data")
-
+        "-mn",
+        "--msa-or-nation",
+        type = str,
+        choices=["msa","national"],
+        help = "analyze the MSA or National Cap Rates")
 
 def _add_output_path_ingest(parser):
     """Add the output path to where the fred and cr data resides"""
@@ -192,7 +411,7 @@ def _add_output_path_ingest(parser):
         "-o",
         "--output",
         type = pathlib.Path,
-        default = os.getcwd(),
+        default = os.path.join(os.path.dirname(os.getcwd()),"output"),
         help="the output path to the pickled data")
 
 def _add_verbose_flag(parser):
@@ -210,20 +429,14 @@ def _add_verbose_flag(parser):
 # Parser Functionality #
 ########################
 
-
-def _parse_ingest(parser, args):
-    with _exit_on_error("unknown", Exception):
-        _add_input_path_ingest(parser)
-        _add_output_path_ingest(parser)
-        _add_verbose_flag(parser)
-        namespace = parser.parse_args(args)
-        _ingest(namespace)
-
-
 def _parse_analyze(parser, args):
-    namespace = parser.parse_args(args)
-    _analyze(namespace)
+    _add_verbose_flag(parser)
+    _add_msa_national_flag(parser)
+    _add_output_path_ingest(parser)
+    _analyze(parser,args)
 
+def _parse_graph(parser, args):
+    pass
 
 def v_print(**kwargs):
     namespace = kwargs["namespace"]
@@ -251,11 +464,11 @@ def csv_print(**kwargs):
     if type(kwargs["name"]) == list:
         for i, name in enumerate(kwargs["name"]):
             kwargs["value"][i].to_csv(
-                os.path.join(kwargs["namespace"].output_path, name + ".csv"),
+                os.path.join(kwargs["namespace"].output,kwargs["namespace"].msa_or_nation+"_"+ name + ".csv"),
             )
     else:
         kwargs["value"].to_csv(
-            os.path.join(kwargs["namespace"].output_path, kwargs["name"] + ".csv"),
+            os.path.join(kwargs["namespace"].output,kwargs["namespace"].msa_or_nation+"_"+kwargs["name"] + ".csv"),
         )
 
 
@@ -311,8 +524,6 @@ class _Command(enum.Enum):
     """The commands"""
     analyze = _CommandPair(_parse_analyze, "analyze logic for cap rate expansion")
     graph = _CommandPair(_parse_graph, "graph the result of the analysis")
-
-
 
 def main(args=None):
     """Main function: organize command line data"""
