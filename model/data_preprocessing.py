@@ -105,4 +105,26 @@ df_cap_rate['metric'] = 'cap_rate'
 df_cpi['metric'] = 'cpi'
 df_gdp['metric'] = 'gdp'
 df = pd.concat([df_cap_rate,df_cpi,df_gdp],axis=0,ignore_index=True)
+keep = ['Atlanta',
+'Baltimore',
+'Boston',
+'Chicago',
+'Dallas',
+'Denver',
+'Detroit',
+'Houston',
+'LosAngeles',
+'Miami',
+'Minneapolis',
+'NewYork',
+'Philadelphia',
+'Phoenix',
+'SanDiego',
+'SanFrancisco',
+'Seattle',
+'StLouis',
+'Tampa',
+'WashingtonDC'
+]
+df = df[df['MSA'].isin(keep)]
 df.to_csv(os.path.join(os.path.dirname(os.path.dirname(__file__)),"data","gdp_cpi_cr_combined.csv"), index=False)

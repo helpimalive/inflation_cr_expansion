@@ -45,15 +45,5 @@ Walker start; Matt Review:  exhibits (graphs of MSAs outputs) (use matplotlib) (
 	10) Submit non-technical version to Linneman Letter
 	
 	
-# TODO
-
-San Antonio: no CPI; All items in South - Size Class B/C, all urban consumers, not seasonally adjusted
-San Jose: no CPI; used All items in San Francisco-Oakland-Hayward, CA, all urban consumers, not seasonally adjusted
-Charlotte: nothing
-Indianapolis: All items in Midwest - Size Class B/C, all urban consumers, not seasonally adjusted
-Columbus: All items in Midwest - Size Class B/C, all urban consumers, not seasonally adjusted
-Jacksonville: 	All items in South - Size Class B/C, all urban consumers, not seasonally adjusted
-
-Today:
-Review ChiSq tables,
-Coding format and sections 
+Note: All MSAs for which the BLS provides CPI are included except Riverside-SD-Ontario because that only began in 2017, Alaska and Hawaii for lack of good cap rate data and apilcable GDP that matched the CPI area
+https://www.bls.gov/cpi/additional-resources/geographic-revision-2018.htm

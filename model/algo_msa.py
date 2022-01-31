@@ -2,10 +2,6 @@ import pandas as pd
 import numpy as np
 from scipy.stats import chi2_contingency
 
-df = pd.read_csv(
-    "C:\\Users\\matth\\Documents\\GitHub"
-    "\\inflation_cr_expansion\\data\\gdp_cpi_cr_combined.csv"
-)
 
 results = pd.DataFrame(
     columns=[
@@ -20,11 +16,18 @@ results = pd.DataFrame(
         "pval",
     ]
 )
-for mean_pers_one in np.arange(1, 2):
-    for mean_pers_two in np.arange(4, 5):
-        for consec_pers in np.arange(1, 2):
-            for pct_delta_pers_one in np.arange(4, 5):
-                for pct_delta_pers_two in np.arange(0, 1):
+df = pd.read_csv(
+        "C:\\Users\\mlarriva\\Documents\\GitHub"
+        "\\inflation_cr_expansion\\data\\gdp_cpi_cr_combined.csv"
+    )
+
+
+
+for mean_pers_one in np.arange(1, 4):
+    for mean_pers_two in np.arange(1, 5):
+        for consec_pers in np.arange(1, 4):
+            for pct_delta_pers_one in np.arange(1, 5):
+                for pct_delta_pers_two in np.arange(1, 4):
 
                     df_cpi = df[df["metric"] == "cpi"]
                     df_cpi = df_cpi.pivot(index="year", columns="MSA", values="value")
@@ -112,7 +115,7 @@ for mean_pers_one in np.arange(1, 2):
 
                     trial = pd.DataFrame(
                         [
-                            [
+                            [   
                                 mean_pers_one,
                                 mean_pers_two,
                                 consec_pers,
@@ -128,4 +131,5 @@ for mean_pers_one in np.arange(1, 2):
                     )
                     results = pd.concat([results, trial])
 
-return(df_cr,df_flag,results)
+results.to_csv(r'C:\users\mlarriva\desktop\output_msa_collective.csv')
+

@@ -92,6 +92,8 @@ def _load_data(namespace):
             filepath = os.path.join(os.path.dirname(os.path.dirname(__file__)),"data","gdp_cpi_cr_combined.csv")
         elif namespace.msa_or_nation == "national":
             filepath = os.path.join(os.path.dirname(os.path.dirname(__file__)),"data","National_CR_GDP_CPI.csv")            
+        elif namespace.msa_or_nation == "msa_individual":
+            filepath = os.path.join(os.path.dirname(os.path.dirname(__file__)),"data","gdp_cpi_cr_combined.csv")
         else:
             raise(Exception,"namespace has a bad flag")
 
@@ -235,6 +237,149 @@ def _execute_msa_cr_flag_algo(df, namespace):
 
     return(df_cr,df_flag,results)
 
+def _execute_msa_individual_cr_flag_algo(df, namespace):
+    """Runs the algorithm that decides whether a cap rate expansion will occur in the next year or not"""
+    # Takes the output from _load_data, a flat dataframe with CR, CPI, and GDP by MSA
+    # Also takes the optimal parameters for mean_pers, consec_pers, etc for each MSA
+    # Returns cap rates analzed; flags generated; statistical metrics of accuracy
+    results = pd.DataFrame(
+    columns=[
+        "msa",
+        "mean_pers_one",
+        "mean_pers_two",
+        "consec_pers",
+        "pct_delta_pers_one",
+        "pct_delta_pers_two",
+        "true_pos",
+        "false_negatives",
+        "capture",
+        "pval",
+        ]
+    )
+
+    params =os.path.join(os.path.dirname(os.path.dirname(__file__)),"data","msa_individual_tuning_params.csv")
+    params = pd.read_csv(params)
+    master = df.copy()
+    df_cr_all = pd.DataFrame()
+    df_flag_all = pd.DataFrame()
+    for msa in master.MSA.unique():
+        mean_pers_one = params[params['MSA']==msa]['mean_pers_one'].values[0]
+        mean_pers_two = params[params['MSA']==msa]['mean_pers_two'].values[0]
+        consec_pers = params[params['MSA']==msa]['consec_pers'].values[0]
+        pct_delta_pers_one = params[params['MSA']==msa]['pct_delta_pers_one'].values[0]
+        pct_delta_pers_two = params[params['MSA']==msa]['pct_delta_pers_two'].values[0]
+
+        df = master[master['MSA']==msa]        
+
+        df_cpi = df[df["metric"] == "cpi"]
+        df_cpi = df_cpi.pivot(index="year", columns="MSA", values="value")
+        df_cpi = df_cpi.pct_change()
+        df_mean = df_cpi.rolling(mean_pers_one).mean()
+        df_comp = df_cpi > df_mean.shift(pct_delta_pers_one)
+        df_consec = df_comp.rolling(consec_pers).sum() == (consec_pers)
+        df_cpi_flag = df_consec[~df_mean.isna()]
+
+        df_gdp = df[df["metric"] == "gdp"]
+        df_gdp = df_gdp.pivot(index="year", columns="MSA", values="value")
+        df_gdp = df_gdp.pct_change()
+        df_mean = df_gdp.rolling(mean_pers_two).mean()
+
+        df_comp = df_gdp < df_mean.shift(pct_delta_pers_two)
+        df_consec = df_comp.rolling(consec_pers).sum() == (consec_pers)
+        df_gdp_flag = df_consec[~df_mean.isna()]
+        df_flag = (df_gdp_flag == 1) & (df_cpi_flag == 1)
+
+        df_cr = df[df["metric"] == "cap_rate"]
+        df_cr = df_cr.pivot(index="year", columns="MSA", values="value")
+        df_cr = df_cr.diff()
+        df_cr = df_cr > 0
+
+        # Uncomment to consider a cap rate expansion one that happens in either
+        # of the next two years
+        # df_cr = df_cr.rolling(2).sum()
+        df_cr = df_cr.shift(-1)
+        df_cr = df_cr > 0
+
+        mutual_dates = set(df_flag.dropna().index).intersection(
+            df_cr.dropna().index
+        )
+        mutual_dates = set(mutual_dates).intersection(
+            df_gdp_flag.dropna().index
+        )
+        df_flag = df_flag[df_flag.index.isin(mutual_dates)]
+        df_cr = df_cr[df_cr.index.isin(mutual_dates)]
+        positive_accuracy = df_flag == df_cr
+        positive_accuracy = positive_accuracy[df_flag == True]
+        true_positives = positive_accuracy.sum().sum()
+        total_potential_positives = df_cr == True
+        total_potential_positives = total_potential_positives.sum().sum()
+        total_positive_flags = df_flag.sum().sum()
+        if positive_accuracy.count().sum() != 0:
+            true_positive_rate = true_positives / total_positive_flags
+        else:
+            true_positive_rate = np.nan
+        false_positives = total_positive_flags - true_positives
+        capture = true_positives / total_potential_positives
+
+        negative_accuracy = df_flag == df_cr
+        negative_accuracy = negative_accuracy[df_flag == False]
+        negative_accuracy = negative_accuracy.astype(bool)
+        false_negatives = negative_accuracy == 0
+        false_negatives = false_negatives.sum().sum()
+        total_potential_negatives = df_cr == False
+        total_potential_negatives = total_potential_negatives.sum().sum()
+        total_negative_flags = df_flag == 0
+        total_negative_flags = total_negative_flags.sum().sum()
+
+        if negative_accuracy.sum().sum() != 0:
+            false_negative_rate = false_negatives / total_negative_flags
+        else:
+            false_negative_rate = np.nan
+        true_negative = total_negative_flags - false_negatives
+
+        obs = np.array(
+            [
+                [true_positives, false_positives],
+                [false_negatives, true_negative],
+            ]
+        )
+
+        if 0 not in obs:
+            chi2, p, dof, ex = chi2_contingency(obs, correction=False)
+        else:
+            p = np.nan
+
+        trial = pd.DataFrame(
+            [
+                [   msa,
+                    mean_pers_one,
+                    mean_pers_two,
+                    consec_pers,
+                    pct_delta_pers_one,
+                    pct_delta_pers_two,
+                    true_positive_rate,
+                    false_negative_rate,
+                    capture,
+                    p,
+                ]
+            ],
+            columns=results.columns,
+        )
+        results = pd.concat([results, trial])
+        df_flag.name=[msa]
+        df_flag_all = pd.concat([df_flag_all,df_flag],axis=1).dropna()
+        df_cr.name=[msa]
+        df_cr_all = pd.concat([df_cr_all,df_cr],axis=1).dropna()
+
+    
+    v_print(
+        name=["results","df_flag","df_cr"],
+        value=[results,df_flag_all,df_cr_all],
+        namespace=namespace,
+    )
+
+
+    return(df_cr,df_flag,results)
 
 def _execute_national_cr_flag_algo(df, namespace):
     """Runs the algorithm that decides whether a cap rate expansion will occur in the next year or not"""
@@ -384,8 +529,10 @@ def _analyze(parser, args):
     preprocessed_dataframe = _load_data(namespace)
     if namespace.msa_or_nation == "msa":
         post_processed_dataframe = _execute_msa_cr_flag_algo(preprocessed_dataframe,namespace)
-    elif namespace.msa_or_nation == "national":
+    if namespace.msa_or_nation == "national":
         post_processed_dataframe = _execute_national_cr_flag_algo(preprocessed_dataframe, namespace)
+    if namespace.msa_or_nation == "msa_individual":
+        post_processed_dataframe = _execute_msa_individual_cr_flag_algo(preprocessed_dataframe, namespace)
 
 def _graph(parser, args):
     """Run the graph functions"""
@@ -402,7 +549,7 @@ def _add_msa_national_flag(parser):
         "-mn",
         "--msa-or-nation",
         type = str,
-        choices=["msa","national"],
+        choices=["msa","national","msa_individual"],
         help = "analyze the MSA or National Cap Rates")
 
 def _add_output_path_ingest(parser):
