@@ -229,8 +229,8 @@ def _execute_msa_cr_flag_algo(df, namespace):
 
     
     v_print(
-        name=["results","df_flag","df_cr"],
-        value=[results,df_flag,df_cr],
+        name=["results","df_flag","df_cr","df_cpi_flag","df_gdp_flag"],
+        value=[results,df_flag,df_cr,df_cpi_flag,df_gdp_flag],
         namespace=namespace,
     )
 
