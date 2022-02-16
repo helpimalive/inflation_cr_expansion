@@ -1,4 +1,5 @@
-
+:: preprocess
+python %cd%\data_preprocessing.py
 :: national
 python %cd%\stagflation_cap_rate_model.py analyze -mn national -v both
 :: msa

@@ -1,4 +1,5 @@
 year,Atlanta,Baltimore,Boston,Chicago,Dallas,Denver,Detroit,Houston,LosAngeles,Miami,Minneapolis,NewYork,Philadelphia,Phoenix,SanDiego,SanFrancisco,Seattle,StLouis,Tampa,WashingtonDC
+2005,False,False,False,False,True,True,True,False,False,False,False,False,False,False,True,False,False,True,False,True
 2006,False,True,True,False,False,True,False,False,False,True,True,True,False,True,True,True,False,False,True,False
 2007,True,True,False,True,True,True,True,True,True,True,True,True,True,True,True,False,True,True,True,True
 2008,True,True,True,True,False,True,False,True,True,True,False,True,True,True,True,False,True,False,True,True
@@ -14,4 +15,3 @@ year,Atlanta,Baltimore,Boston,Chicago,Dallas,Denver,Detroit,Houston,LosAngeles,M
 2018,False,False,False,False,False,False,False,False,True,False,False,True,False,False,False,False,False,False,False,True
 2019,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
 2020,False,False,False,True,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False
-2021,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False
