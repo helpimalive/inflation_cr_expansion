@@ -23,11 +23,11 @@ df = pd.read_csv(
 
 
 
-for mean_pers_one in np.arange(1, 4):
-    for mean_pers_two in np.arange(1, 5):
-        for consec_pers in np.arange(1, 4):
-            for pct_delta_pers_one in np.arange(1, 5):
-                for pct_delta_pers_two in np.arange(1, 4):
+for mean_pers_one in np.arange(0, 4):
+    for mean_pers_two in np.arange(0, 5):
+        for consec_pers in np.arange(0, 4):
+            for pct_delta_pers_one in np.arange(0, 5):
+                for pct_delta_pers_two in np.arange(0, 4):
 
                     df_cpi = df[df["metric"] == "cpi"]
                     df_cpi = df_cpi.pivot(index="year", columns="MSA", values="value")
