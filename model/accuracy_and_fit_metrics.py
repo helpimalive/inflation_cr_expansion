@@ -21,7 +21,7 @@ master = pd.merge(flag,cr, left_on=['year','variable'],right_on=['year','variabl
 master.columns=['year','variable','x','y']
 master = master[master['year']>=2007]
 
-for i in range(0,1000):
+for i in range(0,100):
 	for i in range(2015,2020):
 		master_train = master[master['year']<i]
 		master_test = master[master['year']>=i]
