@@ -6,10 +6,10 @@ from sklearn.metrics import balanced_accuracy_score,accuracy_score,confusion_mat
 import pandas as pd
 import numpy as np
 
-cpi = pd.read_csv(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_df_cpi_flag.csv')
-gdp = pd.read_csv(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_df_gdp_flag.csv')
-cr = pd.read_csv(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_df_cr.csv')
-flag = pd.read_csv(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_df_flag.csv')
+cpi = pd.read_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\output\msa_df_cpi_flag.csv')
+gdp = pd.read_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\output\msa_df_gdp_flag.csv')
+cr = pd.read_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\output\msa_df_cr.csv')
+flag = pd.read_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\output\msa_df_flag.csv')
 
 cr = cr.melt(id_vars='year').dropna()
 flag = flag.melt(id_vars='year').dropna()
@@ -87,5 +87,5 @@ for i in range(0,100):
 	metrics = metrics.append(pd.DataFrame([var_vals],columns=['year']+list(cols)+['accuracy']+['balanced_accuracy']+['precision']+['recall']))
 
 
-metrics.to_csv(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_level_accuracy_and_fit.csv')
-print(metrics.groupby('year').mean())
+metrics = metrics.groupby('year').mean()
+metrics.to_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\output\msa_level_accuracy_and_fit.csv')

@@ -402,11 +402,11 @@ def _execute_national_cr_flag_algo(df, namespace):
 
     df.index = pd.to_datetime(df['date'])
     df.drop(['year','date'],axis=1,inplace=True)
-    mean_pers_one = 2
-    mean_pers_two = 5
-    forward_pred = 8
+    mean_pers_one = 1
+    mean_pers_two = 4
+    forward_pred = 4
     pct_delta_pers_one = 5
-    pct_delta_pers_two = 3
+    pct_delta_pers_two = 5
     consec_pers = 1
 
     df_cpi = df['CPI'].pct_change()

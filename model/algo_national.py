@@ -3,7 +3,7 @@ import numpy as np
 from scipy.stats import chi2_contingency
 
 df = pd.read_csv(
-    "C:\\Users\\matth\\Documents\\GitHub"
+    "C:\\Users\\mlarriva\\Documents\\GitHub"
     "\\inflation_cr_expansion\\data\\National_CR_GDP_CPI.csv"
 )
 
@@ -23,11 +23,11 @@ results = pd.DataFrame(
 
 df.index = pd.to_datetime(df['date'])
 df.drop(['year','date'],axis=1,inplace=True)
-for mean_pers_one in np.arange(2, 3):
-    for mean_pers_two in np.arange(5, 6):
-        for forward_pred in np.arange(8, 9):
-            for pct_delta_pers_one in np.arange(5, 6):
-                for pct_delta_pers_two in np.arange(3, 4):
+for mean_pers_one in np.arange(1, 6):
+    for mean_pers_two in np.arange(1, 6):
+        for forward_pred in np.arange(1, 9):
+            for pct_delta_pers_one in np.arange(1, 6):
+                for pct_delta_pers_two in np.arange(1, 6):
                     consec_pers = 1
 
                     df_cpi = df['CPI'].pct_change()
@@ -127,6 +127,7 @@ for mean_pers_one in np.arange(2, 3):
                     )
                     results = pd.concat([results, trial])
 
+results.to_csv(r'C:\users\mlarriva\desktop\output.csv')
 print(results)
 print(df_flag)
 print(df_cr)

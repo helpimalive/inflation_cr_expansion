@@ -64,19 +64,22 @@ grestore
 \begin{abstract}
 
 \subsection*{Purpose}
-To explain and forecast both national and market-level cap rate moves as a function of Gross Domestic Product and Consumer Price Index.
+To explain both national and market-level cap rate changes as simply an interaction between Gross Domestic Product and Consumer Price Index.
 
 \subsection*{Design/Methodology/Approach}
-We use a binary logistic regression with binary independent variables (GDP expansion > CPI expansion. GDP expansion and relative CPI expansion) to explain cap rate expansion and contraction.
+We use a binary logistic regression with binary independent variables, trained on a synthetic minority over-sampling set, to explain cap rate expansion and contraction at the national level and at 20 MSAs.
 
 \subsection*{Results}
-The 
+Both the national model and the MSA models capture around 40\% of all cap rate expansion periods with a robust confusion matrix.
 
 \subsection*{Originality}
+This model contributes to the existing corpus by 1) establishing a statistically significant relationship between GDP, CPI, and cap rates which 2) holds explanatory power at the national and MSA levels, by 3) mapping the ground truth from scalar to binary.
 
 \subsection*{Practical Implications}
+The accuracy of the model suggests a simpler and more robust explanation for understanding cap rates and navigating property markets in an environment of fluctuating interest rates. 
 
-\keywords{VECM \and Capitalisation Rates \and Real Estate Markets \and Multifamily Cap Rate \and Office Cap Rate \and VECM \and United States}
+
+\keywords{Binary Logistic Regression \and Cap Rates \and US Real Estate Markets \and Multifamily Cap Rate \and United States \and Apartment Cap Rate}
 
 \end{abstract}
 
@@ -93,10 +96,17 @@ At 16 trillion dollars, the value of commercial real estate in the United States
 
 
 \section{Data}
+For the national model there are three data series that are used: the Consumer Price Index, the Gross Domestic Product, and the nominal Apartment cap rate series. 
+The Gross Domestic Product is a quarterly, unadjusted (not de-seasoned) series from the St. Louis Fed's economic data page (FRED). It is important to use a nominal (versus real) series, as we are comparing this to the consumer price index, which is a close proxy to the interest rate series used to convert the GDP from nominal to real. That is to say, we would be double counting the impact of inflation.The Consumer Price Index series is sourced to the Bureau of Labor Statistics, and it is also a non-seasonally adjusted series. In both cases, we did not seek to alter the series with seasonal adjustments because the raw data itself contains information which we do not wish to strip. Knowing if the economy grew faster than inflation, even if it was in 4Q, and even if it was due to holiday sales, is valuable information. Such a situation suggests a very different environment from its seasonally adjusted counterpart which may shows an economy in which 4Q growth is similar to say the prior quarter.
+Finally, cap rate series at the national level are sourced to Green Street. Green Street defines its cap rate series as the next-twelve-months' NOI divided by the spot asset value. 
 
+MSA-level data follows the conventions of the national data. Non seasonally adjusted series are selected both for MSA GDP and the MSA's CPI. The former is from FRED while the later is from the Bureau of Labor Statistics.
+
+Do We smooth the inputs?
  
-\section{Selection, Specification, and Analysis of Vector Error Correction Model:}
+\section{Selection, Specification, and Analysis Binary Logistic Regression}
  
+
 \section{Results}
 
 \subsection{Analysis of Results}
