@@ -44,7 +44,7 @@ def prep_cpi():
             df['value'] = df['value'].astype(float)
             df['year'] = df.date.dt.year
             df = df.sort_values(by=['variable','date'],ascending=False)
-            df = df.groupby(['variable','year']).head(1).reset_index(drop=True)
+            df = df.groupby(['variable','year']).mean().reset_index()
             df = df[['year','variable','value']]
             df.to_csv(os.path.join(os.path.dirname(os.path.dirname(__file__)),"data","all_msa_cpi.csv"), index=False)
             df.rename(columns={'variable':'MSA'},inplace=True)
@@ -64,7 +64,7 @@ def prep_crs():
             df['qq'] = df.year.apply(lambda x: x[:5:])
             df.rename(columns={'year':'date'},inplace=True)
             df = df.sort_values(by=['MSA','date'],ascending=False)
-            df = df.groupby(['MSA','yyyy']).head(1).reset_index(drop=True)
+            df = df.groupby(['MSA','yyyy']).mean().reset_index()
             df = df.pivot_table(columns = ["yyyy"],
                                 index = ["MSA"])
             df = df.sort_index(axis=1, level=1).droplevel(0, axis=1)
