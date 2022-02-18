@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=latex 2020.5.7)  16 NOV 2021 13:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.6)  18 FEB 2022 16:05
 entering extended mode
 **"./Cap Rates as a Function of Real Economic Growth.tex"
 ("Cap Rates as a Function of Real Economic Growth.tex"
@@ -97,10 +97,10 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: dvips.def on input line 105.
+Package graphics Info: Driver file: pdftex.def on input line 105.
 
-("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-def\dvips.def"
-File: dvips.def 2017/06/20 v3.1d Graphics/color driver for dvips
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen146
 \Gin@req@width=\dimen147
@@ -390,25 +390,12 @@ Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\lscape.sty"
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
-Package pdflscape Info: Auto-detected driver: dvips (dvips) on input line 124.
-
-(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/generic/atbegshi\atbegshi.sty
-Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
-
-(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/generic/infwarerr\infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
-)))
-("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-dvips.def"
-File: l3backend-dvips.def 2020-03-12 L3 backend support: dvips
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count312
 \l__pdf_internal_box=\box59
-\g__pdf_backend_object_int=\count312
-\l__pdf_backend_content_box=\box60
-\l__pdf_backend_model_box=\box61
-\g__pdf_backend_annotation_int=\count313
-\g__pdf_backend_link_int=\count314
-\g__pdf_backend_link_sf_int=\count315
 )
 ("Cap Rates as a Function of Real Economic Growth.aux")
 \openout1 = `"Cap Rates as a Function of Real Economic Growth.aux"'.
@@ -435,6 +422,24 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 Unknown journal: specify \journalname{<name of your journal>} in preambel
 
+("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count313
+\scratchdimen=\dimen178
+\scratchbox=\box60
+\nofMPsegments=\count314
+\nofMParguments=\count315
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count316
+\MPscratchDim=\dimen179
+\MPnumerator=\count317
+\makeMPintoPDFobject=\count318
+\everyMPtoPDFconversion=\toks33
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+)
 ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
@@ -447,9 +452,9 @@ Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
 Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: dvips
+*geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
-* driver: dvips
+* driver: pdftex
 * paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -480,7 +485,6 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box62
 SVJour3 warning: Missing \journalname
 SVJour3 warning: Missing \institute
 
@@ -523,47 +527,151 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 62.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[1{C:/Users/matth/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+[3]
 
- [1]
-
-Package natbib Warning: Citation `NAREITsize' on page 2 undefined on input line
- 88.
+Package natbib Warning: Citation `SMOTE' on page 4 undefined on input line 136.
 
 
-Package natbib Warning: Citation `CSsize' on page 2 undefined on input line 88.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.141 ...n/output/msa_level_accuracy_and_fit.csv"}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.141 ...n/output/msa_level_accuracy_and_fit.csv"}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.141 ...n/output/msa_level_accuracy_and_fit.csv"}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.141 ...n/output/msa_level_accuracy_and_fit.csv"}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
 
+Overfull \hbox (305.54547pt too wide) in paragraph at lines 141--142
+[] 
+ []
 
-Package natbib Warning: Citation `fred_2020' on page 2 undefined on input line 
-88.
+! Misplaced \crcr.
+\endarray ->\crcr 
+                  \egroup \egroup \@arrayright \gdef \@preamble {}
+l.144 \end{tabular}
+                   
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Too many }'s.
+\endarray ->\crcr \egroup 
+                          \egroup \@arrayright \gdef \@preamble {}
+l.144 \end{tabular}
+                   
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+! Too many }'s.
+\endarray ->\crcr \egroup \egroup 
+                                  \@arrayright \gdef \@preamble {}
+l.144 \end{tabular}
+                   
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.144 \end{tabular}
+                   
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
 
-Package natbib Warning: Citation `saad_2020' on page 2 undefined on input line 
-88.
+! LaTeX Error: \begin{document} ended by \end{tabular}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.144 \end{tabular}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.144 \end{tabular}
+                   
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.144 \end{tabular}
+                   
+Things are pretty mixed up, but I think the worst is over.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 4291) has occurred while \output is active []
 
- [2]
+ [4]
 ("Cap Rates as a Function of Real Economic Growth.bbl")
 
 Package natbib Warning: There were undefined citations.
 
-[3] ("Cap Rates as a Function of Real Economic Growth.aux"
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-) ) 
+[5] ("Cap Rates as a Function of Real Economic Growth.aux") ) 
 Here is how much of TeX's memory you used:
- 6351 strings out of 480931
- 109699 string characters out of 2909574
- 356863 words of memory out of 3000000
- 22110 multiletter control sequences out of 15000+200000
- 551963 words of font info for 67 fonts, out of 3000000 for 9000
+ 6589 strings out of 480930
+ 112414 string characters out of 2909548
+ 363075 words of memory out of 3000000
+ 22328 multiletter control sequences out of 15000+200000
+ 563628 words of font info for 84 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,7n,48p,840b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,8n,48p,1028b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/
+MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb><C:/Users/matth/AppData/Roaming/MiKTeX/2.9/fonts
+/type1/urw/times/utmb8a.pfb><C:/Users/matth/AppData/Roaming/MiKTeX/2.9/fonts/ty
+pe1/urw/times/utmr8a.pfb><C:/Users/matth/AppData/Roaming/MiKTeX/2.9/fonts/type1
+/urw/times/utmri8a.pfb>
+Output written on "Cap Rates as a Function of Real Economic Growth.pdf" (5 page
+s, 63485 bytes).
+PDF statistics:
+ 35 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on "Cap Rates as a Function of Real Economic Growth.dvi" (3 page
-s, 3492 bytes).

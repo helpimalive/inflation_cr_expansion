@@ -125,13 +125,24 @@ Thus a logistic regression with a single binary input lent itself well to our an
 
 \subsection{Model Specification}
 
-We first sought to test the strength of the relationship using a binary logistic regression model over all time periods of data. Next, we wanted to establish the validity of the model for predictive power so we trained five separate iterations (Year = 2015, 2016....2020) which were given historical data and then asked to predict the next years' (Years 2016-2021, 2017-2021,...2021) cap rate expansions and contractions based on the CPI and GDP values. 
+We preprocessed the GDP and CPI series differently for the national versus MSA model because the national data was more frequent. In both cases, the preprocessing included differencing the series and then creating a simple trailing average. The goal in smoothing the series was to prevent an overly sensitive signal if, say, one period had inflation that quickly reversed. 
 
-Preprocessing
+CPI and GDP percentage changes at \[t_0\] were compared to trailing average historical percentage changes. A  signal was generated when 1) the \[t_0\] GDP change was less than its trailing average changes and 2) the \[t_0\] CPI change was greater than its trailing averages. The signal suggests cap rate expansion in the next period. 
 
-Model Validity
+The cap rate series were simply differenced and their sign taken to be a boolean variable such that cap rate expansion is TRUE and cap rate non-expansion (and contraction) is FALSE.
 
-OS SMOTE
+To establish the validity of the model for predictive power, we trained five separate models (Year = 2015, 2016....2020) which were given historical data and then asked to predict the next years' (Years 2016-2021, 2017-2021,...2021) cap rate expansions and contractions based on the signal series outlined above. This was done once for the national model and once for the MSA model. All MSA models are trained and specified the same. The model was not given the MSA name as a dummy variable.  
+
+The ground truth of cap rate expansion does not present a balanced set, as cap rate compressions are far more frequent than cap rate expansions (roughly two to three times more years see compressions than expansions). We overcame the imbalance through a Synthetic Minority Over-sampling Technique as created by \citep*{SMOTE}. This balanced the frequency of cap rate expansions and contractions to prevent a the logistic regression from estimating all compressions (which would produce a low-variance high-bias estimator).
+
+\subsection{Model Goodness of Fit}
+
+
+\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_accuracy_and_fit.csv"}
+
+
+\end{tabular}
+
 
 \section{Results}
 
