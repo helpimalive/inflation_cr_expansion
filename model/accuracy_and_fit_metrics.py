@@ -82,9 +82,10 @@ for i in range(0,100):
 	var_vals.append(recall)
 	var_vals.append(f_score)
 	var_vals.append(specificity)
-	var_vals.insert(0,'all_time')
+	var_vals.insert(0,'all-time')
 	metrics = metrics.append(pd.DataFrame([var_vals],columns=['year']+list(cols)+['accuracy','precision','recall','f_score','specificity']))
 
-
-metrics = metrics.groupby('year').mean()
+metrics.columns = ['Year','Coef.','Std.Err.','Z','P>$|z$|','[0.025','0.975]','accuracy','precision','recall','F_score','Specificity']
+metrics = metrics.groupby('Year').mean()
+metrics = metrics.round(2)
 metrics.to_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\output\msa_level_accuracy_and_fit.csv')
