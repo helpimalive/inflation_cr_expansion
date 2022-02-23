@@ -127,7 +127,7 @@ Thus a logistic regression with a single binary input lent itself well to our an
 
 We preprocessed the GDP and CPI series differently for the national versus MSA model because the national data was more frequent. In both cases, the preprocessing included differencing the series and then creating a simple trailing average. The goal in smoothing the series was to prevent an overly sensitive signal if, say, one period had inflation that quickly reversed. 
 
-CPI and GDP percentage changes at \[t_0\] were compared to trailing average historical percentage changes. A  signal was generated when 1) the \[t_0\] GDP change was less than its trailing average changes and 2) the \[t_0\] CPI change was greater than its trailing averages. The signal suggests cap rate expansion in the next period. 
+CPI and GDP percentage changes at $t_0$ were compared to trailing average historical percentage changes. A  signal was generated when 1) the $t_0$ GDP change was less than its trailing average changes and 2) the $t_0$ CPI change was greater than its trailing averages. The signal suggests cap rate expansion in the next period. 
 
 The cap rate series were simply differenced and their sign taken to be a boolean variable such that cap rate expansion is TRUE and cap rate non-expansion (and contraction) is FALSE.
 
@@ -137,14 +137,30 @@ The ground truth of cap rate expansion does not present a balanced set, as cap r
 
 \subsection{Model Goodness of Fit}
 
+In both the National and the MSA models, the logistic regressions displayed consistent coefficients, inline with our hypothesis. The coefficients had low standard errors relative  to the coefficients' magnitude, and the 2.5\% to 97.5\% bounds did not include zero in any case. 
 
-\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_accuracy_and_fit.csv"}
+Where a year is listed in the Slit-Year column, the data was segmented into training and test sets. The training periods were all prior to the split year, and the test set was the split year through 2021. When "all-time" is listed under the Split-Year, the model was trained on all data and evaluated on all avalailable data. 
 
+The columns, "Coef.", "Std.Err.", "Z", "$P>|z|$", and the 2.5\% to 97.5\% bounds are all populated with the parameters from the trained models using the training data. The columns to the right, "accuracy" through "specificity" are based on the test data. 
 
-\end{tabular}
+National models were created every two years from 2000, as data is both more frequent and longer lived than MSA-level data. MSA models were created every year from 2015. It is worth noting that the coefficient decreased consistently as time advances, suggesting that perhaps the signal is not as robust as it once was. However the standard error decreases correspondingly, producing a Z score which is as high as the earlier periods. Still, though the coefficient is decreasing more recently, all of the train/test models had higher coefficients for lower standard errors than did the models trained on all data. This could be due to the difficulty of trying to incorporate the GFC and the unorthodox interest rate behavior of the COVID-19 era. 
 
+\subsubsection{National Model}
+\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_fit.csv"}
+
+\subsubsection{MSA Model}
+\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_fit.csv"}
 
 \section{Results}
+
+
+\subsubsection{National Model}
+\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_accuracy.csv"}
+
+\subsubsection{MSA Model}
+\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_accuracy.csv"}
+
+
 
 \subsection{Analysis of Results}
 

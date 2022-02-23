@@ -14,7 +14,7 @@ metrics = pd.DataFrame()
 master = pd.merge(flag,cr, left_on=['year','variable'],right_on=['year','variable'])
 master.columns=['year','variable','x','y']
 
-for i in range(0,100):
+for i in range(0,1):
 	for i in range(2015,2020):
 		master_train = master[master['year']<i]
 		master_test = master[master['year']>=i]
@@ -85,7 +85,12 @@ for i in range(0,100):
 	var_vals.insert(0,'all-time')
 	metrics = metrics.append(pd.DataFrame([var_vals],columns=['year']+list(cols)+['accuracy','precision','recall','f_score','specificity']))
 
-metrics.columns = ['Year','Coef.','Std.Err.','Z','P>$|z$|','[0.025','0.975]','accuracy','precision','recall','F_score','Specificity']
-metrics = metrics.groupby('Year').mean()
-metrics = metrics.round(2)
-metrics.to_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\output\msa_level_accuracy_and_fit.csv')
+metrics.columns = ['Year','Coef.','Std.Err.','Z','${P>|z|}$','[0.025','0.975]','accuracy','precision','recall','F-score','specificity']
+metrics = metrics.groupby('Year').mean().reset_index()
+metrics.loc[:,~metrics.columns.isin(['${P>|z|}$'])] = metrics.loc[:,~metrics.columns.isin(['${P>|z|}$'])].round(2)
+metrics.loc[:,'${P>|z|}$'] = metrics.loc[:,'${P>|z|}$'].apply(lambda x: "%.4f" % x)
+
+gof = metrics[['Year','Coef.','Std.Err.','Z','${P>|z|}$','[0.025','0.975]']]
+gof.to_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\output\msa_level_fit.csv',index=False)
+acc = metrics[['Year','accuracy','precision','recall','F-score','specificity']]
+acc.to_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\output\msa_level_accuracy.csv',index=False)

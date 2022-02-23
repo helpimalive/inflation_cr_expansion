@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.6)  18 FEB 2022 16:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.6)  23 FEB 2022 16:41
 entering extended mode
 **"./Cap Rates as a Function of Real Economic Growth.tex"
 ("Cap Rates as a Function of Real Economic Growth.tex"
@@ -533,145 +533,37 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 Package natbib Warning: Citation `SMOTE' on page 4 undefined on input line 136.
 
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.141 ...n/output/msa_level_accuracy_and_fit.csv"}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.141 ...n/output/msa_level_accuracy_and_fit.csv"}
-                                                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.141 ...n/output/msa_level_accuracy_and_fit.csv"}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.141 ...n/output/msa_level_accuracy_and_fit.csv"}
-                                                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (305.54547pt too wide) in paragraph at lines 141--142
-[] 
- []
-
-! Misplaced \crcr.
-\endarray ->\crcr 
-                  \egroup \egroup \@arrayright \gdef \@preamble {}
-l.144 \end{tabular}
-                   
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Too many }'s.
-\endarray ->\crcr \egroup 
-                          \egroup \@arrayright \gdef \@preamble {}
-l.144 \end{tabular}
-                   
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-! Too many }'s.
-\endarray ->\crcr \egroup \egroup 
-                                  \@arrayright \gdef \@preamble {}
-l.144 \end{tabular}
-                   
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.144 \end{tabular}
-                   
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
-! LaTeX Error: \begin{document} ended by \end{tabular}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.144 \end{tabular}
-                   
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.144 \end{tabular}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.144 \end{tabular}
-                   
-Things are pretty mixed up, but I think the worst is over.
-
-
-Underfull \vbox (badness 4291) has occurred while \output is active []
+Underfull \vbox (badness 4832) has occurred while \output is active []
 
  [4]
+Underfull \vbox (badness 4454) has occurred while \output is active []
+
+ [5]
 ("Cap Rates as a Function of Real Economic Growth.bbl")
 
 Package natbib Warning: There were undefined citations.
 
-[5] ("Cap Rates as a Function of Real Economic Growth.aux") ) 
+[6] ("Cap Rates as a Function of Real Economic Growth.aux") ) 
 Here is how much of TeX's memory you used:
- 6589 strings out of 480930
- 112414 string characters out of 2909548
- 363075 words of memory out of 3000000
- 22328 multiletter control sequences out of 15000+200000
- 563628 words of font info for 84 fonts, out of 3000000 for 9000
+ 6574 strings out of 480930
+ 112165 string characters out of 2909548
+ 365075 words of memory out of 3000000
+ 22313 multiletter control sequences out of 15000+200000
+ 561764 words of font info for 81 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,8n,48p,1028b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/
 MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb><C:/Users/matth/AppData/Roaming/MiKTeX/2.9/fonts
-/type1/urw/times/utmb8a.pfb><C:/Users/matth/AppData/Roaming/MiKTeX/2.9/fonts/ty
-pe1/urw/times/utmr8a.pfb><C:/Users/matth/AppData/Roaming/MiKTeX/2.9/fonts/type1
-/urw/times/utmri8a.pfb>
-Output written on "Cap Rates as a Function of Real Economic Growth.pdf" (5 page
-s, 63485 bytes).
+/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb><C:/Users/matth/AppData/Roaming/MiKTeX/2.9/fonts/type1/u
+rw/times/utmb8a.pfb><C:/Users/matth/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/
+times/utmr8a.pfb><C:/Users/matth/AppData/Roaming/MiKTeX/2.9/fonts/type1/urw/tim
+es/utmri8a.pfb>
+Output written on "Cap Rates as a Function of Real Economic Growth.pdf" (6 page
+s, 77908 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
+ 42 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
