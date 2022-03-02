@@ -1,21 +1,63 @@
 \begin{thebibliography}{}
 
-\bibitem[NAREIT, 2019]{NAREITsize}
-NAREIT (2019).
-\newblock Estimating the size of the commercial real estate market.
-\newblock {\em Nareit Research}.
+\bibitem[Abraham and Hendershott, 1994]{abraham_hendershott_1994}
+Abraham, J. and Hendershott, P. (1994).
+\newblock Bubbles in metropolitan housing markets.
+\newblock {\em National Bureau of Economic Research}.
 
-\bibitem[Saad, 2020]{saad_2020}
-Saad, L. (2020).
-\newblock What percentage of americans owns stock?
+\bibitem[Campbell et~al., 2009]{campbell2009moves}
+Campbell, S.~D., Davis, M.~A., Gallin, J., and Martin, R.~F. (2009).
+\newblock What moves housing markets: A variance decomposition of the
+  rent--price ratio.
+\newblock {\em Journal of Urban Economics}, 66(2):90--102.
 
-\bibitem[Shorrocks et~al., 2018]{CSsize}
-Shorrocks, Davies, and Lluberas (2018).
-\newblock Global wealth report 2018.
-\newblock {\em ''}.
+\bibitem[Case and Shiller, 1990]{case_shiller_1990}
+Case, K. and Shiller, R. (1990).
+\newblock Forecasting prices and excess returns in the housing market.
+\newblock {\em Real Estate Economics}.
 
-\bibitem[{The St. Louis Federal Reserve Bank}, 2020]{fred_2020}
-{The St. Louis Federal Reserve Bank} (2020).
-\newblock Real gross domestic product.
+\bibitem[Chawla et~al., 2002]{SMOTE}
+Chawla, N.~V., Bowyer, K.~W., Hall, L.~O., and Kegelmeyer, W.~P. (2002).
+\newblock Smote: Synthetic minority over-sampling technique.
+\newblock {\em Journal of Artificial Intelligence Research}, 16:321–357.
+
+\bibitem[Chervachidze and Wheaton, 2013]{chervachidze2013determined}
+Chervachidze, S. and Wheaton, W. (2013).
+\newblock What determined the great cap rate compression of 2000--2007, and the
+  dramatic reversal during the 2008--2009 financial crisis?
+\newblock {\em The Journal of Real Estate Finance and Economics},
+  46(2):208--231.
+
+\bibitem[Dasgupta and Knapp, 2008]{dasgupta2008forecasting}
+Dasgupta, V. and Knapp, A. W.~N. (2008).
+\newblock {\em Forecasting office capitalization rates and risk premia in
+  emerging markets}.
+\newblock PhD thesis, Massachusetts Institute of Technology.
+
+\bibitem[Gau, 1984]{gau_1984}
+Gau, G.~W. (1984).
+\newblock Weak form tests of the efficiency of real estate investment markets.
+\newblock {\em The Financial Review}, 19(4):301–320.
+
+\bibitem[Gau, 1985]{gau_1985}
+Gau, G.~W. (1985).
+\newblock Public information and abnormal returns in real estate investment.
+\newblock {\em Real Estate Economics}, 13(1):15–31.
+
+\bibitem[Ghysels et~al., 2013]{ghysels_plazzi_valkanov_torous_2013}
+Ghysels, E., Plazzi, A., Valkanov, R., and Torous, W. (2013).
+\newblock Forecasting real estate prices.
+\newblock {\em Handbook of Economic Forecasting}, page 509–580.
+
+\bibitem[Larriva and Linneman, 2021]{larriva2021determinants}
+Larriva, M. and Linneman, P. (2021).
+\newblock The determinants of capitalization rates: Evidence from the us real
+  estate markets.
+\newblock {\em Journal of Property Investment \& Finance}.
+
+\bibitem[Linneman, 1986]{linneman_1986}
+Linneman, P. (1986).
+\newblock An empirical test of the efficiency of the housing market.
+\newblock {\em Journal of Urban Economics}, 20(2):140–154.
 
 \end{thebibliography}

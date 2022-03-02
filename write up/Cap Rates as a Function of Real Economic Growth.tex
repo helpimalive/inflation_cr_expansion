@@ -88,45 +88,40 @@ The accuracy of the model suggests a simpler and more robust explanation for und
 \setlength{\parskip}{1em}
 
 \section{Introduction}
+
 \label{intro}
-At 16 trillion dollars, the value of commercial real estate in the United States \citep*{NAREITsize} represents half of a percent of the world's total wealth \citep*{CSsize}. And at 65\% home-ownership in the United States \citep*{fred_2020}, real estate represents a more invested-in asset class than equities--only 55\% of Americans own stock \citep*{saad_2020}. As such, the value of this asset class and the underlying determinants are of importance not only to owners and operators but also to the economy as a whole. 
 
 
 \section{Literature Review}
 
+The literature on cap rate forecasting is extensive, and it can be viewed well through two different lenses. One framework which groups the research nicely is illustrated in Ghysels et. al. Forecasting Real Estate Prices \citep*{ghysels_plazzi_valkanov_torous_2013} which divides the literature by variable selection. The authors enumerate three camps: those which use lagged return (or price change) as a variable, those which use ratios such as rent-to-price or price-to-income, and those which use more granular property or regional data. 
 
-\subsection{Inflation}
+Another valid lens by which to view the research is through methodology selection, as documented by Larriva and Linneman \citep*{larriva2021determinants}. The authors divide the research into simple time series methods, multivariate timeseries, and machine learning methods. The division is roughly chronological. 
 
-The relationship between inflation and cap rates has been explored in the literature as a predictive relationship (Costello et al., 2001; Sivitanides et al., 2001; Chandrashekaran and Young, 2000). In general, the research has reached mixed conclusions on the ability of changes in inflation rates to determine future changes in cap rates. Conclusions range from an implied correlation between inflation and cap rates to emphatic empirical support of the inflation rates’ pre- dictive ability to dismissal of the relationship between inflation rates and cap rates entirely. These different conclusions can be attributed to differences in data and methodology. Research which finds that inflation is a good predictor of future cap rates typically use time series data for both macroeconomic vari- ables and cap rates while research which dismisses the value of inflation rates, generally, use cross sectional econometric methods.
+Neither lens quite suits the study's purpose: the variables used in this work are not often found in the research. More common is a spread to an inflation metric or a derivative of GDP. Separately, the level of granularity we seek to explain is uncommon (MSA level). More common is either property-level or national. Finally, the method we use is new to the research, to our review. The following section, then will seek to outline research that contains either GDP or inflationary metrics, or their derivatives, regardless of method or granularity.
 
-Sivitanides, et. al. (2001): finds that increase in economy-wide inflation lowers cap rate. Argue that 1% inflation increase lowers cap rates by 46bps (see pg. 16). Variables work best when lagged by year or two
-•	Tries to answer question: Do appraisals generate valuation estimates that move with the opportunity cost of capital, and that reflect realistic expectations about future income growth and risk?
-•	Data used: APPRAISAL BASED, spanning 16 years across 14 metropolitan markets
-o	NCREIF database
-•	Type of model: Panel-based, rather than just time series
-o	Addition of cross-section variation to time series gives greater data richness and yields robust statistical results
-•	Why different:
-o	First to systematically examine NCREIF cap rates at the local level
-•	More findings: 
-o	NCREIF cap rates move exactly as PE ratios do, but only if appraisers form expectations about future income growth by looking backward, not forward (i.e. past income/rent growth seems to be extrapolated forward)
-o	Suggest it is possible to forecast appraisal-based cap rates
+In the mid-1990s, research was concentrated on either single-variate autoregressive methods \citep*{gau_1984}, \citep*{gau_1985}, \citep*{linneman_1986} or variations on OLS that used multi-stage estimation \citep*{case_shiller_1990}, \citep*{abraham_hendershott_1994}. The variables used in these methods of forecasting tended to fall into classes that line up with the components of a cap rate: risk-free rate, real interest rates, relative return expectations, and risk. Many models’ variables included a government long bond  to capture the risk-free and real rates, an economic spread (credit or pricing-based) to capture the relative expense or return of real estate, and macroeconomic factors to capture the  growth prospects and risk in the marketplace. Some models included a term to capture forward estimates including either sentiment or expected rent or NOI growth. This lines up with the Gordon growth model of pricing cap rates as the discount rate less the perpetual NOI growth rate. Thus, the value of macroeconomic factors, or their derivatives, was established.
 
+\subsection{The Relationship between Inflation and Cap Rates}
 
-Costello et al. in ”Real Estate Risk:  A Forward Looking Approach Real Estate Risk: A Forward Looking Approach” provide an example of re-
- 
+Inflation has long been researched with regard to cap rates \citep*{froland1987determines}; \citep*{sivitanides2001determinants}; \citep*{chandrashekaran2000predictability}. Supporters suggest that inflation rates are inversely related to cap rates either via real rates, the weighted average  cost of capital, or increased borrowing costs. However, there are myriad examples of interest rates and inflation moving inversely with cap rates. Largely, however, the question is still open because the research has reached mixed conclusions on the ability of changes in inflation rates to determine future changes in cap rates. 
 
+Froland \citep*{froland1987determines} reports negative correlations between cap rates and inflationary expectations. Sivitanides et. al. 
 
+\citep*{sivitanides2001determinants} further supported and quantified this relationship at the MSA level. The authors use the average cap rates over the past 16 years of four property types across 14 metropolitan markets to examine how cap rates behave. And the statistical specification was estimated using a dual Time-Series Cross-Section method which corrects for cross section correlations and group-wise heteroskedasticity. Inflation was found to be a major driver of cap rates. In fact, Sivitanides et al. found that an expected increase in economy wide inflation of one percent annually lowers office cap rates by 46 basis points, multi-family cap rates by 40 basis points, retail cap rates by 54 basis points, and by 20 basis points in industrial cap rates.
 
-searchers reaching a conclusion that inflation has a serious effect on cap rates.To do this Costello et al. measure future risk of real estate assets using a variance auto regression (VAR) method and conclude that the risk of the given asset is the standard error of each variable.(Costello et al., 2001) Their approach shows that the cap rate can be predicted using local market rent forecasts as well as national interest rate and inflation forecasts. Costello et al. make two very important conclusions. First, cap rates reflect changes in the opportunity cost of riskless capital relative to inflation. Second, cap rates are related to recent market rent growth instead of forecasted rent growth. (Costello et al., 2001) In other words macroeconomic variables such as inflation have a definite effect on cap rates.
+Research from Wheaton et. al. \citep*{wheaton2001real} further substantiates the above work using a VAR model to show that inflation is a significant variable in determining cap rates at the MSA level. 
 
-Sivitanides et al.use the average cap rates over the past 16 years of four property types across 14 metropolitan markets to examine how cap rates behave. This data is extracted from the National Council of Real Estate Investment Fiduciaries (NCREIF). Sivitanides et al.’s methodology takes great advantage of their data. A log-linear model yielded the best results due to the non-linear nature of the data. ( Sivitanides et al., 2001) This statistical specification was estimated using a dual Time-Series Cross-Section method which corrects for cross section correlations and group-wise heteroskedasticity. Inflation was found to be a major driver of cap rates. In fact, Sivitanides et al. found that an expected increase in economy wide inflation of one percent annually lowers office cap rates by 46 basis points, multi-family cap rates by 40 basis points, retail cap rates by 54 basis points, and by 20 basis points in industrial cap rates.
+In contrast to the above works, Chandrashekaran and Young \citep*{chandrashekaran2000predictability} find that there is not a statistically significant relationship between inflation and cap rates. To reach this conclusion Chandrashekaran and Young use two regression models: one with macroeconomic variables and one with lagged cap rates. The model with lagged cap rates uniformly performed better. The authors concluded that their attempt to predict cap rates using macroeconomic variables, such as inflation, were unsuccessful. 
 
-In contrast to Costello et al. and Sivitanides et al., Chandrashekaran and Young find that there is little to no relationship between inflation and cap rates. To reach this conclusion Chandrashekaran and Young use two regression models: one with macroeconomic variables and one with lagged cap rates. The model with lagged cap rates uniformly performed better. (Chandrashekaran
- 
+Gimpelevich \citep*{Gimpelevich2011} supports Chandrashekaran and Young using Monte Carlo simulations of real estate returns called the Simulation-Based Excess Return Model (SERM). The simulation results in poor correlation between inflation rates and cap rates (Gimpelevich, 2011).
 
+More recently, Larriva and Linneman \citep*{larriva2021determinants} used multivariate timeseries analysis to show the superiority of a model which did not use return expectations or inflationary metrics. Their model used granger causality to select variables and establish a highly robust explanatory and predictive VECM model, without the use of interest rates.
 
+Although there are exceptions, different conclusions in this space can often be attributed to differences in data and methodology. Research which finds that inflation is a good predictor of future cap rates typically use time series data for both macroeconomic variables and cap rates while research which dismisses the value of inflation rates, generally, use cross sectional econometric methods.
 
-and Young, 2000) The duo concluded that their attempt to predict cap rates using macroeconomic variables, such as inflation, were unsuccessful. Gimpele- vich supports Chandrashekaran and Young using Monte Carlo simulations of real estate returns called the Simulation-Based Excess Return Model (SERM). The simulation results in poor correlation between inflation rates and cap rates (Gimpelevich, 2011).
+We propose herein that perhaps the reason for the disagreement in the impact of inflation rates to cap rates is because only some models are including the vital second part of the relationship: GDP.
+
 
 \subsection{GDP}
 
@@ -173,10 +168,13 @@ There is a clear desire in academic and professional circles to find a good pred
 
 \subsection{GDP and Inflation together}
 
-Aizenman & Jinjarak (2013): determine that the most economically significant variable in accounting for changes in real estate valuation is lagged real estate valuation appreciation (defined as real estate inflation minus CPI inflation), followed in importance by lagged declines of Current Account / GDP (i.e. Current Account divided by GDP)
+
+Contemporaneously, research emerged focusing on MSAs in specific as opposed to aggregated cap rates metrics. Campbell et al. \citep*{campbell2009moves} forecasted the change in the return premium to housing using a VAR method, including national rent-growth and premiums, local and national income growth, employment growth and population growth. Their model produced in-sample results over the quarters from 1975-2007 of 0.47 at the 25th percentile, and 0.59 at the 75th percentile [their Table 4]. The estimates were for individual MSA’s hence the quantile distribution.
+
+Aizenman and Jinjarak (2013): determine that the most economically significant variable in accounting for changes in real estate valuation is lagged real estate valuation appreciation (defined as real estate inflation minus CPI inflation), followed in importance by lagged declines of Current Account / GDP (i.e. Current Account divided by GDP)
 
 “The Other (Commercial) Real Estate Boom and Bust: The Effects of Risk Premia and Regulatory Capture Arbitrage
-Duca & Ling (2015) [DL]: find that cap rates are positively correlated with inflation (via risk premia), and negatively correlated with rent growth expectations (via GDP)
+Duca and Ling (2015) [DL]: find that cap rates are positively correlated with inflation (via risk premia), and negatively correlated with rent growth expectations (via GDP)
 •	Split into short run stationary testing and Long-run testing
 •	Expected rent growth has a negative significant relationship with cap rates (p.19); risk premia and real Treasury rates drive cap rates, not the converse
 o	Conforms with broader finance view that asset valuations are most reflective of shifts in discount factor (i.e. required rate of return) rather than change in cash flows
@@ -185,6 +183,14 @@ o	RERC focuses on institutional grade assets owned by pension/endowment funds li
 o	Four major property types
 o	1996-2014
 •	Type of model: unclear to me – decomposition of estimated long run equilibrium factors
+
+\subsection{Similar Models and Novelty}
+Finally, non-VECM and non-VAR methods have also made recent contributions in the field of cap rate forecasting, especially internationally. In countries where volatility is less consistent or where historical data is more difficult to access, these alternate methods offer unique insight into property value forecasts. The advantage to using non-VAR or non-VECM methods is the ease of model specification and the comparatively little data needed. Of course, the challenge with processing time series data in a linear model usually manifests as autocorrelated residuals stemming from autocorrelated input series. 
+
+Emerging markets valuations were well forecasted using multivariate regressions despite the lack of transparent pricing data and the need to incorporate sometimes large risk premiums \citep*{dasgupta2008forecasting}. The authors do not discuss this, and present instead their models' R-squared and their coefficients' t-statistics. Further concern arises from the small sample size--25 observations-- and very low Degrees of Freedom resulting from upwards of 7 terms' specifications. 
+
+Chervachidze and Wheaton \citep*{chervachidze2013determined} address both the (autocorrelation) errors and degrees of freedom by using an MSA-specific panel regression with a fund-flow variable. This was used to generate in-sample R-squared values of 0.86 for Multifamily and 0.629 for Office. Their analysis focuses on periods from Q4 2000 to Q4 2009 and captures much of the cap rate compression and sharp increase during the GFC. The research also nods to the oft-heard criticism regarding NCREIF cap rates, specifically that they are not based on actual sales transactions. 
+
 
 
 \section{Data}
@@ -204,14 +210,14 @@ More challenging was the MSA-level data wherein GDP is presented only annually a
 
 We attempt to reconcile this by matching MSA to CBSA where needed (between the BLS and Fed). And we average the measurements of CPI over a year before matching them to the GDP metrics. In this way, we end up with 21 geographies: 20 CBSAs and 1 national geography. Each geography has a cap rate, CPI, and GDP. 
  
-\section{Model Selection, Specification, Analysis}
+\section{Model Construction}
 
 \subsection{Model Selection}
 While most analyses forecasting cap rates allow the random variable to be generated from a normal distribution, we opted instead to represent the variable as generated from a Bernoulli distribution. While this choice might be unorthodox--modeling a continuous variable like percentage as a binary variable-- we argue that it is well suited for two reasons. 
 
 First, it is practical. Real estate is not an equity, it is an alternative asset. As such, it is illiquid. This lack of liquidity means an investor cannot enter and exit the market readily. As such, a would-be buyer is somewhat ambivalent between caring if a cap rate will go up by 40 basis points next year and if it  will simply go up. In either case, next year's prices will offer a better value. Similarly a would-be seller should be ambivalent between knowing if next year a cap rate will go up by 10 basis points or if it will go up by 100. In either situation, next year is a worse time to sell than this year.  Contrast this with an equities trader who can easily place stop-losses or 'level-in' to a position. Such a trader cares very much whether his holdings will increase 10\% next year, hence estimating liquid asset pricing is well suited by a continuous variable. But estimating illiquid asset pricing is, we argue, better done with a discrete variable. 
 
-Second, it maps to the binary nature of the motivation of the model: will GDP growth (contraction) exceed CPI growth (contraction)? It matters less the exact amount one exceede or does not exceede the other. We argue that the question is simply: can a landlord pass on rising expenses to tenants or not? In the case where GDP is rising faster than inflation, we argue the tenants will be wealthier than the growth in expenses, and thus able to absorb higher rents, creating an asset worth more. Conversely, when inflation outpaces the growth of the economy, we argue the tenant is not in a position to absorb higher costs, leaving the landlord to bear them, creating an asset worth less. 
+Second, it maps to the binary nature of the motivation of the model: will GDP growth (contraction) exceed CPI growth (contraction)? It matters less the exact amount one exceede or does not exceed the other. We argue that the question is simply: can a landlord pass on rising expenses to tenants or not? In the case where GDP is rising faster than inflation, we argue the tenants will be wealthier than the growth in expenses, and thus able to absorb higher rents, creating an asset worth more. Conversely, when inflation outpaces the growth of the economy, we argue the tenant is not in a position to absorb higher costs, leaving the landlord to bear them, creating an asset worth less. 
 
 Thus a logistic regression with a single binary input lent itself well to our analysis, with cap rate expansion as the response variable, and GDP change > CPI change as the independent variable. 
 
