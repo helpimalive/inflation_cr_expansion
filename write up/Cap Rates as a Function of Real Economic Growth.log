@@ -1,23 +1,20 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2022.2.28)  28 FEB 2022 12:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.6)  1 MAR 2022 15:36
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
 **"./Cap Rates as a Function of Real Economic Growth.tex"
-(Cap Rates as a Function of Real Economic Growth.tex
-LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2021-11-22>
+("Cap Rates as a Function of Real Economic Growth.tex"
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-04-06>
 
-LaTeX Info: File `example.eps' already exists on the system.
-            Not generating it from this source.
+LaTeX Warning: File `example.eps' already exists on the system.
+               Not generating it from this source.
 
-(C:\Users\mlarriva\AppData\Local\Programs\MiKTeX\tex/latex/base\fix-cm.sty
-Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\fix-cm.sty"
+Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
 
-(C:\Users\mlarriva\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1enc.def
+("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1enc.def"
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
-))
-(svjour3.cls
+)) (svjour3.cls
 Document Class: svjour3 2007/05/08 v3.2 
 LaTeX document class for Springer journals
 Class Springer-SVJour3 Info: extra/valid Springer sub-package (-> *.clo) 
@@ -39,100 +36,466 @@ LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 154.
 LaTeX Font Info:    Redeclaring math symbol \Phi on input line 155.
 LaTeX Font Info:    Redeclaring math symbol \Psi on input line 156.
 LaTeX Font Info:    Redeclaring math symbol \Omega on input line 157.
-\logodepth=\dimen138
-\headerboxheight=\dimen139
-\betweenumberspace=\dimen140
-\aftertext=\dimen141
-\headlineindent=\dimen142
-\c@inst=\count183
-\c@auth=\count184
-\instindent=\dimen143
-\authrun=\box50
-\authorrunning=\toks16
-\titrun=\box51
-\titlerunning=\toks17
-\combirun=\box52
-\c@lastpage=\count185
-\rubricwidth=\dimen144
-\c@section=\count186
-\c@subsection=\count187
-\c@subsubsection=\count188
-\c@paragraph=\count189
-\c@subparagraph=\count190
-\spthmsep=\dimen145
-\c@theorem=\count191
-\c@case=\count192
-\c@conjecture=\count193
-\c@corollary=\count194
-\c@definition=\count195
-\c@example=\count196
-\c@exercise=\count197
-\c@lemma=\count198
-\c@note=\count199
-\c@problem=\count266
-\c@property=\count267
-\c@proposition=\count268
-\c@question=\count269
-\c@solution=\count270
-\c@remark=\count271
-\c@figure=\count272
-\c@table=\count273
+\logodepth=\dimen134
+\headerboxheight=\dimen135
+\betweenumberspace=\dimen136
+\aftertext=\dimen137
+\headlineindent=\dimen138
+\c@inst=\count167
+\c@auth=\count168
+\instindent=\dimen139
+\authrun=\box45
+\authorrunning=\toks15
+\titrun=\box46
+\titlerunning=\toks16
+\combirun=\box47
+\c@lastpage=\count169
+\rubricwidth=\dimen140
+\c@section=\count170
+\c@subsection=\count171
+\c@subsubsection=\count172
+\c@paragraph=\count173
+\c@subparagraph=\count174
+\spthmsep=\dimen141
+\c@theorem=\count175
+\c@case=\count176
+\c@conjecture=\count177
+\c@corollary=\count178
+\c@definition=\count179
+\c@example=\count180
+\c@exercise=\count181
+\c@lemma=\count182
+\c@note=\count183
+\c@problem=\count184
+\c@property=\count185
+\c@proposition=\count186
+\c@question=\count187
+\c@solution=\count188
+\c@remark=\count189
+\c@figure=\count190
+\c@table=\count191
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\figcapgap=\dimen146
-\tabcapgap=\dimen147
-\figgap=\dimen148
-\bibindent=\dimen149
-\@tempcntc=\count274
-)
-(C:\Users\mlarriva\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.st
-y
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+\figcapgap=\dimen142
+\tabcapgap=\dimen143
+\figgap=\dimen144
+\bibindent=\dimen145
+\@tempcntc=\count192
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphicx.sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\mlarriva\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks18
+\KV@toks@=\toks17
 )
-(C:\Users\mlarriva\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.st
-y
-Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
- (C:\Users\mlarriva\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphics.sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(C:\Users\mlarriva\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphic
-s.cfg
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-cfg\graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package graphics Info: Driver file: pdftex.def on input line 105.
 
-(C:\Users\mlarriva\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.
-def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen150
-\Gin@req@width=\dimen151
+\Gin@req@height=\dimen146
+\Gin@req@width=\dimen147
+)
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip49
+\bibsep=\skip50
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count193
+)
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/csvsimple\csvsimple.sty
+Package: csvsimple 2019/04/09 version 1.21 LaTeX CSV file processing
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/utilities\pgfrcs.sty"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-common.tex"
+\pgfutil@everybye=\toks18
+\pgfutil@tempdima=\dimen148
+\pgfutil@tempdimb=\dimen149
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-common-lists.te
+x")) ("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfutil-latex.def"
+\pgfutil@abb=\box48
+("C:\Program Files\MiKTeX 2.9\tex/latex/ms\everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfrcs.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf\pgf.revision.tex")
+Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/pgf/utilities\pgfkeys.sty"
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks19
+\pgfkeys@temptoks=\toks20
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/pgf/utilities\pgfkeysfiltered.code.te
+x"
+\pgfkeys@tmptoks=\toks21
+))) ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/etoolbox\etoolbox.sty"
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count194
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\shellesc.sty"
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\csv@file=\read2
+\c@csvinputline=\count195
+\c@csvrow=\count196
+\c@csvcol=\count197
+\csv@out=\write3
+)
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/breakcites\breakcites.sty)
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\caption.sty
+Package: caption 2020/01/03 v3.4h Customizing captions (AR)
+
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\caption3.sty
+Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen150
+\captionmargin@=\dimen151
+\captionwidth=\dimen152
+\caption@tempdima=\dimen153
+\caption@indent=\dimen154
+\caption@parindent=\dimen155
+\caption@hangindent=\dimen156
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\captionstyle \ifx \@ca
+ptype \fig@type \vskip \figcapgap \fi \setbox \@tempboxa \hbox {{\floatlegendst
+yle #1\floatcounterend }\capstrut #2}\ifdim \wd \@tempboxa >\hsize {\floatlegen
+dstyle #1\floatcounterend }\capstrut #2\par \else \hbox to\hsize {\leftlegendgl
+ue \unhbox \@tempboxa \hfil }\fi \ifx \@captype \fig@type \else \vskip \tabcapg
+ap \fi  on input line 1082.
 )
 
-! LaTeX Error: File `natbib.sty' not found.
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
+\c@caption@flags=\count198
+\c@continuedfloat=\count199
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/blindtext\blindtext.sty"
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
 
-Enter file name: 
-! Emergency stop.
-<read *> 
-         
-l.26 \usepackage
-                {csvsimple}
-*** (cannot \read from terminal in nonstop modes)
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\xspace.sty"
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+\c@blindtext=\count266
+\c@Blindtext=\count267
+\c@blind@countparstart=\count268
+\blind@countxx=\count269
+\blindtext@numBlindtext=\count270
+\blind@countyy=\count271
+\c@blindlist=\count272
+\c@blindlistlevel=\count273
+\c@blindlist@level=\count274
+\blind@listitem=\count275
+\c@blind@listcount=\count276
+\c@blind@levelcount=\count277
+\blind@mathformula=\count278
+\blind@Mathformula=\count279
+\c@blind@randomcount=\count280
+\c@blind@randommax=\count281
+\c@blind@pangramcount=\count282
+\c@blind@pangrammax=\count283
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty"
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip51
 
- 
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks22
+\ex@=\dimen157
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen158
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/amsmath\amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count284
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count285
+\leftroot@=\count286
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count287
+\DOTSCASE@=\count288
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box49
+\strutbox@=\box50
+\big@size=\dimen159
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count289
+\c@MaxMatrixCols=\count290
+\dotsspace@=\muskip16
+\c@parentequation=\count291
+\dspbrk@lvl=\count292
+\tag@help=\toks23
+\row@=\count293
+\column@=\count294
+\maxfields@=\count295
+\andhelp@=\toks24
+\eqnshift@=\dimen160
+\alignsep@=\dimen161
+\tagshift@=\dimen162
+\tagwidth@=\dimen163
+\totwidth@=\dimen164
+\lineht@=\dimen165
+\@envbody=\toks25
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks26
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count296
+\float@exts=\toks27
+\float@box=\box51
+\@float@everytoks=\toks28
+\@floatcapt=\box52
+)
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifvtex.sty"
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\iftex.sty"
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count297
+\Gm@cntv=\count298
+\c@Gm@tempcnt=\count299
+\Gm@bindingoffset=\dimen166
+\Gm@wd@mp=\dimen167
+\Gm@odd@mp=\dimen168
+\Gm@even@mp=\dimen169
+\Gm@layoutwidth=\dimen170
+\Gm@layoutheight=\dimen171
+\Gm@layouthoffset=\dimen172
+\Gm@layoutvoffset=\dimen173
+\Gm@dimlist=\toks29
+
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/geometry\geometry.cfg))
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\longtable.sty"
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count300
+\LTcapwidth=\dimen174
+\LT@head=\box53
+\LT@firsthead=\box54
+\LT@foot=\box55
+\LT@lastfoot=\box56
+\LT@cols=\count301
+\LT@rows=\count302
+\c@LT@tables=\count303
+\c@LT@chunks=\count304
+\LT@p@ftn=\toks30
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\array.sty"
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen175
+\ar@mcellbox=\box57
+\extrarowheight=\dimen176
+\NC@list=\toks31
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box58
+)
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/subfig\subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+\c@KVtest=\count305
+\sf@farskip=\skip60
+\sf@captopadj=\dimen177
+\sf@capskip=\skip61
+\sf@nearskip=\skip62
+\c@subfigure=\count306
+\c@subfigure@save=\count307
+\c@lofdepth=\count308
+\c@subtable=\count309
+\c@subtable@save=\count310
+\c@lotdepth=\count311
+\sf@top=\skip63
+\sf@bottom=\skip64
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count312
+\l__pdf_internal_box=\box59
+)
+("Cap Rates as a Function of Real Economic Growth.aux")
+\openout1 = `"Cap Rates as a Function of Real Economic Growth.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+
+Unknown journal: specify \journalname{<name of your journal>} in preambel
+
+("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count313
+\scratchdimen=\dimen178
+\scratchbox=\box60
+\nofMPsegments=\count314
+\nofMParguments=\count315
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count316
+\MPscratchDim=\dimen179
+\MPnumerator=\count317
+\makeMPintoPDFobject=\count318
+\everyMPtoPDFconversion=\toks33
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+)
+ABD: EveryShipout initializing macros
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: float package is loaded.
+Package caption Info: longtable package is loaded.
+
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\ltcaption.sty
+Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
+)
+Package caption Info: End \AtBeginDocument code.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(71.70166pt, 418.25368pt, 107.55254pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=-0.56833pt
+* \evensidemargin=35.28255pt
+* \topmargin=1.62154pt
+* \headheight=12.0pt
+* \headsep=15.51512pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=48.0pt
+* \marginparsep=10.0pt
+* \columnsep=19.26015pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+SVJour3 warning: Missing \journalname
+SVJour3 warning: Missing \institute
+LaTeX Font Info:    Calculating math sizes for size <9.5> on input line 62.
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <9.5> not available
+(Font)              size <9> substituted on input line 62.
+
+[1{C:/Users/matth/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+[3]
+
+Package natbib Warning: Citation `SMOTE' on page 4 undefined on input line 136.
+
+
+
+Underfull \vbox (badness 2359) has occurred while \output is active []
+
+ [4]
+[5]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+("Cap Rates as a Function of Real Economic Growth.bbl")
+
+Package natbib Warning: There were undefined citations.
+
+[7] ("Cap Rates as a Function of Real Economic Growth.aux")
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1131 strings out of 478659
- 18807 string characters out of 2844498
- 314465 words of memory out of 3000000
- 19300 multiletter control sequences out of 15000+600000
- 403729 words of font info for 28 fonts, out of 8000000 for 9000
+ 6460 strings out of 480930
+ 110035 string characters out of 2909548
+ 366308 words of memory out of 3000000
+ 22215 multiletter control sequences out of 15000+200000
+ 542546 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,0n,62p,259b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 43i,8n,48p,1028b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on "Cap Rates as a Function of Real Economic Growth.pdf" (7 page
+s, 131519 bytes).
+PDF statistics:
+ 66 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
