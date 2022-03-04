@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Cap Rates as a Function of Real Economic Growth.aux
 The style file: apalike.bst
 Database file #1: bib.bib
-You've used 11 entries,
+You've used 19 entries,
             1935 wiz_defined-function locations,
-            540 strings with 5599 characters,
-and the built_in function-call counts, 4235 in all, are:
-= -- 417
-> -- 155
-< -- 9
-+ -- 54
-- -- 50
-* -- 345
-:= -- 737
-add.period$ -- 33
-call.type$ -- 11
-change.case$ -- 79
-chr.to.int$ -- 11
-cite$ -- 11
-duplicate$ -- 168
-empty$ -- 294
-format.name$ -- 71
-if$ -- 830
+            591 strings with 7292 characters,
+and the built_in function-call counts, 7276 in all, are:
+= -- 717
+> -- 276
+< -- 14
++ -- 98
+- -- 90
+* -- 610
+:= -- 1272
+add.period$ -- 56
+call.type$ -- 19
+change.case$ -- 139
+chr.to.int$ -- 19
+cite$ -- 19
+duplicate$ -- 280
+empty$ -- 509
+format.name$ -- 123
+if$ -- 1413
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 10
-newline$ -- 58
-num.names$ -- 33
-pop$ -- 60
+missing$ -- 17
+newline$ -- 97
+num.names$ -- 57
+pop$ -- 107
 preamble$ -- 1
-purify$ -- 80
+purify$ -- 140
 quote$ -- 0
-skip$ -- 144
+skip$ -- 225
 stack$ -- 0
-substring$ -- 303
-swap$ -- 30
+substring$ -- 525
+swap$ -- 37
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 66
+type$ -- 114
 warning$ -- 0
-while$ -- 31
+while$ -- 58
 width$ -- 0
-write$ -- 142
+write$ -- 242

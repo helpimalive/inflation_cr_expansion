@@ -11,10 +11,19 @@ Campbell, S.~D., Davis, M.~A., Gallin, J., and Martin, R.~F. (2009).
   rent--price ratio.
 \newblock {\em Journal of Urban Economics}, 66(2):90--102.
 
+\bibitem[Case et~al., 2000]{case2000global}
+Case, B., Goetzmann, W.~N., and Rouwenhorst, K.~G. (2000).
+\newblock Global real estate markets-cycles and fundamentals.
+
 \bibitem[Case and Shiller, 1990]{case_shiller_1990}
 Case, K. and Shiller, R. (1990).
 \newblock Forecasting prices and excess returns in the housing market.
 \newblock {\em Real Estate Economics}.
+
+\bibitem[Chandrashekaran and Young, 2000]{chandrashekaran2000predictability}
+Chandrashekaran, V. and Young, M.~S. (2000).
+\newblock The predictability of real estate capitalization rates.
+\newblock In {\em Annual Meeting of American Real Estate Society, California}.
 
 \bibitem[Chawla et~al., 2002]{SMOTE}
 Chawla, N.~V., Bowyer, K.~W., Hall, L.~O., and Kegelmeyer, W.~P. (2002).
@@ -34,6 +43,11 @@ Dasgupta, V. and Knapp, A. W.~N. (2008).
   emerging markets}.
 \newblock PhD thesis, Massachusetts Institute of Technology.
 
+\bibitem[Froland, 1987]{froland1987determines}
+Froland, C. (1987).
+\newblock What determines cap rates on real estate?
+\newblock {\em The Journal of Portfolio Management}, 13(4):77--82.
+
 \bibitem[Gau, 1984]{gau_1984}
 Gau, G.~W. (1984).
 \newblock Weak form tests of the efficiency of real estate investment markets.
@@ -49,6 +63,20 @@ Ghysels, E., Plazzi, A., Valkanov, R., and Torous, W. (2013).
 \newblock Forecasting real estate prices.
 \newblock {\em Handbook of Economic Forecasting}, page 509–580.
 
+\bibitem[Gimpelevich, 2011]{Gimpelevich2011}
+Gimpelevich, D. (2011).
+\newblock Simulation-based excess return model for real estate development: A
+  practical monte carlo simulation-based method for quantitative risk
+  management and project valuation for real estate development projects
+  illustrated with a high-rise office development case study.
+\newblock {\em Journal of Property Investment & Finance}, 29:115--144.
+
+\bibitem[Green, 1997]{green1997follow}
+Green, R.~K. (1997).
+\newblock Follow the leader: how changes in residential and non-residential
+  investment predict changes in gdp.
+\newblock {\em Real estate economics}, 25(2):253--270.
+
 \bibitem[Larriva and Linneman, 2021]{larriva2021determinants}
 Larriva, M. and Linneman, P. (2021).
 \newblock The determinants of capitalization rates: Evidence from the us real
@@ -59,5 +87,22 @@ Larriva, M. and Linneman, P. (2021).
 Linneman, P. (1986).
 \newblock An empirical test of the efficiency of the housing market.
 \newblock {\em Journal of Urban Economics}, 20(2):140–154.
+
+\bibitem[Quan and Titman, 1997]{quan1997commercial}
+Quan, D.~C. and Titman, S. (1997).
+\newblock Commercial real estate prices and stock market returns: An
+  international analysis.
+\newblock {\em Financial Analysts Journal}, 53(3):21--34.
+
+\bibitem[Sivitanides et~al., 2001]{sivitanides2001determinants}
+Sivitanides, P., Southard, J., Torto, R.~G., and Wheaton, W.~C. (2001).
+\newblock The determinants of appraisal-based capitalization rates.
+\newblock {\em Real Estate Finance}, 18(2):27--38.
+
+\bibitem[Wheaton et~al., 2001]{wheaton2001real}
+Wheaton, W.~C., Torto, R.~G., Sivitanides, P.~S., Southard, J.~A., Hopkins,
+  R.~E., and Costello, J.~M. (2001).
+\newblock Real estate risk: a forward-looking approach.
+\newblock {\em Real Estate Finance}, 18(3):20--28.
 
 \end{thebibliography}
