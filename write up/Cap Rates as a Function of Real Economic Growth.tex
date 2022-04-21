@@ -198,7 +198,7 @@ The ground truth of cap rate expansion does not present a balanced set, as cap r
 
 In both the National and the MSA models, the logistic regressions displayed consistent coefficients, inline with our hypothesis. The coefficients had low standard errors relative  to the coefficients' magnitude, and the 2.5\% to 97.5\% bounds did not include zero in any case. 
 
-Where a year is listed in the Slit-Year column, the data was segmented into training and test sets. The training periods were all prior to the split year, and the test set was the split year through 2021. When "all-time" is listed under the Split-Year, the model was trained on all data and evaluated on all avalailable data. 
+Where a year is listed in the Split-Year column, the data was segmented into training and test sets. The training periods were all prior to the split year, and the test set was the split year through 2021. When "all-time" is listed under the Split-Year, the model was trained on all data and evaluated on all avalailable data. 
 
 The columns, "Coef.", "Std.Err.", "Z", "$P>|z|$", and the 2.5\% to 97.5\% bounds are all populated with the parameters from the trained models using the training data. The columns to the right, "accuracy" through "specificity" are based on the test data. 
 
@@ -211,6 +211,13 @@ National models were created every two years from 2000, as data is both more fre
 \csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_fit.csv"}
 
 \section{Results}
+
+Upon implementing the models, results were evaluated using a confusion matrix, as the period we are attempting to capture--cap rate expansion-- is far less frequent than cap rate contraction. 
+
+Accuracy (TP+TN/(TP+FP+TN+FN)) can be understood as the portion of time the model correctly identified a cap rate expansion or contraction. At the national level,cap rate expansion has happened 29.5\% of quarters since 2000. The model then is more accurate than forecasting constant cap rate contraction, which would have yielded an accuracy of 70.5\%. This is not true at the MSA level, where cap rates have expanded 27\% of the time (compressed 73\% of the time) and the model yielded only 62\% accuracy. That is, it would have done better by forecasting constant cap rate compression (yielding an accuracy of 73\%.
+
+Those subtleties are why we further examine precision, recall, and specificity. Precision (TP/(TP+FP)) is the ratio of correctly predicted positive observations to total predicted positive observations. The national model achieves 50\% precision, meaning half the time a signal is generated, it is accurate. This seems useless at first blush, but consider that if a signal is rarely generated, then 50\% accuracy would be good reason to take heed. However if a signal is constantly generated, then 50\% accuracy is like a constant fire alarm. The 
+
 
 
 \subsubsection{National Model}
