@@ -190,7 +190,11 @@ CPI and GDP percentage changes at $t_0$ were compared to trailing average histor
 
 The cap rate series were simply differenced and their sign taken to be a boolean variable such that cap rate expansion is TRUE and cap rate non-expansion (and contraction) is FALSE.
 
-To establish the validity of the model for predictive power, we trained five separate models (Year = 2015, 2016....2020) which were given historical data and then asked to predict the next years' (Years 2016-2021, 2017-2021,...2021) cap rate expansions and contractions based on the signal series outlined above. This was done once for the national model and once for the MSA model. All MSA models are trained and specified the same. The model was not given the MSA name as a dummy variable.  
+To establish the validity of the model for predictive power, we trained five separate models (Year = 2015, 2016....2020) which were given historical data and then asked to predict the next years' (Years 2016-2021, 2017-2021,...2021) cap rate expansions and contractions based on the signal series outlined above. 
+
+This was done once for the national model and once for twice for the MSA model. In the first, all MSA models are trained and specified the same. In the second, each MSA model is trained and specified individually. The model was not given the MSA name as a dummy variable.  
+
+Then, to establish the validity of the models for explanatory power, we trained them using all time periods available (in-sample).
 
 The ground truth of cap rate expansion does not present a balanced set, as cap rate compressions are far more frequent than cap rate expansions (roughly two to three times more years see compressions than expansions). We overcame the imbalance through a Synthetic Minority Over-sampling Technique as created by \citep*{SMOTE}. This balanced the frequency of cap rate expansions and contractions to prevent a the logistic regression from estimating all compressions (which would produce a low-variance high-bias estimator).
 
@@ -207,32 +211,59 @@ National models were created every two years from 2000, as data is both more fre
 \subsubsection{National Model}
 \csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_fit.csv"}
 
-\subsubsection{MSA Model}
+\subsubsection{Jointly Trained MSA Model}
 \csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_fit.csv"}
+
+\subsubsection{Individually Trained MSA Model}
+\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/individual_msa_level_fit.csv"}
 
 \section{Results}
 
 Upon implementing the models, results were evaluated using a confusion matrix, as the period we are attempting to capture--cap rate expansion-- is far less frequent than cap rate contraction. 
 
-Accuracy (TP+TN/(TP+FP+TN+FN)) can be understood as the portion of time the model correctly identified a cap rate expansion or contraction. At the national level,cap rate expansion has happened 29.5\% of quarters since 2000. The model then is more accurate than forecasting constant cap rate contraction, which would have yielded an accuracy of 70.5\%. This is not true at the MSA level, where cap rates have expanded 27\% of the time (compressed 73\% of the time) and the model yielded only 62\% accuracy. That is, it would have done better by forecasting constant cap rate compression (yielding an accuracy of 73\%.
+Accuracy (TP+TN/(TP+FP+TN+FN)) can be understood as the portion of time the model correctly identified a cap rate expansion or contraction. At the national level,cap rate expansion has happened 29.5\% of quarters since 2000. The model then is more accurate than forecasting constant cap rate contraction, which would have yielded an accuracy of 70.5\%. This is not true at the MSA level, where cap rates have expanded 27\% of the time (compressed 73\% of the time) and the model yielded only 62\% accuracy. That is, it would have done better by forecasting constant cap rate compression (yielding an accuracy of 73\%. The individually trained MSA model was more accurate, but still did not achieve an accuracy in excess of the natural occurance of cap rate compressions.
 
-Those subtleties are why we further examine precision, recall, and specificity. Precision (TP/(TP+FP)) is the ratio of correctly predicted positive observations to total predicted positive observations. The national model achieves 50\% precision, meaning half the time a signal is generated, it is accurate. This seems useless at first blush, but consider that if a signal is rarely generated, then 50\% accuracy would be good reason to take heed. However if a signal is constantly generated, then 50\% accuracy is like a constant fire alarm. The 
+Those subtleties are why we further examine precision, recall, and specificity. Precision (TP/(TP+FP)) is the ratio of correctly predicted positive observations to total predicted positive observations. The national model achieves 50\% precision, meaning half the time a signal is generated, it is accurate. The jointly trained MSA model has weak precision. And the individually trained MSA model has precision in between the two. While the precision of the MSA models seems underwhelming, it must be contextualized in the recall.
 
+Recall (TP/(TP+FN)) is the ratio of correctly identified cap rate expansions to the total number of cap rate expansions. In many MSAs there were only three or six years of cap rate expansions. Compare this to the national model which had far more quarters of cap rate expansion. The recall of the national model was high at 0.6, meaning 60\% of the times when cap rates expanded, the model correctly forecasted them. The recall of the individually trained MSA model was particularly noteworthy, averaging 67\%. Two thirds of the time a cap rate expansion was coming, the individually trained MSA models were able to identify this based on the interaction between inflation and GDP. 
 
+The F1-score combines the precision and recall into their harmonic mean, and is valuable to consider percision and recall together, though it is less intuitive. 
+
+Finally, the specificity (TN/(TN+FN)) of the national model was noteworthy, as it predicted cap rate compression with a higher accuracy than the true occurence of cap rate compression. MSA models were not successful in this regard. 
 
 \subsubsection{National Model}
 \csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_accuracy.csv"}
 
-\subsubsection{MSA Model}
+\subsubsection{Jointly Trained MSA Model}
 \csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_accuracy.csv"}
+
+\subsubsection{Individually Trained MSA Model}
+\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/individual_msa_level_accuracy.csv"}
+
+\subsection{Analysis of Results}
+
+The more robust predictor, in all cases, was the national model. This model, both in and out of sample, managed to forecast cap rate expansions accurately, with few false negatives and false positives. The model benefited from additional data points: both more history and more frequent readings. 
+
+The MSA model that was jointly trained was relatively weak, which is likely owing to two factors. First, there is simply not enough data available. There were only 20 years of GDP and CPI data available consistently, and they were only reported annually. The model, however should not be disregarded, as data is becoming more widely distributed, with greater frequency, and with higher accuracy. It is not unreasonable to think that a singularly trained MSA model would have power in forecasting cap rates as data proliferates. The second reason the jointly trained MSA model underperformed is the uniqueness of individual MSAs. Of course inflation in Houston (an energy-producing city) would have a different impact than the same inflation in Chicago. Chicago is a city whose cold weather makes it energy dependent and subject to the costs of energy and their inflation. Houston is a city whose hot weather makes it energy-dependant, but it also benefits from higher energy prices, as its primary industry (oil) reaps and distributes benefits of those higher prices. That will eventually be reflected in its GDP, but in a much different way than Chicago, so it would make sense to train these models with their own data solely, and an unique set of smoothing and lags. We can see the benefit of this by looking at the individually trained MSA model.
+
+The individually trained MSA model performed nearly as well as the national model, suggesting that a substitute for ample data is a more specified model. By optimizing the lag and trailing average parameters of each MSA model to a setting that specifically suited the MSA's uniqueness, accurate models were generated. 
+
+Still, despite the four metrics of the confusion matrix, there remains the question of efficacy in practice. Perhaps the model inadvertently only captured the smallest cap rate expansions and not the more pronounced one. Perhaps a buy-and-hold approach would have been better suited. 
+
+To examine this we implemented the individual MSA model's recommendations and yielded the following results.
+
+\begin{figure}
+\hspace*{-0.25in}
+\includegraphics{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_1_10.jpg"}
+\end{figure}
+
 \begin{figure}
 \hspace*{-0.25in}
 \includegraphics{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_11_20.jpg"}
 \end{figure}
 
-
-\subsection{Analysis of Results}
-
+\subsubsection{Outperformance of Implemented Strategy vs Buy-and-Hold}
+\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/outperformance.csv"}
 
 \section{Conclusion}
 
