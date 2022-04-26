@@ -3,17 +3,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from matplotlib.lines import Line2D
+from sklearn.metrics import r2_score
 
-# cr = pd.read_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\data\all_msa_cr.csv')
-# flag = pd.read_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\output\msa_df_flag.csv')
-cr = pd.read_csv(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\data\all_msa_cr.csv')
-flag = pd.read_csv(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_individual_df_flag.csv')
+cr = pd.read_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\data\all_msa_cr.csv')
+flag = pd.read_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\output\msa_df_flag.csv')
+# cr = pd.read_csv(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\data\all_msa_cr.csv')
+# flag = pd.read_csv(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_individual_df_flag.csv')
 
 flag.loc[:,'year'] = flag.loc[:,'year']+1
 df_outperformance = pd.DataFrame()
 msas = list(flag.columns)
 msas.remove('year')
 i=0
+flt_outperform = []
 for elem in ['_1_10','_11_20']:
 	fig,ax = plt.subplots(ncols = 2, nrows=5, sharex=True, sharey=True, figsize=(6,8))
 	fig.tight_layout(h_pad=2,w_pad=2)
@@ -60,6 +62,7 @@ for elem in ['_1_10','_11_20']:
 					strat_cr+=sign
 
 			outperformance = strat_cr/one_msa.difference.sum()-1
+			flt_outperform.append(outperformance)
 			outperformance = "{:.0%}".format(outperformance)
 			expansions = [1 for x in one_msa.difference if x>0]
 			expansions = np.sum(expansions)
@@ -91,8 +94,82 @@ for elem in ['_1_10','_11_20']:
 	                         label='incorrect forecast')]
 
 	fig.legend(handles=legend_elements,loc='center',bbox_to_anchor=(.475,0.90))
-	fig.savefig(fr'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\mas_graph{elem}.jpg',dpi=1000,bbox_inches='tight')
+	plt.show()
+	# fig.savefig(fr'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\mas_graph{elem}.jpg',dpi=1000,bbox_inches='tight')
 
 df_outperformance.columns=['MSA','Outperformance vs Buy and Hold']
-df_outperformance.to_csv(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\outperformance.csv',index=False)
+outperformance_avg = "{:.0%}".format(np.mean(flt_outperform))
+df_outperformance = pd.concat([df_outperformance.reset_index(drop=True),
+	pd.DataFrame([['Average',outperformance_avg]],columns=df_outperformance.columns)],ignore_index=True,axis=0)
+print(df_outperformance.head())
 
+households = pd.read_csv(r"C:\Users\matth\Documents\GitHub\inflation_cr_expansion\data\green_street_households.csv")
+households =households.melt(id_vars=['Market'])
+households.columns=['market','year','households']
+households = households[households['year'].isin(['2005','2020'])]
+households['households'] = households['households'].str.replace(',','')
+households['households'] = households[['households']].astype(float)
+households = households.sort_values(['market','year'],ascending=True).dropna()
+households = households.set_index(['market','year']).groupby(level=['market']).pct_change().dropna()
+households_mean = households.mean().values[0]
+df_outperformance = pd.merge(left=df_outperformance,right=households,how='left',left_on='MSA',right_on='market')
+df_outperformance.columns = ['MSA','Outperformance vs Buy and Hold','HH Growth 2005 to 2020']
+df_numbers_outperfrom = df_outperformance.dropna().copy()
+df_outperformance['HH Growth 2005 to 2020'] = df_outperformance['HH Growth 2005 to 2020'].apply(lambda x: "{:.0%}".format(x))
+df_outperformance.loc[df_outperformance.shape[0]-1,['HH Growth 2005 to 2020']] = "{:.0%}".format(households_mean)
+df_outperformance['HH Growth 2005 to 2020'] = df_outperformance['HH Growth 2005 to 2020'].str.replace('%',r'\%')
+df_outperformance['Outperformance vs Buy and Hold'] = df_outperformance['Outperformance vs Buy and Hold'].str.replace('%',r'\%')
+df_outperformance.columns = ['MSA','Outperformance \nvs Buy and Hold','HH Growth \n2005 to 2020']
+df_outperformance.to_csv(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_level_outperformance.csv',index=False)
+
+x = np.array(df_numbers_outperfrom['HH Growth 2005 to 2020'].dropna())
+y = np.array(df_numbers_outperfrom['Outperformance vs Buy and Hold'].str.replace('%','').astype(float))
+y = y.tolist()
+y = [a/100 for a in y]
+
+fig,ax = plt.subplots()
+plt.plot(x,y,'o')
+m,b = np.polyfit(x,y,1)
+print(m,b)
+plt.plot(x,m*x+b)
+r2 = r2_score(y,m*x+b)
+ax.set_title('Outperformance of Cap Rate Expansion Model over a Buy-and-Hold Model (y) \n vs. Household Growth (x) ',fontsize=10)
+vals = ax.get_yticks()
+ax.set_yticklabels(['{:,.0%}'.format(x) for x in vals])
+vals = ax.get_xticks()
+ax.set_xticklabels(['{:,.0%}'.format(x) for x in vals])
+plt.annotate("r-squared = {:.3f}".format(r2), (0, 1))
+ax.set_xlabel('Household Growth: 2005-2020')
+ax.set_ylabel('Outperformance of CREM over a B&H')
+plt.show()
+fig.savefig(fr'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_scatter.jpg')
+
+# Without Min and Max Points
+df_numbers_outperfrom = df_numbers_outperfrom.dropna()
+df_numbers_outperfrom['Outperformance vs Buy and Hold'] = df_numbers_outperfrom['Outperformance vs Buy and Hold'].str.replace('%','').astype(float)
+df_numbers_outperfrom = df_numbers_outperfrom[~df_numbers_outperfrom['Outperformance vs Buy and Hold'].isin(
+		[df_numbers_outperfrom['Outperformance vs Buy and Hold'].max(),
+		df_numbers_outperfrom['Outperformance vs Buy and Hold'].min()])
+		]
+
+x = np.array(df_numbers_outperfrom['HH Growth 2005 to 2020'])
+y = np.array(df_numbers_outperfrom['Outperformance vs Buy and Hold'])
+y = y.tolist()
+y = [a/100 for a in y]
+
+fig,ax = plt.subplots()
+plt.plot(x,y,'o')
+m,b = np.polyfit(x,y,1)
+print(m,b)
+plt.plot(x,m*x+b)
+r2 = r2_score(y,m*x+b)
+ax.set_title('Outperformance of Cap Rate Expansion Model over a Buy-and-Hold Model (y) \n vs. Household Growth (x) ',fontsize=10)
+vals = ax.get_yticks()
+ax.set_yticklabels(['{:,.0%}'.format(x) for x in vals])
+vals = ax.get_xticks()
+ax.set_xticklabels(['{:,.0%}'.format(x) for x in vals])
+plt.annotate("r-squared = {:.3f}".format(r2), (0, 1))
+ax.set_xlabel('Household Growth: 2005-2020')
+ax.set_ylabel('Outperformance of CREM over a B&H')
+plt.show()
+fig.savefig(fr'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_scatter_no_minmax.jpg')
