@@ -79,6 +79,7 @@ var_vals = list(var_vals.values[0])
 
 pred = np.matrix([int(x>0.5) for x in result.predict(x)]).T
 cm = confusion_matrix(y, pred)
+tn,fp,fn,tp = cm.ravel()
 accuracy = (tp+tn)/(tp+fp+fn+tn)
 precision = tp/(tp+fp)
 recall = tp/(tp+fn)
@@ -92,7 +93,6 @@ var_vals.append(f_score)
 var_vals.append(specificity)
 var_vals.insert(0,'all-time')
 metrics = metrics.append(pd.DataFrame([var_vals],columns=['year']+list(cols)+['accuracy','precision','recall','f_score','specificity']))
-
 
 metrics.dropna(inplace=True)
 metrics = metrics.groupby('year').mean().reset_index()

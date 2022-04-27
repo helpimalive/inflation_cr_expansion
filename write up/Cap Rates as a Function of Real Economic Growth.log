@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.6)  26 APR 2022 15:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.6)  27 APR 2022 15:34
 entering extended mode
 **"./Cap Rates as a Function of Real Economic Growth.tex"
 ("Cap Rates as a Function of Real Economic Growth.tex"
@@ -498,47 +498,79 @@ Overfull \hbox (7.4977pt too wide) in paragraph at lines 255--257
 []|  [] 
  []
 
+<C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_perform
+ance.jpg, id=42, 462.528pt x 346.896pt>
+File: C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_pe
+rformance.jpg Graphic file (type jpg)
+<use C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_per
+formance.jpg>
+Package pdftex.def Info: C:/Users/matth/Documents/GitHub/inflation_cr_expansion
+/output/national_performance.jpg  used on input line 260.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
 
-Overfull \hbox (3.5537pt too wide) in paragraph at lines 274--274
-[]|\OT1/cmr/m/n/8 Outperformance
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 274--274
-\OT1/cmr/m/n/8 vs Buy and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 274--274
-[]|\OT1/cmr/m/n/8 HH Growth
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 260--261
+[][] 
  []
 
 [10] [11 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_gra
 ph_1_10.jpg>] [12 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/outpu
 t/mas_graph_11_20.jpg>]
+Overfull \hbox (3.5537pt too wide) in paragraph at lines 281--281
+[]|\OT1/cmr/m/n/8 Outperformance
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+\OT1/cmr/m/n/8 vs Buy and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+[]|\OT1/cmr/m/n/8 HH Growth
+ []
+
 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter.jpg,
- id=51, 462.528pt x 346.896pt>
+ id=52, 462.528pt x 346.896pt>
 File: C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter
 .jpg Graphic file (type jpg)
 <use C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter.
 jpg>
 Package pdftex.def Info: C:/Users/matth/Documents/GitHub/inflation_cr_expansion
-/output/msa_scatter.jpg  used on input line 300.
+/output/msa_scatter.jpg  used on input line 309.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
 
-Overfull \hbox (44.27318pt too wide) in paragraph at lines 300--301
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 309--310
+[][] 
+ []
+
+<C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter_no_m
+inmax.jpg, id=53, 462.528pt x 346.896pt>
+File: C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter
+_no_minmax.jpg Graphic file (type jpg)
+<use C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter_
+no_minmax.jpg>
+Package pdftex.def Info: C:/Users/matth/Documents/GitHub/inflation_cr_expansion
+/output/msa_scatter_no_minmax.jpg  used on input line 315.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 315--316
 [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13]
+ [13 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_pe
+rformance.jpg>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter
+ [14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter
 .jpg>]
-("Cap Rates as a Function of Real Economic Growth.bbl"
+("Cap Rates as a Function of Real Economic Growth.bbl" [16 <C:/Users/matth/Docu
+ments/GitHub/inflation_cr_expansion/output/msa_scatter_no_minmax.jpg>]
 ! Misplaced alignment tab character &.
 l.64 ...lock {\em Journal of Property Investment &
                                                    Finance}, 29:115--144.
@@ -549,17 +581,17 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-[15]) [16] ("Cap Rates as a Function of Real Economic Growth.aux")
+) [17] ("Cap Rates as a Function of Real Economic Growth.aux")
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 6528 strings out of 480930
- 112872 string characters out of 2909548
- 369762 words of memory out of 3000000
- 22279 multiletter control sequences out of 15000+200000
+ 6542 strings out of 480930
+ 114001 string characters out of 2909548
+ 364762 words of memory out of 3000000
+ 22291 multiletter control sequences out of 15000+200000
  542546 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,9n,48p,1337b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -572,10 +604,10 @@ onts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 msfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on "Cap Rates as a Function of Real Economic Growth.pdf" (16 pag
-es, 7008416 bytes).
+Output written on "Cap Rates as a Function of Real Economic Growth.pdf" (17 pag
+es, 7119907 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
+ 102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

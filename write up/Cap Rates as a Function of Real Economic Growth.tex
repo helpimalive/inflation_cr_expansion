@@ -170,6 +170,8 @@ As national CPI is presented monthly, and national GDP is presented quarterly, w
 More challenging was the MSA-level data wherein GDP is presented only annually and CPI is presented with varying frequencies depending on the region. Atlanta is published on even months. Boston is published on odd months, and New York is published monthly. Some are bimonthly. The Bureau of Labor statistics only offers CPI measures for 22 Core Based Statistical Areas. Two of these are "Urban Alaska" and "Urban Hawaii", but these have no equivalent GDP series, so they were discarded. The remaining 20 CBSAs have GDP series. But the GDP series are not necessarily for the exact same areas i.e, some GDPs are published for an MSA, some are published for a CBSA. Adding to this confusion: the BLS revised its reporting in 2018 and started offering CBSA measurements instead of MSA measurements, thus revising the coverage areas.
 
 We attempt to reconcile this by matching MSA to CBSA where needed (between the BLS and Fed). And we average the measurements of CPI over a year before matching them to the GDP metrics. In this way, we end up with 21 geographies: 20 CBSAs and 1 national geography. Each geography has a cap rate, CPI, and GDP. 
+
+It is worth addressing the question, "is this simply 'real interest rates' by a different name?" It is not. Mathematically, the series have very low correlation. Practically, real rates contain an expectation of returns and an expectation of inflation, whereas GDP and CPI are merely spot empirical values.
  
 \section{Model Construction}
 
@@ -239,12 +241,10 @@ Finally, the specificity (TN/(TN+FN)) of the national model was noteworthy, as i
 \subsubsection{Jointly Trained MSA Model}
 \csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_accuracy.csv"}
 
-%\subsubsection{Individually Trained MSA Model}
-%\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/individual_msa_level_accuracy.csv"}
 
 Still, despite the four metrics of the confusion matrix, there remains the question of efficacy in practice. Perhaps the model inadvertently only captured the smallest cap rate expansions and not the more pronounced one. Perhaps a buy-and-hold approach would have been better suited. 
 
-To examine this we implemented the individual MSA model's recommendations and yielded the following results.
+To examine this we implemented the national and MSA models' recommendations and yielded the following results.
 
 \begin{figure}
 \hspace*{-0.25in}
@@ -256,7 +256,14 @@ To examine this we implemented the individual MSA model's recommendations and yi
 \includegraphics{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_11_20.jpg"}
 \end{figure}
 
-On average, implementing the MSA model, out of sample, resulted in significant outperformance relative to a buy-and-hold strategy. But the variance is quite high. 
+\begin{figure}
+\includegraphics{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_performance.jpg"}
+\end{figure}
+
+Implementing the recommendations made by the model would have yileded cap rate compression 13\% greater than a buy-and-hold strategy. 
+
+On average, implementing the MSA model resulted in significant outperformance relative to a buy-and-hold strategy. But the variance is quite high. 
+
 
 \subsection{Analysis of Results}
 
@@ -296,10 +303,19 @@ Upon further review, we noted that it seemed the MSAs wherein the model performe
     \end{tabular}
 \end{table}
 
+Viewing these results in a regression, the results are more pronounced and show that household growth is significantly correlated with model underperformance, thus suggesting this model is very well suited for MSAs with national-average-like population growth. 
+
 \begin{figure}
 \includegraphics{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter.jpg"}
 \end{figure}
 
+Removing the leverage point (Miami 196\% outperformance and 13\% household growth) yields an even tighter relationship.
+
+\begin{figure}
+\includegraphics{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter_no_minmax.jpg"}
+\end{figure}
+
+And this makes intuitive sense: that a market with average-to-low organic growth would have its real estate values dictated by the interplay between inflation growth and GDP growth. Conversely, an area which was experiencing sharp population growth would have these dynamics overridden by the outsized demand for real estate.
 
 \section{Conclusion}
 
