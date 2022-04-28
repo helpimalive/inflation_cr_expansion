@@ -42,8 +42,7 @@ grestore
 \date{}
 \subtitle{x}
 \titlerunning{x}        
-\author{Matt Larriva, CFA         \and
-        Peter Linneman, PhD.
+\author{Matt Larriva, CFA         %\and
 }
 
 %\authorrunning{Short form of author list} % if too long for running head
@@ -64,19 +63,19 @@ grestore
 \begin{abstract}
 
 \subsection*{Purpose}
-To explain both national and market-level cap rate changes as simply an interaction between Gross Domestic Product and Consumer Price Index.
+To explain and forecast both national and market-level cap rate expansions as simply an interaction between Gross Domestic Product and Consumer Price Index.
 
 \subsection*{Design/Methodology/Approach}
-We use a binary logistic regression with binary independent variables, trained on a synthetic minority over-sampling set, to explain cap rate expansion and contraction at the national level and at 20 MSAs.
+We use a binary logistic regression with binary independent variables, trained on a minority over-sampling set, to explain cap rate expansion at the national level and at 20 MSAs.
 
 \subsection*{Results}
-Both the national model and the MSA models capture around 40\% of all cap rate expansion periods with a robust confusion matrix.
+Both the national model and the market models have accuracy near 70\% and capture about 40\% of all cap rate expansion periods with a robust confusion matrix, such that implementing the recommendations of the models would result in significant outperformance versus a buy-and-hold strategy.
 
 \subsection*{Originality}
-This model contributes to the existing corpus by 1) establishing a statistically significant relationship between GDP, CPI, and cap rates which 2) holds explanatory power at the national and MSA levels, by 3) mapping the ground truth from scalar to binary.
+This model contributes to the existing corpus by 1) establishing a statistically significant relationship between GDP, CPI, and cap rates which 2) holds explanatory power at the national and market levels, by 3) mapping the ground truth from a non-discrete to a binary variable.
 
 \subsection*{Practical Implications}
-The accuracy of the model suggests a simpler and more robust explanation for understanding cap rates and navigating property markets in an environment of fluctuating interest rates. 
+The accuracy of the model suggests a simpler and more robust explanation for understanding cap rates and navigating property markets in an environment of fluctuating interest rates, not only at the national level but also at the market level. 
 
 
 \keywords{Binary Logistic Regression \and Cap Rates \and US Real Estate Markets \and Multifamily Cap Rate \and United States \and Apartment Cap Rate}
@@ -88,7 +87,21 @@ The accuracy of the model suggests a simpler and more robust explanation for und
 \setlength{\parskip}{1em}
 
 \section{Introduction}
-There is a clear desire in academic and professional circles to find a good predictor of cap rates to be able maximize potential returns. Despite the plethora of research attempting to establish the determinants of cap rates there exists a persistent degree of uncertainty in predicting cap rates. In fact, Liang Peng in ”Finding Cap Rates: A Property Level Analysis of Commercial Real Estate Pricing” found a strong positive relationship between pricing and risk for all property types. In other words the higher the cap rate the more uncertainty (Peng, 2013). Keeping in mind Peng’s findings macroeconomic variables may also contribute to uncertainty in the value of real estate assets. Fundamental macroeconomic variables such as inflation, deflation, and GDP growth despite their potential influence on uncertainty still appear to be the most promising variables for predicting future cap rates.
+At 6 trillion dollars\citep*{nmhc}, the value of apartment stock in the US constitutes over 1\% of the total wealth of the world \citep*{williams_2021}. Accurately projecting and explaining the value of that apartment stock has implications for direct investors, owners, renters, and anyone who owns part of the 255 billion dollars worth of securitized residential real estate that exists in public REITs \citep*{nareit_2022}. 
+
+Despite the importance of explaining and forecasting the near and long-term value of this real estate, there is little to guide investors as to the pricing, and therefore risk, of the asset class.
+
+There has long been a supposed relationship between interest rates and cap rates: that the two move together. Proponents would cite historical examples; they would reason that interest rates fed debt rates which influenced real estate values; others would claim that inflation controlled interest rates and inflation was negative for real estate. While  such arguments have been empirically voided and academically challenged \citep*{larriva2021determinants}, current cap rate and interest rate dynamics offer one more counterpoint. 
+
+This is not to say that interest rates are independent of cap rates. Indeed, much research has been dedicated to the opposite point. But the inconsistency of the relationship implies a missing component. Models have historically tried to solve for this component by introducing earnings expectations, demand-side factors, debt variables and spreads, and other germane variables. They often end with highly complex models that require regime-switching dynamics to account for the tail events (COVID-19, The Great Recession).
+
+We revisit the question of cap rate expansion from a simpler lens which treats cap rate compression as one binary outcome and cap rate expansion the other. While it is helpful to know the degree to which real estate values will increase or decrease, it is almost as helpful to simply know if the value will be up or down. Real estate is, after all, still an alternative asset class, which means it is marked by illiquidity. Contrasted with public equities, one does not trade in and out of an apartment building daily, thus has less interest in the degree of price movement and more interest simply in the direction. Should a commercial real estate manager be a net buyer this year? Should a multifamily operator expect higher or lower NOI next year? Answering "yes" or "no" is often as useful as "yes, by 2.67%"
+
+We pair the simpler binary dependent variable with binary input variables which illustrate a simple yet elegant principal of multifamily real estate. Namely, owners can often pass through higher expenses to tenants, if the tenants' wages increase in proportion to the increase in expenses. If an owner has to increase rents by 5\% to compensate for the increased cost of, say, maintenance personnel, then he can pass this through (or more) to his tenant base, if their wages have increased somewhat proportionally. Thus real estate values can be better understood as the ability of renters to pay inflation-like increases. Conversely, if the expenses of operations increase but the tenants' wages do not, then rents cannot be increased, and cash yield will decrease, which will reduce the value of the asset. We propose that gross domestic product (GDP) is a sufficient proxy for wages, and the consumer price index (CPI) is a sufficient proxy for inflation. We model a binary situation: is GDP increasing faster (decreasing more slowly) than CPI? If so, cap rates should compress. If not-- if CPI is increasing faster (decreasing more slowly) than GDP-- then cap rates should expand.
+
+Examining multifamily real estate at the national and market level we evaluate the simple yet elegant thesis that the interplay between consumer price index changes (CPI) and gross domestic product changes (GDP) explains cap rate compression and expansion. Testing this on 20 metropolitan statistical areas (MSAs) and the national series yield significant models with high levels of accuracy and recall. Signals for cap rate expansions are conservatively issued, and acting upon them outperforms a buy-and-hold strategy at the national and MSA level, on average.
+
+The remainder of the paper is outlined as follows: 
 
 \label{intro}
 
