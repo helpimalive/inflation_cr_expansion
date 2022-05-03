@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.6)  29 APR 2022 09:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7400 64-bit) (preloaded format=pdflatex 2020.5.6)  3 MAY 2022 12:33
 entering extended mode
 **"./Cap Rates as a Function of Real Economic Growth.tex"
 ("Cap Rates as a Function of Real Economic Growth.tex"
@@ -356,48 +356,135 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\babel.sty"
+Package: babel 2020/03/22 3.42 The Babel package
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\switch.def"
+File: switch.def 2020/03/22 3.42 Babel switching mechanism
+)
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex/latex/arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/babel-english\english.ldf"
+Language: english 2017/06/06 v3.3r English support from the babel system
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\babel.def"
+File: babel.def 2020/03/22 3.42 Babel common definitions
+\babel@savecnt=\count312
+\U@D=\dimen178
+
+("C:\Program Files\MiKTeX 2.9\tex/generic/babel\txtbabel.def")
+\bbl@readstream=\read3
+\bbl@dirlevel=\count313
+)
+Package babel Info: \l@canadian = using hyphenrules for english
+(babel)             (\language0) on input line 102.
+Package babel Info: \l@australian = using hyphenrules for ukenglish
+(babel)             (\language72) on input line 105.
+Package babel Info: \l@newzealand = using hyphenrules for ukenglish
+(babel)             (\language72) on input line 108.
+))
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/csquotes\csquotes.sty
+Package: csquotes 2019-12-06 v5.2j context-sensitive quotations (JAW)
+\csq@reset=\count314
+\csq@gtype=\count315
+\csq@glevel=\count316
+\csq@qlevel=\count317
+\csq@maxlvl=\count318
+\csq@tshold=\count319
+\csq@ltx@everypar=\toks32
+
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/csquotes\csquotes.def
+File: csquotes.def 2019-12-06 v5.2j csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/csquotes\csquotes.cfg
+File: csquotes.cfg 
+)
+Package csquotes Info: Enabling multilingual quotes.
+Package csquotes Info: Redefining alias 'english' -> 'english/american'.
+)
+Package csquotes Info: Allocating character ".
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'babel' package.
+
 ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdfmode.def"
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count312
+\l__kernel_color_stack_int=\count320
 \l__pdf_internal_box=\box59
 )
 ("Cap Rates as a Function of Real Economic Growth.aux")
 \openout1 = `"Cap Rates as a Function of Real Economic Growth.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 Unknown journal: specify \journalname{<name of your journal>} in preambel
 
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count313
-\scratchdimen=\dimen178
+\scratchcounter=\count321
+\scratchdimen=\dimen179
 \scratchbox=\box60
-\nofMPsegments=\count314
-\nofMParguments=\count315
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count316
-\MPscratchDim=\dimen179
-\MPnumerator=\count317
-\makeMPintoPDFobject=\count318
-\everyMPtoPDFconversion=\toks33
+\nofMPsegments=\count322
+\nofMParguments=\count323
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count324
+\MPscratchDim=\dimen180
+\MPnumerator=\count325
+\makeMPintoPDFobject=\count326
+\everyMPtoPDFconversion=\toks34
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/generic/kvdefinekeys\kvdefinekey
+s.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\matth\AppData\Roaming\MiKTeX\2.9\tex/generic/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)) ("C:\Program Files\MiKTeX 2.9\tex/latex/pdftexcmds\pdftexcmds.sty"
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
 )
 ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
@@ -444,124 +531,130 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+Package csquotes Info: Making character " active on input line 43.
 SVJour3 warning: Missing \journalname
 SVJour3 warning: Missing \institute
-LaTeX Font Info:    Calculating math sizes for size <9.5> on input line 61.
+LaTeX Font Info:    Calculating math sizes for size <9.5> on input line 64.
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <9.5> not available
-(Font)              size <9> substituted on input line 61.
+(Font)              size <9> substituted on input line 64.
 
 [1{C:/Users/matth/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-[3]
+[3] [4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4]
-[5] [6]
-Underfull \vbox (badness 2435) has occurred while \output is active []
+ [5]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7]
-[8]
-Underfull \vbox (badness 2181) has occurred while \output is active []
+ [6]
+[7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9]
+[10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]
+ [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12]
 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_1_10.j
-pg, id=42, 444.17142pt x 591.02406pt>
+pg, id=55, 444.17142pt x 591.02406pt>
 File: C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_1
 _10.jpg Graphic file (type jpg)
 <use C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_1_
 10.jpg>
 Package pdftex.def Info: C:/Users/matth/Documents/GitHub/inflation_cr_expansion
-/output/mas_graph_1_10.jpg  used on input line 264.
+/output/mas_graph_1_10.jpg  used on input line 327.
 (pdftex.def)             Requested size: 444.17033pt x 591.02263pt.
 
-Overfull \hbox (9.73808pt too wide) in paragraph at lines 263--265
+Overfull \hbox (9.73808pt too wide) in paragraph at lines 326--328
 []|  [] 
  []
 
 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_11_20.
-jpg, id=43, 441.93105pt x 591.02406pt>
+jpg, id=56, 441.93105pt x 591.02406pt>
 File: C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_1
 1_20.jpg Graphic file (type jpg)
 <use C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_11
 _20.jpg>
 Package pdftex.def Info: C:/Users/matth/Documents/GitHub/inflation_cr_expansion
-/output/mas_graph_11_20.jpg  used on input line 269.
+/output/mas_graph_11_20.jpg  used on input line 332.
 (pdftex.def)             Requested size: 441.92995pt x 591.02263pt.
 
-Overfull \hbox (7.4977pt too wide) in paragraph at lines 268--270
+Overfull \hbox (7.4977pt too wide) in paragraph at lines 331--333
 []|  [] 
  []
 
 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_perform
-ance.jpg, id=44, 462.528pt x 346.896pt>
+ance.jpg, id=57, 462.528pt x 346.896pt>
 File: C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_pe
 rformance.jpg Graphic file (type jpg)
 <use C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_per
 formance.jpg>
 Package pdftex.def Info: C:/Users/matth/Documents/GitHub/inflation_cr_expansion
-/output/national_performance.jpg  used on input line 273.
+/output/national_performance.jpg  used on input line 336.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
 
-Overfull \hbox (44.27318pt too wide) in paragraph at lines 273--274
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 336--337
 [][] 
  []
 
 
-Overfull \hbox (3.5537pt too wide) in paragraph at lines 294--294
-[]|\OT1/cmr/m/n/8 Outperformance
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 294--294
-\OT1/cmr/m/n/8 vs Buy and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 294--294
-[]|\OT1/cmr/m/n/8 HH Growth
- []
-
-[11] [12 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_gra
-ph_1_10.jpg>] [13 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/outpu
-t/mas_graph_11_20.jpg>]
+ [13]
+[14 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_1_
+10.jpg>] [15 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas
+_graph_11_20.jpg>]
 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter.jpg,
- id=55, 462.528pt x 346.896pt>
+ id=68, 462.528pt x 346.896pt>
 File: C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter
 .jpg Graphic file (type jpg)
 <use C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter.
 jpg>
 Package pdftex.def Info: C:/Users/matth/Documents/GitHub/inflation_cr_expansion
-/output/msa_scatter.jpg  used on input line 322.
+/output/msa_scatter.jpg  used on input line 391.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
 
-Overfull \hbox (44.27318pt too wide) in paragraph at lines 322--323
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 391--392
 [][] 
  []
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_pe
+rformance.jpg>]
 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter_no_m
-inmax.jpg, id=56, 462.528pt x 346.896pt>
+inmax.jpg, id=72, 462.528pt x 346.896pt>
 File: C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter
 _no_minmax.jpg Graphic file (type jpg)
 <use C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter_
 no_minmax.jpg>
 Package pdftex.def Info: C:/Users/matth/Documents/GitHub/inflation_cr_expansion
-/output/msa_scatter_no_minmax.jpg  used on input line 328.
+/output/msa_scatter_no_minmax.jpg  used on input line 397.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
 
-Overfull \hbox (44.27318pt too wide) in paragraph at lines 328--329
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 397--398
 [][] 
  []
 
-[14 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_per
-formance.jpg>] ("Cap Rates as a Function of Real Economic Growth.bbl" [15]
-[16 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter.
-jpg>]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter
+.jpg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter
+_no_minmax.jpg>] ("Cap Rates as a Function of Real Economic Growth.bbl" [19]
 ! Misplaced alignment tab character &.
 l.64 ...lock {\em Journal of Property Investment &
                                                    Finance}, 29:115--144.
@@ -572,36 +665,39 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-
-Underfull \vbox (badness 5548) has occurred while \output is active []
-
- [17 <C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter
-_no_minmax.jpg>]) [18] ("Cap Rates as a Function of Real Economic Growth.aux")
+) [20] ("Cap Rates as a Function of Real Economic Growth.aux")
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 6535 strings out of 480930
- 113966 string characters out of 2909548
- 369848 words of memory out of 3000000
- 22292 multiletter control sequences out of 15000+200000
- 540095 words of font info for 51 fonts, out of 3000000 for 9000
+ 8151 strings out of 480930
+ 139647 string characters out of 2909548
+ 412378 words of memory out of 3000000
+ 23853 multiletter control sequences out of 15000+200000
+ 543443 words of font info for 63 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,9n,48p,1337b,322s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,12n,48p,1337b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-sy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on "Cap Rates as a Function of Real Economic Growth.pdf" (18 pag
-es, 7115684 bytes).
+X 2.9/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmti9.pfb>
+Output written on "Cap Rates as a Function of Real Economic Growth.pdf" (20 pag
+es, 7181991 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
+ 136 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

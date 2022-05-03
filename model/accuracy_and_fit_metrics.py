@@ -66,7 +66,7 @@ result=logit_model.fit()
 var_vals = result.summary2().tables[1]
 cols = var_vals.columns
 var_vals = list(var_vals.values[0])
-
+assert False
 pred = np.matrix([int(x>0.5) for x in result.predict(master[['x']].astype(int).values)]).T
 cm = confusion_matrix(y, pred)
 tn,fp,fn,tp = cm.ravel()

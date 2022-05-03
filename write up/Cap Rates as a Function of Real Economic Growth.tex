@@ -36,6 +36,9 @@ grestore
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{pdflscape}
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
 
 \begin{document}
 \title{x}
@@ -63,22 +66,22 @@ grestore
 \begin{abstract}
 
 \subsection*{Purpose}
-To explain and forecast both national and market-level cap rate expansions as simply an interaction between Gross Domestic Product and Consumer Price Index.
+To explain and forecast both national and market-level cap rate expansions as simply a binary  interaction between Gross Domestic Product and Consumer Price Index.
 
 \subsection*{Design/Methodology/Approach}
-We use a binary logistic regression with binary independent variables, trained on a minority over-sampling set, to explain cap rate expansion at the national level and at 20 MSAs.
+We use a binary logistic regression with binary independent variables, trained on a minority over-sampling set, to explain cap rate expansion at the national level and at 20 US metropolitan areas.
 
 \subsection*{Results}
 Both the national model and the market models have accuracy near 70\% and capture about 40\% of all cap rate expansion periods with a robust confusion matrix, such that implementing the recommendations of the models would result in significant outperformance versus a buy-and-hold strategy.
 
 \subsection*{Originality}
-This model contributes to the existing corpus by 1) establishing a statistically significant relationship between GDP, CPI, and cap rates which 2) holds explanatory power at the national and market levels, by 3) mapping the ground truth from a non-discrete to a binary variable.
+This model contributes to the existing corpus by 1) establishing a statistically significant relationship between the interaction effect of GDP and CPI versus cap rates which 2) holds explanatory power at the national and market levels, by 3) mapping the ground truth from a non-discrete to a binary variable.
 
 \subsection*{Practical Implications}
-The accuracy of the model suggests a simpler and more robust explanation for understanding cap rates and navigating property markets in an environment of fluctuating interest rates, not only at the national level but also at the market level. 
+The accuracy of the model suggests a simpler and more robust explanation for understanding cap rates and navigating residential property markets in the present environment of rapidly fluctuating interest rates, not only at the national level but also at the market level. 
 
 
-\keywords{Binary Logistic Regression \and Cap Rates \and US Real Estate Markets \and Multifamily Cap Rate \and United States \and Apartment Cap Rate}
+\keywords{Binary Logistic Regression \and Cap Rates \and US Real Estate Markets \and Multifamily Cap Rate \and Apartment Cap Rate}
 
 \end{abstract}
 
@@ -87,34 +90,36 @@ The accuracy of the model suggests a simpler and more robust explanation for und
 \setlength{\parskip}{1em}
 
 \section{Introduction}
-At 6 trillion dollars\citep*{nmhc}, the value of apartment stock in the US constitutes over 1\% of the total wealth of the world \citep*{williams_2021}. Accurately projecting and explaining the value of that apartment stock has implications for direct investors, owners, renters, and anyone who owns part of the 255 billion dollars worth of securitized residential real estate that exists in public REITs \citep*{nareit_2022}. 
+At 6 trillion dollars \citep*{nmhc}, the value of apartment stock in the US constitutes over 1\% of the total wealth of the world \citep*{williams_2021}. Accurately projecting and explaining the value of that apartment stock has implications for direct investors, owners, renters, and anyone who owns part of the 255 billion dollars worth of securitized residential real estate that exists in public REITs \citep*{nareit_2022}. 
 
 Despite the importance of explaining and forecasting the near and long-term value of this real estate, there is little to guide investors as to the pricing, and therefore risk, of the asset class.
 
-There has long been a supposed relationship between interest rates and cap rates: that the two move together. Proponents would cite historical examples; they would reason that interest rates fed debt rates which influenced real estate values; others would claim that inflation controlled interest rates and inflation was negative for real estate. While  such arguments have been empirically voided and academically challenged \citep*{larriva2021determinants}, current cap rate and interest rate dynamics offer one more counterpoint. 
+There has long been a supposed relationship between interest rates and cap rates: that the two move together. Proponents would cite historical examples; they would reason that interest rates relate to debt rates which influence real estate values; others would claim that inflation controlled interest rates and inflation was negative for real estate--eroding the value of its bond-like cashflows. While  such arguments have been empirically voided and academically challenged \citep*{larriva2021determinants}, the cap rate and interest rate dynamics of 2022 offer yet another counterpoint. 
 
 This is not to say that interest rates are independent of cap rates. Indeed, much research has been dedicated to the opposite point. But the inconsistency of the relationship implies a missing component. Models have historically tried to solve for this component by introducing earnings expectations, demand-side factors, debt variables and spreads, and other germane variables. They often end with highly complex models that require regime-switching dynamics to account for the tail events (COVID-19, The Great Recession).
 
-We revisit the question of cap rate expansion from a simpler lens which treats cap rate compression as one binary outcome and cap rate expansion the other. While it is helpful to know the degree to which real estate values will increase or decrease, it is almost as helpful to simply know if the value will be up or down. Real estate is, after all, still an alternative asset class, which means it is marked by illiquidity. Contrasted with public equities, one does not trade in and out of an apartment building daily, thus has less interest in the degree of price movement and more interest simply in the direction. Should a commercial real estate manager be a net buyer this year? Should a multifamily operator expect higher or lower NOI next year? Answering "yes" or "no" is often as useful as "yes, by 2.67%"
+We revisit the question of cap rate expansion from a simpler lens which treats cap rate compression as one binary outcome and cap rate expansion the other. While it is helpful to know the degree to which real estate values will increase or decrease, it is almost as helpful to simply know if the value will be up or down. Real estate is, after all, still an alternative asset class, which means it is marked by illiquidity. Contrasted with public equities, one does not trade in and out of an apartment building daily, thus has less interest in the degree of price movement and more interest simply in the direction. Should a commercial real estate manager be a net buyer this year? Should a multifamily operator expect higher or lower NOI next year? Answering "yes" or "no" is often as useful as "yes, by exactly 267 basis points."
 
-We pair the simpler binary dependent variable with binary input variables which illustrate a simple yet elegant principal of multifamily real estate. Namely, owners can often pass through higher expenses to tenants, if the tenants' wages increase in proportion to the increase in expenses. If an owner has to increase rents by 5\% to compensate for the increased cost of, say, maintenance personnel, then he can pass this through (or more) to his tenant base, if their wages have increased somewhat proportionally. Thus real estate values can be better understood as the ability of renters to pay inflation-like increases. Conversely, if the expenses of operations increase but the tenants' wages do not, then rents cannot be increased, and cash yield will decrease, which will reduce the value of the asset. We propose that gross domestic product (GDP) is a sufficient proxy for wages, and the consumer price index (CPI) is a sufficient proxy for inflation. We model a binary situation: is GDP increasing faster (decreasing more slowly) than CPI? If so, cap rates should compress. If not-- if CPI is increasing faster (decreasing more slowly) than GDP-- then cap rates should expand.
+We pair the simpler binary dependent variable with a novel binary input variable which illustrates a deceptively elegant principal of multifamily real estate. Namely, owners can often pass through higher expenses to tenants, if the tenants' wages increase in proportionate to the expense. If an owner has to increase rents by 5\% to compensate for the increased cost of, say, maintenance personnel, then he can pass this through (or more) to his tenant base, if their wages have increased somewhat proportionally. Thus multifamily real estate values should be determined by the ability of renters to pay inflation-like increases. Conversely, if the expenses of operations increase but the tenants' wages do not, then rents cannot be increased, and cash yield will decrease, which will reduce the value of the asset. We propose that gross domestic product (GDP) is a sufficient proxy for wages, and the consumer price index (CPI) is a sufficient proxy for inflation. We model a binary situation: is GDP increasing faster (decreasing more slowly) than CPI? If so, cap rates should compress. If not-- if CPI is increasing faster (decreasing more slowly) than GDP-- then cap rates should expand.
 
-Examining multifamily real estate at the national and market level we evaluate the simple yet elegant thesis that the interplay between consumer price index changes (CPI) and gross domestic product changes (GDP) explains cap rate compression and expansion. Testing this on 20 metropolitan statistical areas (MSAs) and the national series yield significant models with high levels of accuracy and recall. Signals for cap rate expansions are conservatively issued, and acting upon them outperforms a buy-and-hold strategy at the national and MSA level, on average.
+Examining multifamily real estate at the national and market level, we evaluate the simple yet elegant thesis that the interplay between consumer price index changes (CPI) and gross domestic product changes (GDP) explains cap rate compression and expansion. Testing this on 20 metropolitan statistical areas (MSAs) and the national series yield statistically significant models with high levels of accuracy and recall. Signals for cap rate expansions are conservatively issued, and acting upon them outperforms a buy-and-hold strategy at the national and MSA level, on average.
 
-The remainder of the paper is outlined as follows: 
+The remainder of the paper is outlined as follows: we review the literature surrounding cap rate forecasting and explanation as a function of GDP or growth metrics; CPI or inflationary metrics; or both variables together. Next we review the input data we used and the transformations we made. We then review our motivation for choosing a binary dependent variable and how we reduced the input variables to binary themselves. We specify a model and explain its validity by goodness of fit. The next section examines the results of our model, both at the national and MSA level. We review the results and show the strength of the model versus a buy-and-hold strategy before showing the cases (at the MSA-level) where the model works particularly well. Finally we conclude with suggestions for further research. 
 
 \label{intro}
 
 
 \section{Literature Review}
 
-The literature on cap rate forecasting is extensive, and it can be viewed well through two different lenses. The first framework is illustrated in Ghysels et. al. Forecasting Real Estate Prices \citep*{ghysels_plazzi_valkanov_torous_2013} which divides the literature by variable selection. The authors enumerate three camps: those models which use lagged return (or price change) as a variable, those which use ratios such as rent-to-price or price-to-income, and those which use more granular property or regional data. 
+The literature on cap rate forecasting is extensive, and it can be viewed well through two different lenses: variable selection and methodology selection. 
+
+The first framework is illustrated in Ghysels et. al. Forecasting Real Estate Prices \citep*{ghysels_plazzi_valkanov_torous_2013} which divides the literature by variable selection. The authors enumerate three camps: those models which use lagged return (or price change) as a variable, those which use ratios such as rent-to-price or price-to-income, and those which use more granular property or regional data. 
 
 The second lens by which to view the research is through methodology selection, as documented by Larriva and Linneman \citep*{larriva2021determinants}. The authors divide the research into simple time series methods, multivariate timeseries, and machine learning methods. The division is roughly chronological. 
 
-Neither lens quite suits this study's purpose, as the variables used in this work--raw GDP and CPI--are not often found in the research. More common is a spread to an inflation metric or a derivative of GDP. Separately, the level of granularity we seek to explain is somewhat uncommon (MSA level). More common is either property-level or national. Finally, the method we use is new to the research, to our review. The following section, then will seek to outline research that contains either GDP or inflationary metrics, or their derivatives, regardless of method or granularity.
+Neither lens quite suits this study's purpose, as the variables used in this work--raw GDP and CPI--are not often found in the research. More common is a spread to an inflation metric or a derivative of GDP. Separately, the level of granularity we seek to explain is somewhat uncommon (MSA level). More common is either property-level or national. Finally, the method we use is new to the research, to our review. The following section, then will seek to outline research that contains either growth or inflationary metrics, or their derivatives, regardless of method or granularity.
 
-In the mid-1990s, research was concentrated on either single-variate autoregressive methods \citep*{gau_1984}, \citep*{gau_1985}, \citep*{linneman_1986} or variations on OLS that used multi-stage estimation \citep*{case_shiller_1990}, \citep*{abraham_hendershott_1994}. The variables used in these methods of forecasting tended to fall into classes that line up with the components of a cap rate: risk-free rate, real interest rates, relative return expectations, and risk. Many models’ variables included a government long bond  to capture the risk-free and real rates, an economic spread (credit or pricing-based) to capture the relative expense or return of real estate, and macroeconomic factors to capture the  growth prospects and risk in the marketplace. Some models included a term to capture forward estimates including either sentiment or expected rent or NOI growth. This lines up with the Gordon growth model of pricing cap rates as the discount rate less the perpetual NOI growth rate. Thus, the value of macroeconomic factors, or their derivatives, was established.
+In the mid-1990s, research was concentrated on either single-variate autoregressive methods \citep*{gau_1984}, \citep*{gau_1985}, \citep*{linneman_1986} or variations on OLS that used multi-stage estimation \citep*{case_shiller_1990}, \citep*{abraham_hendershott_1994}. The variables used in these methods of forecasting tended to fall into classes that line up with the components of a cap rate: risk-free rate, real interest rates, relative return expectations, and risk. Many models’ variables included a government long-bond  to capture the risk-free and real rates, an economic spread (credit or pricing-based) to capture the relative expense or return of real estate, and macroeconomic factors to capture the  growth prospects and risk in the marketplace. Some models included a term to capture forward estimates including either sentiment or expected rent or NOI growth. This lines up with the Gordon growth model of pricing cap rates as the discount rate less the perpetual NOI growth rate. Thus, the value of macroeconomic factors, or their derivatives, was established.
 
 \subsection{The Relationship between Inflation and Cap Rates}
 
@@ -170,28 +175,31 @@ Finally, we propose a model that functions at the MSA and the national level. Th
 \section{Data}
 For the national model there are three data series that are used: the Consumer Price Index, the Gross Domestic Product, and the nominal Apartment cap rate series. 
 
+\subsection{National}
 The Gross Domestic Product is a quarterly, unadjusted (not de-seasoned) series from the St. Louis Fed's economic data page (FRED). It is important to use a nominal (versus real) series, as we are comparing this to the consumer price index, which is a close proxy to the interest rate series used to convert the GDP from nominal to real. That is to say, we would be double counting the impact of inflation.
 
 The Consumer Price Index series is sourced to the Bureau of Labor Statistics, and it is also a non-seasonally adjusted series. In both cases, we did not seek to alter the series with seasonal adjustments because the raw data itself contains information which we do not wish to strip. Knowing if the economy grew faster than inflation, even if it was in 4Q, and even if it was due to holiday sales, is valuable information. Such a situation suggests a very different environment from its seasonally adjusted counterpart which may shows an economy in which 4Q growth is similar to say the prior quarter.
 
 Finally, cap rate series at the national level are sourced to Green Street. Green Street defines its cap rate series as the next-twelve-months' NOI divided by the spot asset value. 
 
+\subsection{Metropolitan}
+
 MSA-level data follows the conventions of the national data. Non-seasonally adjusted series are selected both for MSA GDP and the MSA's CPI. The former is from FRED while the later is from the Bureau of Labor Statistics.
 
 As national CPI is presented monthly, and national GDP is presented quarterly, we proceded with quarterly data for the national model, pairing the CPI release most close to the GDP release. 
 
-More challenging was the MSA-level data wherein GDP is presented only annually and CPI is presented with varying frequencies depending on the region. Atlanta is published on even months. Boston is published on odd months, and New York is published monthly. Some are bimonthly. The Bureau of Labor statistics only offers CPI measures for 22 Core Based Statistical Areas. Two of these are "Urban Alaska" and "Urban Hawaii", but these have no equivalent GDP series, so they were discarded. The remaining 20 CBSAs have GDP series. But the GDP series are not necessarily for the exact same areas i.e, some GDPs are published for an MSA, some are published for a CBSA. Adding to this confusion: the BLS revised its reporting in 2018 and started offering CBSA measurements instead of MSA measurements, thus revising the coverage areas.
+More challenging was the MSA-level data wherein GDP is presented only annually and CPI is presented with varying frequencies depending on the region. Atlanta is published on even months. Boston is published on odd months, and New York is published monthly. Some MSAs are published bimonthly. The Bureau of Labor statistics only offers CPI measures for 22 Core Based Statistical Areas (CBSA). Two of these are "Urban Alaska" and "Urban Hawaii", but these have no equivalent GDP series, so they were discarded. The remaining 20 CBSAs have GDP series. But the GDP series are not necessarily for the exact same areas i.e, some GDPs are published for an MSA, some are published for a CBSA. Adding to this confusion: the BLS revised its reporting in 2018 and started offering CBSA measurements instead of MSA measurements, thus revising the coverage areas.
 
-We attempt to reconcile this by matching MSA to CBSA where needed (between the BLS and Fed). And we average the measurements of CPI over a year before matching them to the GDP metrics. In this way, we end up with 21 geographies: 20 CBSAs and 1 national geography. Each geography has a cap rate, CPI, and GDP. 
+We attempt to reconcile this by matching MSA to CBSA where needed (between the BLS and FRED). And we average the measurements of CPI over a year before matching them to the GDP metrics. In this way, we end up with 21 geographies: 20 MSAs and 1 national geography. Each geography has a cap rate, CPI, and GDP. 
 
-It is worth addressing the question, "is this simply 'real interest rates' by a different name?" It is not. Mathematically, the series have very low correlation. Practically, real rates contain an expectation of returns and an expectation of inflation, whereas GDP and CPI are merely spot empirical values.
+As many practitioners assert that cap rates are functions of real interest rates, it is worth addressing the question, "is this simply 'real interest rates' by a different name?"  It is not. Mathematically, the series have very low correlation. Practically, real rates contain an expectation of returns and an expectation of inflation, whereas GDP and CPI are merely spot empirical values.
  
 \section{Model Construction}
 
 \subsection{Model Selection}
-While most analyses forecasting cap rates allow the random variable to be generated from a normal distribution, we opted instead to represent the variable as generated from a Bernoulli distribution. While this choice might be unorthodox--modeling a continuous variable like percentage as a binary variable-- we argue that it is well suited for two reasons. 
+While most analyses forecasting cap rates allow the random variable to be generated from a normal distribution, we opted instead to represent the variable as generated from a Bernoulli distribution. While this choice might be unorthodox--modelling a continuous variable as a binary variable-- we argue that it is well suited for two reasons. 
 
-First, it is practical. Real estate is not an equity, it is an alternative asset. As such, it is illiquid. This lack of liquidity means an investor cannot enter and exit the market readily. As such, a would-be buyer is somewhat ambivalent between caring if a cap rate will go up by 40 basis points next year and if it  will simply go up. In either case, next year's prices will offer a better value. Similarly a would-be seller should be ambivalent between knowing if next year a cap rate will go up by 10 basis points or if it will go up by 100. In either situation, next year is a worse time to sell than this year.  Contrast this with an equities trader who can easily place stop-losses or 'level-in' to a position. Such a trader cares very much whether his holdings will increase 10\% next year, hence estimating liquid asset pricing is well suited by a continuous variable. But estimating illiquid asset pricing is, we argue, better done with a discrete variable. 
+First, it is practical. Real estate is not an equity, it is an alternative asset. As such, it is illiquid. This lack of liquidity means an investor cannot enter and exit the market readily. As such, a would-be buyer is somewhat ambivalent between caring if a cap rate will go up by 40 basis points next year and if it  will simply go up. In either case, next year's prices will offer a better value. Similarly a would-be seller should be ambivalent between knowing if next year a cap rate will go up by 10 basis points or if it will go up by 100. In either situation, next year is a worse time to sell than this year.  Contrast this with an equities trader who can easily place stop-losses or "cost-average" into a position. Such a trader cares very much whether his holdings will increase 10\% next year, hence estimating liquid asset pricing is well suited by a continuous variable. But estimating illiquid asset pricing is, we argue, better done with a discrete variable. 
 
 Second, it maps to the binary nature of the motivation of the model: will GDP growth (contraction) exceed CPI growth (contraction)? It matters less the exact amount one exceede or does not exceed the other. We argue that the question is simply: can a landlord pass on rising expenses to tenants or not? In the case where GDP is rising faster than inflation, we argue the tenants will be wealthier than the growth in expenses, and thus able to absorb higher rents, creating an asset worth more. Conversely, when inflation outpaces the growth of the economy, we argue the tenant is not in a position to absorb higher costs, leaving the landlord to bear them, creating an asset worth less. 
 
@@ -213,70 +221,126 @@ National models were created every two years from 2000, as data is both more fre
 
 Then, to establish the validity of the models for explanatory power, we trained both the MSA model and the national models using all time periods available (in-sample).
 
-The ground truth of cap rate expansion does not present a balanced set, as cap rate compressions are far more frequent than cap rate expansions (roughly two to three times more years see compressions than expansions). We overcame the imbalance through a Synthetic Minority Over-sampling Technique as created by \citep*{SMOTE}. This balanced the frequency of cap rate expansions and contractions to prevent a the logistic regression from estimating all compressions (which would produce a low-variance high-bias estimator).
+The ground truth of cap rate expansion does not present a balanced set, as cap rate compressions are far more frequent than cap rate expansions (roughly two to three times more years see compressions than expansions). The risk in modelling an unbalanced set is the risk of converging to an useless model that always forecasts the more common occurrence (i.e., always forecasting cap rate compression independent of the input). We overcame the imbalance through a Synthetic Minority Over-sampling Technique as created by \citep*{SMOTE}. This balanced the frequency of cap rate expansions and contractions to prevent a the logistic regression from estimating all compressions (which would produce a low-variance high-bias estimator).
+
+\pagebreak
+
+Thus our model can intuitively be understood in terms of the GDP and CPI historical series
+\[GDP = \{g_i\}_{i=0}^N \]
+\[CPI = \{c_i\}_{i=0}^N \]
+
+...and their differenced series
+\[GDP' = \{g_i-g_{i-1}\}_{i=1}^N \]
+\[CPI' = \{c_i-c_{i-1}\}_{i=1}^N \]
+
+...and their respective n-period trailing averages
+\[h_i=\frac{1}{n} \sum_{j=i-n}^{i}GDP'_j\]
+\[d_i=\frac{1}{n} \sum_{j=i-n}^{i}CPI'_j\]
+
+...such that comparing the current delta to prior averages determines cap rate expansion in the following way
+
+\[
+  Cap\:Rate\:Expansion\:Variable_{t_i+1} =
+  \begin{cases}
+    0 & \text{if $GDP'_i-h_i > CPI'_i-d_i $} \\
+    1 & \text{if $GDP'_i-h_i < CPI'_i-d_i $} \\
+  \end{cases}
+\]
+
+Where 
+
+\[
+  Cap\:Rate\:Expansion \sim \mathcal{B}(n=1,p=0.77)  \]
+
+And $p$ is given by the solution (coefficient) of the logistic regression:
+
+\[
+p=\frac{1}{1+e^{(-\beta_1)(CRE variable)}}\]
+\[
+p=\frac{1}{1+e^{(-1.25)(1)}}\]
+\[p \approx 0.77\]
 
 \subsection{Model Goodness of Fit}
 
 In both the National and the MSA models, the logistic regressions displayed consistent coefficients, inline with our hypothesis. The coefficients had low standard errors relative  to the coefficients' magnitude, and the 2.5\% to 97.5\% bounds did not include zero in any case. 
 
-Where a year is listed in the Split-Year column, the data was segmented into training and test sets. The training periods were all prior to the split year, and the test set was the split year through 2021. When "all-time" is listed under the Split-Year, the model was trained on all data and evaluated on all avalailable data. 
+Where a year is listed in the OOS in Year column, the data was segmented into training and test sets. The training periods were all prior to the split year, and the test set was the split year through 2021. When "all-time" is listed under the Split-Year, the model was trained on all data and evaluated on all avalailable data. 
 
 The columns, "Coef.", "Std.Err.", "Z", "$P>|z|$", and the 2.5\% to 97.5\% bounds are all populated with the parameters from the trained models using the training data. The columns to the right, "accuracy" through "specificity" are based on the test data. 
 
-It is worth noting that the coefficient decreased consistently as time advances, suggesting that perhaps the signal is not as robust as it once was. However the standard error decreases correspondingly, producing a Z score which is as high as the earlier periods. Still, though the coefficient is decreasing more recently, all of the train/test models had higher coefficients for lower standard errors than did the models trained on all data. This could be due to the difficulty of trying to incorporate the GFC and the unorthodox interest rate behavior of the COVID-19 era. 
+It is worth noting that the coefficient decreased consistently as time advances, suggesting that perhaps the signal is not as robust as it once was. However the standard error decreases correspondingly, producing a Z score which is as high as the earlier periods. The decrease in the coefficient (corresponding to a lower probability of cap rate expansion for the CRE variable) could be due to the difficulty of trying to incorporate the GFC and the unorthodox interest rate behavior of the COVID-19 era. 
 
-\subsubsection{National Model}
-\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_fit.csv"}
+\begin{table}[H]
+\centering
+\caption*{Goodness of Fit: National Model}
+\csvautotabular{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_fit.csv}
+\centering
+\caption{Relevant parameters and metrics from the logistic regression trained on national data, both in and out of sample}
+\end{table}
 
-\subsubsection{Jointly Trained MSA Model}
-\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_fit.csv"}
+\begin{table}[H]
+\centering
+\caption*{Goodness of Fit: MSA-level Model}
+\csvautotabular{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_fit.csv}\caption{Relevant parameters and metrics from the logistic regression trained jointly on all MSA data, both in and out of sample}
+\end{table}
+
 
 %\subsubsection{Individually Trained MSA Model}
-%\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/individual_msa_level_fit.csv"}
+%\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/individual_msa_level_fit.csv}
 
 \section{Results}
 
 Upon implementing the models, results were evaluated using a confusion matrix, as the period we are attempting to capture--cap rate expansion-- is far less frequent than cap rate contraction. 
 
-Accuracy (TP+TN/(TP+FP+TN+FN)) can be understood as the portion of time the model correctly identified a cap rate expansion or contraction. At the national level,cap rate expansion has happened 29.5\% of quarters since 2000. The model then is more accurate than forecasting constant cap rate contraction, which would have yielded an accuracy of 70.5\%. This is not true at the MSA level, where cap rates have expanded 27\% of the time (compressed 73\% of the time) and the model yielded only 62\% accuracy. That is, it would have done better by forecasting constant cap rate compression (yielding an accuracy of 73\%.
+Accuracy (TP+TN/(TP+FP+TN+FN)) can be understood as the portion of time the model correctly identified a cap rate expansion or contraction. At the national level,cap rate expansion has happened 29.5\% of quarters since 2000. The national model then is no more accurate than forecasting constant cap rate contraction, which would have yielded an accuracy of 70.5\%. This is not true at the MSA level, where cap rates have expanded 27\% of the time (compressed 73\% of the time) and the model yielded only 68\% accuracy. That is, it would have done better by forecasting constant cap rate compression (yielding an accuracy of 73\%.
 
-Those subtleties are why we further examine precision, recall, and specificity. Precision (TP/(TP+FP)) is the ratio of correctly predicted positive observations to total predicted positive observations. The national model achieves 50\% precision, meaning half the time a signal is generated, it is accurate. The jointly trained MSA model has weak precision. 
+Those subtleties are why we further examine precision, recall, and specificity. Precision (TP/(TP+FP)) is the ratio of correctly predicted positive observations to total predicted positive observations. The national model achieves 67\% precision, meaning two-thirds of the time a signal is generated, it is accurate. The jointly trained MSA model had relatively weak precision, out-of-sample, but surged to 68\% in-sample. 
 
-Recall (TP/(TP+FN)) is the ratio of correctly identified cap rate expansions to the total number of cap rate expansions. In many MSAs there were only three or six years of cap rate expansions. Compare this to the national model which had far more quarters of cap rate expansion. The recall of the national model was high at 0.6, meaning 60\% of the times when cap rates expanded, the model correctly forecasted them. The recall of the MSA model was not particularly noteworthy.
+Recall (TP/(TP+FN)) is the ratio of correctly identified cap rate expansions to the total number of cap rate expansions. In many MSAs there were only three or six years of cap rate expansions. Compare this to the national model which had far more quarters of cap rate expansion. The recall of the national model was high at 0.41, meaning 41\% of the times when cap rates expanded, the model correctly foretasted them. The recall of the MSA model was equal.
 
 The F1-score combines the precision and recall into their harmonic mean, and is valuable to consider percision and recall together, though it is less intuitive. 
 
-Finally, the specificity (TN/(TN+FN)) of the national model was noteworthy, as it predicted cap rate compression with a higher accuracy than the true occurence of cap rate compression. MSA models were not successful in this regard. 
-
-\subsubsection{National Model}
-\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_accuracy.csv"}
-
-\subsubsection{Jointly Trained MSA Model}
-\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_accuracy.csv"}
+Finally, the specificity (TN/(TN+FN)) of both models was most noteworthy. A high specificity value suggests that the periods where cap rate compression was foretasted were highly accurate. This is especially useful in a series where cap rate compressions are profitable and are more common than expansions. These periods should not be missed, and indeed, the forecasts generated by both models would allow an investor to participate in upward of 80\% of the cap rate compressions experienced.
 
 
-Still, despite the four metrics of the confusion matrix, there remains the question of efficacy in practice. Perhaps the model inadvertently only captured the smallest cap rate expansions and not the more pronounced one. Perhaps a buy-and-hold approach would have been better suited. 
+
+\begin{table}[H]
+\centering
+\caption*{Confusion Matrix: National Model}
+\csvautotabular{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_accuracy.csv}
+\caption{A confusion matrix showing the values of the national model with both train/test split, and in-sample data}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption*{Confusion Matrix: MSA Model}
+\csvautotabular{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_accuracy.csv}
+\caption{A confusion matrix showing the values of the MSA-level model with both train/test split, and in-sample data}
+\end{table}
+
+Still, despite the four metrics of the confusion matrix, there remains the question of efficacy in practice. Because entering or exiting real estate holdings is not done easily or without great transactions costs, these models would only be useful to the extent they significantly outperformed a buy-and-hold strategy.
 
 To examine this we implemented the national and MSA models' recommendations and yielded the following results.
 
 \begin{figure}
 \hspace*{-0.25in}
-\includegraphics{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_1_10.jpg"}
+\includegraphics{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_1_10.jpg}
 \end{figure}
 
 \begin{figure}
 \hspace*{-0.25in}
-\includegraphics{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_11_20.jpg"}
+\includegraphics{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_11_20.jpg}
 \end{figure}
 
 \begin{figure}
-\includegraphics{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_performance.jpg"}
+\includegraphics{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_performance.jpg}
 \end{figure}
 
-Implementing the recommendations made by the model would have yileded cap rate compression 13\% greater than a buy-and-hold strategy. 
+At the national level, implementing the recommendations made by the model would have yielded cap rate compression 13\% greater than a buy-and-hold strategy. This would have happened in part because of the avoidance of sharp periods of cap rate expansion of the 2005-2009 period, and the late '80s.
 
-On average, implementing the MSA model resulted in significant outperformance relative to a buy-and-hold strategy. But the variance is quite high. 
+At the MSA-level, implementing the recommendations would have resulted in significant outperformance of 29\% relative to a buy-and-hold strategy. But the variance is quite high. In Miami, implementing the model would have led to outperformance of 196\%, while in Baltimore, implementing the model would have resulted in underperformance of 66\%. Understanding these results is the  focus of the next section.
 
+\pagebreak
 
 \subsection{Analysis of Results}
 
@@ -286,53 +350,57 @@ The MSA model that was jointly trained was relatively weak, which is likely owin
 
 Upon further review, we noted that it seemed the MSAs wherein the model performed well were all established or low-population-growth cities, while the MSAs where the model performed poorly seemed to generally have higher population growth. 
 
+
 %https://tableconvert.com/csv-to-latex
-\begin{table}[!ht]
-    \centering
-    \begin{tabular}{|l|p{2cm}|p{2cm}|}
-    \hline
-        MSA & Outperformance vs Buy and Hold & HH Growth 2005 to 2020 \\ \hline
-        Atlanta & 27\% & 21\% \\ \hline
-        Baltimore & 66\% & 7\% \\ \hline
-        Boston & 8\% & 11\% \\ \hline
-        Chicago & -41\% & 5\% \\ \hline
-        Dallas & -32\% & 29\% \\ \hline
-        Denver & -51\% & 23\% \\ \hline
-        Detroit & 62\% & -5\% \\ \hline
-        Houston & -27\% & 34\% \\ \hline
-        LosAngeles & 121\% & 3\% \\ \hline
-        Miami & 196\% & 13\% \\ \hline
-        Minneapolis & -22\% & 12\% \\ \hline
-        NewYork & 87\% & 10\% \\ \hline
-        Philadelphia & -26\% & 9\% \\ \hline
-        Phoenix & 48\% & 22\% \\ \hline
-        SanDiego & 21\% & 10\% \\ \hline
-        SanFrancisco & 17\% & 9\% \\ \hline
-        Seattle & -6\% & 24\% \\ \hline
-        StLouis & 41\% & 6\% \\ \hline
-        Tampa & 88\% & 7\% \\ \hline
-        WashingtonDC & 3\% & 14\% \\ \hline
-        Average & 29\% & 16\% \\ \hline
-    \end{tabular}
-\end{table}
+%\begin{table}[!ht]
+%    \centering
+%    \caption*{Outperformance of MSA Model vs HH formation}
+%    \begin{tabular}{|l|p{2cm}|p{2cm}|}
+%    \hline
+%        MSA & Outperformance vs Buy and Hold & HH Growth 2005 to 2020 \\ \hline
+%        Atlanta & 27\% & 21\% \\ \hline
+%        Baltimore & 66\% & 7\% \\ \hline
+%        Boston & 8\% & 11\% \\ \hline
+%        Chicago & -41\% & 5\% \\ \hline
+%        Dallas & -32\% & 29\% \\ \hline
+%        Denver & -51\% & 23\% \\ \hline
+%        Detroit & 62\% & -5\% \\ \hline
+%        Houston & -27\% & 34\% \\ \hline
+%        LosAngeles & 121\% & 3\% \\ \hline
+%        Miami & 196\% & 13\% \\ \hline
+%        Minneapolis & -22\% & 12\% \\ \hline
+%        NewYork & 87\% & 10\% \\ \hline
+%        Philadelphia & -26\% & 9\% \\ \hline
+%        Phoenix & 48\% & 22\% \\ \hline
+%        SanDiego & 21\% & 10\% \\ \hline
+%        SanFrancisco & 17\% & 9\% \\ \hline
+%        Seattle & -6\% & 24\% \\ \hline
+%        StLouis & 41\% & 6\% \\ \hline
+%        Tampa & 88\% & 7\% \\ \hline
+%        WashingtonDC & 3\% & 14\% \\ \hline
+%        Average & 29\% & 16\% \\ \hline
+%    \end{tabular}
+%    
+%    \caption{The outperformance of the MSA model varies inversely with the household formation over the time the model was trained}
+%
+%\end{table}
 
 Viewing these results in a regression, the results are more pronounced and show that household growth is significantly correlated with model underperformance, thus suggesting this model is very well suited for MSAs with national-average-like population growth. 
 
-\begin{figure}
-\includegraphics{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter.jpg"}
+\begin{figure}[H]
+\includegraphics{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter.jpg}
 \end{figure}
 
 Removing the leverage point (Miami 196\% outperformance and 13\% household growth) yields an even tighter relationship.
 
-\begin{figure}
-\includegraphics{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter_no_minmax.jpg"}
+\begin{figure}[H]
+\includegraphics{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter_no_minmax.jpg}
 \end{figure}
 
 And this makes intuitive sense: that a market with average-to-low organic growth would have its real estate values dictated by the interplay between inflation growth and GDP growth. Conversely, an area which was experiencing sharp population growth would have these dynamics overridden by the outsized demand for real estate.
+\pagebreak
 
 \section{Conclusion}
-
-\pagebreak
 
 
 % Authors must disclose all relationships or interests that 
