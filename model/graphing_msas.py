@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from matplotlib.lines import Line2D
 from sklearn.metrics import r2_score
+import statsmodels.api as sm
 
 cr = pd.read_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\data\all_msa_cr.csv')
 flag = pd.read_csv(r'C:\Users\mlarriva\Documents\GitHub\inflation_cr_expansion\output\msa_df_flag.csv')
@@ -94,7 +95,7 @@ for elem in ['_1_10','_11_20']:
 	                         label='incorrect forecast')]
 
 	fig.legend(handles=legend_elements,loc='center',bbox_to_anchor=(.475,0.90))
-	plt.show()
+	# plt.show()
 	# fig.savefig(fr'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\mas_graph{elem}.jpg',dpi=1000,bbox_inches='tight')
 
 df_outperformance.columns=['MSA','Outperformance vs Buy and Hold']
@@ -141,8 +142,14 @@ ax.set_xticklabels(['{:,.0%}'.format(x) for x in vals])
 plt.annotate("r-squared = {:.3f}".format(r2), (0, 1))
 ax.set_xlabel('Household Growth: 2005-2020')
 ax.set_ylabel('Outperformance of CREM over a B&H')
-plt.show()
-fig.savefig(fr'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_scatter.jpg')
+# plt.show()
+# fig.savefig(fr'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_scatter.jpg')
+x_w_e = sm.add_constant(x,prepend=False)
+mod = sm.OLS(y, x_w_e)
+res = mod.fit()
+with open(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\ols_summary_all_msa.csv','w') as fh:
+	fh.write(res.summary().as_csv())
+assert False
 
 # Without Min and Max Points
 df_numbers_outperfrom = df_numbers_outperfrom.dropna()
@@ -173,3 +180,9 @@ ax.set_xlabel('Household Growth: 2005-2020')
 ax.set_ylabel('Outperformance of CREM over a B&H')
 plt.show()
 fig.savefig(fr'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\msa_scatter_no_minmax.jpg')
+
+x_w_e = sm.add_constant(x,prepend=False)
+mod = sm.OLS(y, x_w_e)
+res = mod.fit()
+with open(r'C:\Users\matth\Documents\GitHub\inflation_cr_expansion\output\ols_summary_all_msa_no_leverage.csv','w') as fh:
+	fh.write(res.summary().as_csv())
