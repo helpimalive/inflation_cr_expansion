@@ -35,36 +35,39 @@ grestore
 \usepackage{subfig}
 \usepackage{graphicx}
 \usepackage{url}
+\captionsetup[figure]{font=normalsize}
 \usepackage{pdflscape}
 \usepackage [english]{babel}
 \usepackage [autostyle, english = american]{csquotes}
 \MakeOuterQuote{"}
 
 \begin{document}
-\title{x}
-\date{}
-\subtitle{x}
-\titlerunning{x}        
-\author{Matt Larriva, CFA         %\and
+
+\title{Forward cap rate direction as a function of GDP and CPI interaction}
+\date{May 5, 2022}
+\subtitle{Using real growth to explain cap rates at the national and metropolitan levels}
+\titlerunning{Cap Rates as a function of GDP and CPI}        
+\author{Matt Larriva, CFA         \\
+ \email{mlarriva@fcpdc.com}             \\
+             \emph{Washington, DC}   \\
+             \emph{Director of Research and Data Analytics: FCP}\\ %  if needed             
+             \emph{ORCID: 0000-0002-2151-468X}
 }
 
-%\authorrunning{Short form of author list} % if too long for running head
+\authorrunning{Anonymized} 
 
-%\institute{M. Larriva\at
-%              \email{mlarriva@fcpdc.com}           %  \\
-%             \emph{Present address:} of F. Author  %  if needed
-%           \and
-%           P. Linneman\at
-%              \email{plinneman@linnemanassociates.com} %  \\ 
-%}
+
+\institute{ {}
+              \email{mlarriva@fcpdc.com}           
+             \emph{Washington, DC} 
+}
 
 %\date{Received: date / Accepted: date}
 % The correct dates will be entered by the editor
 
 \maketitle
 
-\begin{abstract}
-
+\begin{abstract} 
 \subsection*{Purpose}
 To explain and forecast both national and market-level cap rate expansions as simply a binary  interaction between Gross Domestic Product and Consumer Price Index.
 
@@ -79,7 +82,6 @@ This model contributes to the existing corpus by 1) establishing a statistically
 
 \subsection*{Practical Implications}
 The accuracy of the model suggests a simpler and more robust explanation for understanding cap rates and navigating residential property markets in the present environment of rapidly fluctuating interest rates, not only at the national level but also at the market level. 
-
 
 \keywords{Binary Logistic Regression \and Cap Rates \and US Real Estate Markets \and Multifamily Cap Rate \and Apartment Cap Rate}
 
@@ -113,29 +115,29 @@ The remainder of the paper is outlined as follows: we review the literature surr
 
 The literature on cap rate forecasting is extensive, and it can be viewed well through two different lenses: variable selection and methodology selection. 
 
-The first framework is illustrated in Ghysels et. al. Forecasting Real Estate Prices \citep*{ghysels_plazzi_valkanov_torous_2013} which divides the literature by variable selection. The authors enumerate three camps: those models which use lagged return (or price change) as a variable, those which use ratios such as rent-to-price or price-to-income, and those which use more granular property or regional data. 
+The first framework is illustrated in Ghysels et. al. Forecasting Real Estate Prices (\citeyear{ghysels_plazzi_valkanov_torous_2013}) which divides the literature by variable selection. The authors enumerate three camps: those models which use lagged return (or price change) as a variable, those which use ratios such as rent-to-price or price-to-income, and those which use more granular property or regional data. 
 
-The second lens by which to view the research is through methodology selection, as documented by Larriva and Linneman \citep*{larriva2021determinants}. The authors divide the research into simple time series methods, multivariate timeseries, and machine learning methods. The division is roughly chronological. 
+The second lens by which to view the research is through methodology selection, as documented by Larriva and Linneman (\citeyear{larriva2021determinants}). The authors divide the research into simple time series methods, multivariate timeseries, and machine learning methods. The division is roughly chronological. 
 
 Neither lens quite suits this study's purpose, as the variables used in this work--raw GDP and CPI--are not often found in the research. More common is a spread to an inflation metric or a derivative of GDP. Separately, the level of granularity we seek to explain is somewhat uncommon (MSA level). More common is either property-level or national. Finally, the method we use is new to the research, to our review. The following section, then will seek to outline research that contains either growth or inflationary metrics, or their derivatives, regardless of method or granularity.
 
-In the mid-1990s, research was concentrated on either single-variate autoregressive methods \citep*{gau_1984}, \citep*{gau_1985}, \citep*{linneman_1986} or variations on OLS that used multi-stage estimation \citep*{case_shiller_1990}, \citep*{abraham_hendershott_1994}. The variables used in these methods of forecasting tended to fall into classes that line up with the components of a cap rate: risk-free rate, real interest rates, relative return expectations, and risk. Many models’ variables included a government long-bond  to capture the risk-free and real rates, an economic spread (credit or pricing-based) to capture the relative expense or return of real estate, and macroeconomic factors to capture the  growth prospects and risk in the marketplace. Some models included a term to capture forward estimates including either sentiment or expected rent or NOI growth. This lines up with the Gordon growth model of pricing cap rates as the discount rate less the perpetual NOI growth rate. Thus, the value of macroeconomic factors, or their derivatives, was established.
+In the mid-1990s, research was concentrated on either single-variate autoregressive methods \citep*{gau_1984,gau_1985,linneman_1986} or variations on OLS that used multi-stage estimation \citep*{case_shiller_1990,abraham_hendershott_1994}. The variables used in these methods of forecasting tended to fall into classes that line up with the components of a cap rate: risk-free rate, real interest rates, relative return expectations, and risk. Many models’ variables included a government long-bond  to capture the risk-free and real rates, an economic spread (credit or pricing-based) to capture the relative expense or return of real estate, and macroeconomic factors to capture the  growth prospects and risk in the marketplace. Some models included a term to capture forward estimates including either sentiment or expected rent or NOI growth. This lines up with the Gordon growth model of pricing cap rates as the discount rate less the perpetual NOI growth rate. Thus, the value of macroeconomic factors, or their derivatives, was established.
 
 \subsection{The Relationship between Inflation and Cap Rates}
 
-Inflation has long been researched with regard to cap rates \citep*{froland1987determines}; \citep*{sivitanides2001determinants}; \citep*{chandrashekaran2000predictability}. Supporters suggest that inflation rates are inversely related to cap rates either via real rates, the weighted average  cost of capital, or increased borrowing costs. While there are myriad reasons why the relationship should hold, there are just as many observable exceptions--cases when cap rates increase when interest rates decline, or the reverse. Understandably then, the research into the topic reaches mixed conclusions.
+Inflation has long been researched with regard to cap rates \citep*{froland1987determines, sivitanides2001determinants, chandrashekaran2000predictability}. Supporters suggest that inflation rates are inversely related to cap rates either via real rates, the weighted average  cost of capital, or increased borrowing costs. While there are myriad reasons why the relationship should hold, there are just as many observable exceptions--cases when cap rates increase when interest rates decline, or the reverse. Understandably then, the research into the topic reaches mixed conclusions.
 
 \subsubsection{In Support of the Interest Rate and Cap Rate Relationship}
-Froland \citep*{froland1987determines} reports negative correlations between cap rates and inflationary expectations. Sivitanides et. al. \citep*{sivitanides2001determinants} further supported and quantified this relationship at the MSA level. The authors use the average cap rates over the past 16 years of four property types across 14 metropolitan markets to examine how cap rates behave. And the statistical specification was estimated using a dual Time-Series Cross-Section method which corrects for cross section correlations and group-wise heteroskedasticity. Inflation was found to be a major driver of cap rates. In fact, Sivitanides et al. found that an expected increase in economy wide inflation of one percent annually lowers office cap rates by 46 basis points, multi-family cap rates by 40 basis points, retail cap rates by 54 basis points, and by 20 basis points in industrial cap rates.
+Froland (\citeyear{froland1987determines}) reports negative correlations between cap rates and inflationary expectations. Sivitanides et. al. (\citeyear{sivitanides2001determinants}) further supported and quantified this relationship at the MSA level. The authors use the average cap rates over the past 16 years of four property types across 14 metropolitan markets to examine how cap rates behave. And the statistical specification was estimated using a dual Time-Series Cross-Section method which corrects for cross section correlations and group-wise heteroskedasticity. Inflation was found to be a major driver of cap rates. In fact, Sivitanides et al. found that an expected increase in economy wide inflation of one percent annually lowers office cap rates by 46 basis points, multi-family cap rates by 40 basis points, retail cap rates by 54 basis points, and by 20 basis points in industrial cap rates.
 
-Research from Wheaton et. al. \citep*{wheaton2001real} further substantiates the above work using a VAR model to show that inflation is a significant variable in determining cap rates at the MSA level. 
+Research from Wheaton et. al. (\citeyear{wheaton2001real}) further substantiates the above work using a VAR model to show that inflation is a significant variable in determining cap rates at the MSA level. 
 
 \subsubsection{In Opposition of the Interest Rate and Cap Rate Relationship}
-In contrast to the above works, Chandrashekaran and Young \citep*{chandrashekaran2000predictability} find that there is not a statistically significant relationship between inflation and cap rates. To reach this conclusion Chandrashekaran and Young use two regression models: one with macroeconomic variables and one with lagged cap rates. The model with lagged cap rates uniformly performed better. The authors concluded that their attempt to predict cap rates using macroeconomic variables, such as inflation, were unsuccessful. 
+In contrast to the above works, Chandrashekaran and Young (\citeyear{chandrashekaran2000predictability}) find that there is not a statistically significant relationship between inflation and cap rates. To reach this conclusion Chandrashekaran and Young use two regression models: one with macroeconomic variables and one with lagged cap rates. The model with lagged cap rates uniformly performed better. The authors concluded that their attempt to predict cap rates using macroeconomic variables, such as inflation, were unsuccessful. 
 
-Gimpelevich \citep*{Gimpelevich2011} supports Chandrashekaran and Young using Monte Carlo simulations of real estate returns called the Simulation-Based Excess Return Model (SERM). The simulation results in poor correlation between inflation rates and cap rates (Gimpelevich, 2011).
+Gimpelevich (\citeyear{Gimpelevich2011}) supports Chandrashekaran and Young using Monte Carlo simulations of real estate returns called the Simulation-Based Excess Return Model (SERM). The simulation results in poor correlation between inflation rates and cap rates (Gimpelevich, 2011).
 
-More recently, Larriva and Linneman \citep*{larriva2021determinants} used multivariate timeseries analysis to show the superiority of a model which did not use return expectations or inflationary metrics. Their model used granger causality to select variables and establish a highly robust explanatory and predictive VECM model, without the use of interest rates.
+More recently, Larriva and Linneman (\citeyear{larriva2021determinants}) used multivariate timeseries analysis to show the superiority of a model which did not use return expectations or inflationary metrics. Their model used granger causality to select variables and establish a highly robust explanatory and predictive VECM model, without the use of interest rates.
 
 Although there are exceptions, different conclusions in this space can often be attributed to differences in data and methodology. Research which finds that inflation is a good predictor of future cap rates typically use time series data for both macroeconomic variables and cap rates while research which dismisses the value of inflation rates, generally, use cross sectional econometric methods.
 
@@ -146,11 +148,11 @@ We propose herein that perhaps the reason for the disagreement in the impact of 
 
 The growth or contraction of a nation or MSA's gross domestic product is likely the single most important indicator of economic health. That cap rates would be closely related to this metric is not surprising. And there is ample research which substantiates and explores this.
 
-Granger causality between GDP and real estate markets was established in 1997 by Green \citep{green1997follow} who found that, under a wide variety of time series specifications, residential investment causes GDP, while non-residential investment is caused by GDP. The phrase "caused by" is used in the Granger sense in this context. 
+Granger causality between GDP and real estate markets was established in 1997 by Green (\citeyear{green1997follow}) who found that, under a wide variety of time series specifications, residential investment causes GDP, while non-residential investment is caused by GDP. The phrase "caused by" is used in the Granger sense in this context. 
 
-Quan and Titman \citep{quan1997commercial} build on the Granger causality and seek to quantify the relationship. The team utilized time series regressions to examine the effects of changes in macroeconomic variables (including GDP) on real estate values and rents. To begin Quan and Titman explore the connection between stock and real estate market returns, and after establishing their connection the duo explore factors and develop regressions to explain this connection. The first theory they explore is that real estate and stock prices are both guided by future macroeconomic expectations such as GDP growth. The second is that commercial real estate prices rise and fall because of changing political and economic fundamentals, and under this theory the relationship between the stock and real estate market will be much weaker. After controlling for macroeconomic variance Quan and Titman find that the correlation between real estate and stock prices are primarily because of economic fundamentals, and that rental rates are strongly correlated with GDP growth.
+Quan and Titman (\citeyear{quan1997commercial}) build on the Granger causality and seek to quantify the relationship. The team utilized time series regressions to examine the effects of changes in macroeconomic variables (including GDP) on real estate values and rents. To begin Quan and Titman explore the connection between stock and real estate market returns, and after establishing their connection the duo explore factors and develop regressions to explain this connection. The first theory they explore is that real estate and stock prices are both guided by future macroeconomic expectations such as GDP growth. The second is that commercial real estate prices rise and fall because of changing political and economic fundamentals, and under this theory the relationship between the stock and real estate market will be much weaker. After controlling for macroeconomic variance Quan and Titman find that the correlation between real estate and stock prices are primarily because of economic fundamentals, and that rental rates are strongly correlated with GDP growth.
 
-Once this connection was established, research turned to its implication on an international scale: does worldwide GDP growth or local GDP growth have a larger effect on property values and cap rates? Case, et. al. \citep*{case2000global} explore whether or not correlations across global real estate markets are due to world changes in GDP, and estimate the value of local economic performance in real estate markets. This is an important question in real estate because all real estate is essentially local. And if local growth has a stronger effect on property values than national or global growth investors can better leverage local growth patterns to maximize return. The researchers found that that international property returns move together in dramatic fashion due to the effects of changes in GNP. Specifically, correlations of real estate are due in part to common exposure to fluctuations in the global economy, as measured by an equal-weighted index of international GDP changes. Some markets, such as Asia, are more effected by lo cal changes rather than world changes in GDP. In other words, even though real estate is fundamentally local changes in the global economy carry enough weight to have significant effects in local real estate markets.
+Once this connection was established, research turned to its implication on an international scale: does worldwide GDP growth or local GDP growth have a larger effect on property values and cap rates? Case, et. al. (\citeyear{case2000global}) explore whether or not correlations across global real estate markets are due to world changes in GDP, and estimate the value of local economic performance in real estate markets. This is an important question in real estate because all real estate is essentially local. And if local growth has a stronger effect on property values than national or global growth investors can better leverage local growth patterns to maximize return. The researchers found that that international property returns move together in dramatic fashion due to the effects of changes in GNP. Specifically, correlations of real estate are due in part to common exposure to fluctuations in the global economy, as measured by an equal-weighted index of international GDP changes. Some markets, such as Asia, are more effected by lo cal changes rather than world changes in GDP. In other words, even though real estate is fundamentally local changes in the global economy carry enough weight to have significant effects in local real estate markets.
 
 \subsection{GDP and Inflation together}
 
@@ -162,7 +164,7 @@ Aizenman and Jinjarak make a somewhat contrary finding. In their 2009 work, \cit
 
 \subsection{Similar Models and Novelty}
 
-The study that is most comparable to our own is that of Duca and Ling \citep*{duca2017taxes} whose research finds that cap rates are positively correlated with inflation via risk premia, and negatively correlated with rent growth expectations via GDP. Specifically, risk premia and real Treasury rates drive cap rates. They explain this theoretically via the discount factor (i.e. required rate of return).
+The study that is most comparable to our own is that of Duca and Ling (\citeyear{duca2017taxes}) whose research finds that cap rates are positively correlated with inflation via risk premia, and negatively correlated with rent growth expectations via GDP. Specifically, risk premia and real Treasury rates drive cap rates. They explain this theoretically via the discount factor (i.e. required rate of return).
 
 Upon review, we note the frequency with which research disagrees on the significance (ordinal or absolute) of GDP metrics and inflation metrics. Our work makes three significant contributions to the existing body of work. 
 
@@ -273,7 +275,7 @@ It is worth noting that the coefficient decreased consistently as time advances,
 \begin{table}[H]
 \centering
 \caption*{Goodness of Fit: National Model}
-\csvautotabular{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_fit.csv}
+\csvautotabular{C:/Users/mlarriva/Documents/GitHub/inflation_cr_expansion/output/national_fit.csv}
 \centering
 \caption{Relevant parameters and metrics from the logistic regression trained on national data, both in and out of sample}
 \end{table}
@@ -281,12 +283,12 @@ It is worth noting that the coefficient decreased consistently as time advances,
 \begin{table}[H]
 \centering
 \caption*{Goodness of Fit: MSA-level Model}
-\csvautotabular{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_fit.csv}\caption{Relevant parameters and metrics from the logistic regression trained jointly on all MSA data, both in and out of sample}
+\csvautotabular{C:/Users/mlarriva/Documents/GitHub/inflation_cr_expansion/output/msa_level_fit.csv}\caption{Relevant parameters and metrics from the logistic regression trained jointly on all MSA data, both in and out of sample}
 \end{table}
 
 
 %\subsubsection{Individually Trained MSA Model}
-%\csvautotabular{"C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/individual_msa_level_fit.csv}
+%\csvautotabular{"C:/Users/mlarriva/Documents/GitHub/inflation_cr_expansion/output/individual_msa_level_fit.csv}
 
 \section{Results}
 
@@ -307,14 +309,14 @@ Finally, the specificity (TN/(TN+FN)) of both models was most noteworthy. A high
 \begin{table}[H]
 \centering
 \caption*{Confusion Matrix: National Model}
-\csvautotabular{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_accuracy.csv}
+\csvautotabular{C:/Users/mlarriva/Documents/GitHub/inflation_cr_expansion/output/national_accuracy.csv}
 \caption{A confusion matrix showing the values of the national model with both train/test split, and in-sample data}
 \end{table}
 
 \begin{table}[H]
 \centering
 \caption*{Confusion Matrix: MSA Model}
-\csvautotabular{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_level_accuracy.csv}
+\csvautotabular{C:/Users/mlarriva/Documents/GitHub/inflation_cr_expansion/output/msa_level_accuracy.csv}
 \caption{A confusion matrix showing the values of the MSA-level model with both train/test split, and in-sample data}
 \end{table}
 
@@ -322,18 +324,24 @@ Still, despite the four metrics of the confusion matrix, there remains the quest
 
 To examine this we implemented the national and MSA models' recommendations and yielded the following results.
 
-\begin{figure}
+\begin{figure}[H]
 \hspace*{-0.25in}
-\includegraphics{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_1_10.jpg}
+\caption*{Graphs of Forecast Performance for MSAs 1-10}
+\includegraphics{C:/Users/mlarriva/Documents/GitHub/inflation_cr_expansion/output/mas_graph_1_10.jpg}
+\caption{The performance of the MSA-level forecasts versus a buy-and-hold strategy in each MSA}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \hspace*{-0.25in}
-\includegraphics{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/mas_graph_11_20.jpg}
+\caption*{Graphs of Forecast Performance for MSAs 11-20}
+\includegraphics[scale=.9]{C:/Users/mlarriva/Documents/GitHub/inflation_cr_expansion/output/mas_graph_11_20.jpg}
+\caption{The performance of the MSA-level forecasts versus a buy-and-hold strategy in each MSA}
 \end{figure}
 
-\begin{figure}
-\includegraphics{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/national_performance.jpg}
+\begin{figure}[H]
+\caption*{Graph of Forecast Performance at the National Level}
+\includegraphics{C:/Users/mlarriva/Documents/GitHub/inflation_cr_expansion/output/national_performance.jpg}
+\caption{The performance of the national quarterly forecasts versus a buy-and-hold strategy}
 \end{figure}
 
 At the national level, implementing the recommendations made by the model would have yielded cap rate compression 13\% greater than a buy-and-hold strategy. This would have happened in part because of the avoidance of sharp periods of cap rate expansion of the 2005-2009 period, and the late '80s.
@@ -388,27 +396,32 @@ Upon further review, we noted that it seemed the MSAs wherein the model performe
 Viewing these results in a regression, the results are more pronounced and show that household growth is significantly correlated with model underperformance, thus suggesting this model is very well suited for MSAs with national-average-like population growth. 
 
 \begin{figure}[H]
-\includegraphics{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter.jpg}
+\centering
+\caption*{The outperformance of the MSA-model over a buy-and-hold strategy versus the household growth of the MSA}
+\includegraphics[scale=0.75]{C:/Users/mlarriva/Documents/GitHub/inflation_cr_expansion/output/msa_scatter.jpg}
+\caption{Each dot represents one MSA. The X-axis shows the MSA's household growth over the model period while the Y-axis shows the outeprformance of the Cap Rate Expansion Mode.lThe graph illustrates that in MSAs (each dot) where household growth has been low, the strategy has outperformed}
 \end{figure}
 
 \begin{table}[H]
 \centering
 \caption*{Regression Output: Model Outperformance as a function of HH Growth}
-\csvautotabular{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/ols_summary_all_msa.csv}
-\caption{The results of an ordinary least squares regression on the relationship between household growth and the outperformance of the cap rate model versus a buy-and-hold strategy. The graph illustrates that in MSAs (each dot) where household growth has been low, the strategy has outperformed}
+\csvautotabular{C:/Users/mlarriva/Documents/GitHub/inflation_cr_expansion/output/ols_summary_all_msa.csv}
+\caption{The results of an ordinary least squares regression on the relationship between household growth and the outperformance of the cap rate model versus a buy-and-hold strategy.}
 \end{table}
-
 Removing the leverage point (Miami 196\% outperformance and 13\% household growth) yields an even tighter relationship.
 
 \begin{figure}[H]
-\includegraphics{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/msa_scatter_no_minmax.jpg}
+\centering
+\caption*{The outperformance of the MSA-model over a buy-and-hold strategy versus the household growth of the MSA (leverage points removed)}
+\includegraphics[scale=0.75]{C:/Users/mlarriva/Documents/GitHub/inflation_cr_expansion/output/msa_scatter_no_minmax.jpg}
+\caption{Each dot represents one MSA. The X-axis shows the MSA's household growth over the model period while the Y-axis shows the outeprformance of the Cap Rate Expansion Model. The graph illustrates that in MSAs (each dot) where household growth has been low, the strategy has outperformed}
 \end{figure}
 
 \begin{table}[H]
 \centering
 \caption*{Regression Output: Model Outperformance as a function of HH Growth}
-\csvautotabular{C:/Users/matth/Documents/GitHub/inflation_cr_expansion/output/ols_summary_all_msa_no_leverage.csv}
-\caption{The results of an ordinary least squares regression on the relationship between household growth and the outperformance of the cap rate model versus a buy-and-hold strategy. The graph illustrates that in MSAs (each dot) where household growth has been low, the strategy has outperformed}
+\csvautotabular{C:/Users/mlarriva/Documents/GitHub/inflation_cr_expansion/output/ols_summary_all_msa_no_leverage.csv}
+\caption{The results of an ordinary least squares regression on the relationship between household growth and the outperformance of the cap rate model versus a buy-and-hold strategy.}
 \end{table}
 
 \pagebreak
@@ -426,7 +439,6 @@ Second, we use the interaction term to explain cap rate expansion and contractio
 
 Third, we address the high variance observed in the outperformance of our strategy versus a buy-and-hold strategy at the national level by relating it to household formation. As mentioned, implementing the forecasts generated by the model, at the MSA-level, produced outperformance on average. But there was a very high variance associated with this average, with the strategy outperforming by almost 200\% in some MSAs and by -61\% in others. One would be rightfully weary to implement this strategy on a new market. But upon further examination of these results, we confirmed that there existed a significant inverse relationship between average household formation and strategy outperformance. In markets where household formation were less-than-peer-group-average, the strategy outperformed, while in markets where household formation were greater-than-peer-group-average, the strategy underperformed. This has implications both for investors as well as for future research in the cap rate space. We suggest that future models not attempt to implement regime-switching techniques or any such advanced analytics, but instead to segment their data into markets of high growth and stable growth, knowing that the dynamics that govern cap rate movements in stable markets can easily be overridden by influxes of population. 
 
-\pagebreak
 
 \section{Conclusion}
 
@@ -447,12 +459,12 @@ Areas for future research include broadening this analysis to more metropolitans
 Going forward, we encourage investors, owners, and anyone who participates in the multi-trillion dollar segment of American residential real estate to employ our analysis as an additional barometer of where real estate values may go. This may assist in reducing some of the confusion of investing and owning during the second or third once-in-a-lifetime financial event in which we find ourselves today.
 
 
-
+\pagebreak
 % Authors must disclose all relationships or interests that 
 % could have direct or potential influence or impart bias on 
 % the work: 
 %
-\section*{Declarations}
+\section*{Statements and Declarations}
 \subsection{Funding}
 This research is a part of one author's role as Director of Research and Data Analytics at a Real Estate Private Equity firm. 
 
@@ -490,6 +502,7 @@ The author confirms that this manuscript has not been previously published and i
 %Author, Book title, page numbers. Publisher, place (year)
 % etc
 %\end{thebibliography}
+\pagebreak
 \bibliography{bib} 
 
 \end{document}
