@@ -43,10 +43,10 @@ grestore
 
 \begin{document}
 
-\title{Forward cap rate direction as a function of GDP and CPI interaction}
+\title{Cap Rates as a Function of Real Economic Growth}
 \date{May 5, 2022}
 \subtitle{Using real growth to explain cap rates at the national and metropolitan levels}
-\titlerunning{Cap Rates as a function of GDP and CPI}        
+\titlerunning{Cap Rates as a Function of Real Economic Growth}        
 \author{Matt Larriva, CFA         \\
  \email{mlarriva@fcpdc.com}             \\
              \emph{Washington, DC}   \\
@@ -68,28 +68,30 @@ grestore
 \maketitle
 
 \begin{abstract} 
-\subsection*{Purpose}
-To explain and forecast both national and market-level cap rate expansions as simply a binary  interaction between Gross Domestic Product and Consumer Price Index.
 
-\subsection*{Design/Methodology/Approach}
-We use a binary logistic regression with binary independent variables, trained on a minority over-sampling set, to explain cap rate expansion at the national level and at 20 US metropolitan areas.
+We demonstrate a method to explain and forecast both national and market-level cap rate expansions as a simple binary  interaction between Gross Domestic Product and Consumer Price Index. Achieving both a strong confusion matrix and sharp outperformance versus a buy-and-hold strategy, our research contributes to the existing corpus in three ways. First, we establish a statistically significant relationship between the interaction effect of GDP and CPI versus cap rates which holds explanatory power at the national and market levels, by mapping the ground truth from a non-discrete to a binary variable.
+\end{abstract}
 
-\subsection*{Results}
-Both the national model and the market models have accuracy near 70\% and capture about 40\% of all cap rate expansion periods with a robust confusion matrix, such that implementing the recommendations of the models would result in significant outperformance versus a buy-and-hold strategy.
+\subsection{Conflict of interest}
+The author works for a Real Estate Private Equity firm which has ownership interest in  office and multifamily assets throughout the US. 
 
-\subsection*{Originality}
-This model contributes to the existing corpus by 1) establishing a statistically significant relationship between the interaction effect of GDP and CPI versus cap rates which 2) holds explanatory power at the national and market levels, by 3) mapping the ground truth from a non-discrete to a binary variable.
-
-\subsection*{Practical Implications}
-The accuracy of the model suggests a simpler and more robust explanation for understanding cap rates and navigating residential property markets in the present environment of rapidly fluctuating interest rates, not only at the national level but also at the market level. 
 
 \keywords{Binary Logistic Regression \and Cap Rates \and US Real Estate Markets \and Multifamily Cap Rate \and Apartment Cap Rate}
 
-\end{abstract}
+
 
 \pagebreak
 \setlength{\parindent}{4em}
 \setlength{\parskip}{1em}
+
+\title{Cap Rates as a Function of Real Economic Growth}
+\begin{abstract} 
+
+We demonstrate a method to explain and forecast both national and market-level cap rate expansions as a simple binary  interaction between Gross Domestic Product and Consumer Price Index. Achieving both a strong confusion matrix and sharp outperformance versus a buy-and-hold strategy, our research contributes to the existing corpus in three ways. First, we establish a statistically significant relationship between the interaction effect of GDP and CPI versus cap rates which holds explanatory power at the national and market levels, by mapping the ground truth from a non-discrete to a binary variable.
+\end{abstract}
+
+\keywords{Binary Logistic Regression \and Cap Rates \and US Real Estate Markets \and Multifamily Cap Rate \and Apartment Cap Rate}
+
 
 \section{Introduction}
 At 6 trillion dollars \citep*{nmhc}, the value of apartment stock in the US constitutes over 1\% of the total wealth of the world \citep*{williams_2021}. Accurately projecting and explaining the value of that apartment stock has implications for direct investors, owners, renters, and anyone who owns part of the 255 billion dollars worth of securitized residential real estate that exists in public REITs \citep*{nareit_2022}. 
@@ -459,9 +461,6 @@ Going forward, we encourage investors, owners, and anyone who participates in th
 \section*{Statements and Declarations}
 \subsection{Funding}
 This research is a part of one author's role as Director of Research and Data Analytics at a Real Estate Private Equity firm. 
-
-\subsection{Conflict of interest}
-The author works for a Real Estate Private Equity firm which has ownership interest in many office and multifamily assets throughout the US. 
 
 \subsection{Availability of data and material}
 Data available upon request.
