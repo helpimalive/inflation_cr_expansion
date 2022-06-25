@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (MiKTeX 2.9.7400 64-bit)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Cap_Rates_Real_Economic_Growth_MDPI_Template.aux
+The style file: Definitions/chicago2.bst
+Database file #1: bib.bib
+Warning--no number and no volume in abraham_hendershott_1994
+Warning--page numbers missing in abraham_hendershott_1994
+Warning--no number and no volume in case_shiller_1990
+Warning--page numbers missing in case_shiller_1990
+Warning--no number and no volume in ghysels_plazzi_valkanov_torous_2013
+Warning--no number and no volume in larriva2021determinants
+Warning--page numbers missing in larriva2021determinants
+You've used 20 entries,
+            2898 wiz_defined-function locations,
+            746 strings with 8414 characters,
+and the built_in function-call counts, 13216 in all, are:
+= -- 1100
+> -- 936
+< -- 0
++ -- 278
+- -- 330
+* -- 1136
+:= -- 2429
+add.period$ -- 82
+call.type$ -- 20
+change.case$ -- 140
+chr.to.int$ -- 20
+cite$ -- 27
+duplicate$ -- 365
+empty$ -- 833
+format.name$ -- 374
+if$ -- 2422
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 16
+newline$ -- 105
+num.names$ -- 200
+pop$ -- 111
+preamble$ -- 1
+purify$ -- 261
+quote$ -- 0
+skip$ -- 371
+stack$ -- 0
+substring$ -- 676
+swap$ -- 110
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 400
+warning$ -- 7
+while$ -- 199
+width$ -- 0
+write$ -- 266
+(There were 7 warnings)
