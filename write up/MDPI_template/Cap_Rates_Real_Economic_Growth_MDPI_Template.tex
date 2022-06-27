@@ -356,6 +356,22 @@ p=\frac{1}{1+e^{(-1.25)(1)}}
 p \approx 0.77
 \end{equation}
 
+The national model is specified by the following parameters:
+
+\begin{equation}
+Cap\:Rate\:Expansion_{t+8quarters} =  \frac{1}{1+e^{(-1.25)(CRE variable)}}
+\end{equation}
+
+where $h_i$ is solved for with $n=5$ and $d_i$ is solved for with $n=2$
+
+The MSA model is specified by the following parameters:
+
+\begin{equation}
+Cap\:Rate\:Expansion_{t+1year} =  \frac{1}{1+e^{(-0.77)(CRE variable)}}
+\end{equation}
+
+where $h_i$ is solved for with $n=4$ and $d_i$ is solved for with $n=1$ and is backshifted 4
+
 \subsubsection{Model Goodness of Fit}
 
 In both the National and the MSA models, the logistic regressions displayed consistent coefficients, inline with our hypothesis. The coefficients had low standard errors relative  to the coefficients' magnitude, and the 2.5\% to 97.5\% bounds did not include zero in any case. 
