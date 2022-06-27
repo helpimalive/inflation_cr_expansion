@@ -1,54 +1,63 @@
-This is BibTeX, Version 0.99d (MiKTeX 2.9.7400 64-bit)
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Cap_Rates_Real_Economic_Growth_MDPI_Template.aux
+Reallocating 'name_of_file' (item size: 1) to 21 items.
 The style file: Definitions/chicago2.bst
+Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: bib.bib
+Repeated entry---line 546 of file bib.bib
+ : @article{kok2017big
+ :                    ,
+I'm skipping whatever remains of this entry
 Warning--no number and no volume in abraham_hendershott_1994
 Warning--page numbers missing in abraham_hendershott_1994
 Warning--no number and no volume in case_shiller_1990
 Warning--page numbers missing in case_shiller_1990
+Warning--no journal in christopoulos2020synthetic
+Warning--no number and no volume in christopoulos2020synthetic
+Warning--page numbers missing in christopoulos2020synthetic
 Warning--no number and no volume in ghysels_plazzi_valkanov_torous_2013
 Warning--no number and no volume in larriva2021determinants
 Warning--page numbers missing in larriva2021determinants
-You've used 20 entries,
+You've used 25 entries,
             2898 wiz_defined-function locations,
-            746 strings with 8414 characters,
-and the built_in function-call counts, 13216 in all, are:
-= -- 1100
-> -- 936
+            780 strings with 9270 characters,
+and the built_in function-call counts, 17099 in all, are:
+= -- 1412
+> -- 1266
 < -- 0
-+ -- 278
-- -- 330
-* -- 1136
-:= -- 2429
-add.period$ -- 82
-call.type$ -- 20
-change.case$ -- 140
-chr.to.int$ -- 20
-cite$ -- 27
-duplicate$ -- 365
-empty$ -- 833
-format.name$ -- 374
-if$ -- 2422
++ -- 380
+- -- 434
+* -- 1528
+:= -- 3124
+add.period$ -- 102
+call.type$ -- 25
+change.case$ -- 181
+chr.to.int$ -- 25
+cite$ -- 35
+duplicate$ -- 456
+empty$ -- 1052
+format.name$ -- 498
+if$ -- 3148
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 16
-newline$ -- 105
-num.names$ -- 200
-pop$ -- 111
+missing$ -- 21
+newline$ -- 130
+num.names$ -- 250
+pop$ -- 142
 preamble$ -- 1
-purify$ -- 261
+purify$ -- 332
 quote$ -- 0
-skip$ -- 371
+skip$ -- 461
 stack$ -- 0
-substring$ -- 676
-swap$ -- 110
+substring$ -- 877
+swap$ -- 137
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 400
-warning$ -- 7
-while$ -- 199
+type$ -- 500
+warning$ -- 10
+while$ -- 240
 width$ -- 0
-write$ -- 266
-(There were 7 warnings)
+write$ -- 331
+(There was 1 error message)

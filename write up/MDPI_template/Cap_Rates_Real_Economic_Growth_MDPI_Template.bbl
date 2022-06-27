@@ -31,12 +31,32 @@ Chandrashekaran, Vinod and Michael~S Young. 2000.
 \newblock The predictability of real estate capitalization rates.
 \newblock In {\em Annual Meeting of American Real Estate Society, California}.
 
+\bibitem[\protect\citeauthoryear{Chawla, Bowyer, Hall, and Kegelmeyer}{Chawla
+  et~al.}{2002}]{SMOTE}
+Chawla, N.~V., K.~W. Bowyer, L.~O. Hall, and W.~P. Kegelmeyer. 2002, Jun.
+\newblock Smote: Synthetic minority over-sampling technique.
+\newblock {\em Journal of Artificial Intelligence Research\/}~{\em 16},
+  321–357.
+\newblock {\url{https://doi.org/10.1613/jair.953}}.
+
+\bibitem[\protect\citeauthoryear{Christopoulos, Barratt, and
+  Ilut}{Christopoulos et~al.}{2020}]{christopoulos2020synthetic}
+Christopoulos, Andreas~D, Joshua~G Barratt, and Daniel~C Ilut. 2020.
+\newblock A synthetic cap rate methodology.
+
 \bibitem[\protect\citeauthoryear{Duca, Hendershott, and Ling}{Duca
   et~al.}{2017}]{duca2017taxes}
 Duca, John~V, Patric~H Hendershott, and David~C Ling. 2017.
 \newblock How taxes and required returns drove commercial real estate
   valuations over the past four decades.
 \newblock {\em National Tax Journal\/}~{\em 70\/}(3), 549--584.
+
+\bibitem[\protect\citeauthoryear{Fisher, Steiner, Titman, and
+  Viswanathan}{Fisher et~al.}{2022}]{fisher2022location}
+Fisher, Gregg, Eva Steiner, Sheridan Titman, and Ashvin Viswanathan. 2022.
+\newblock Location density, systematic risk, and cap rates: Evidence from
+  reits.
+\newblock {\em Real Estate Economics\/}~{\em 50\/}(2), 366--400.
 
 \bibitem[\protect\citeauthoryear{Froland}{Froland}{1987}]{froland1987determines}
 Froland, Charles. 1987.
@@ -77,12 +97,26 @@ Green, Richard~K. 1997.
   investment predict changes in gdp.
 \newblock {\em Real estate economics\/}~{\em 25\/}(2), 253--270.
 
+\bibitem[\protect\citeauthoryear{Kok, Koponen, and Mart{\'\i}nez-Barbosa}{Kok
+  et~al.}{2017}]{kok2017big}
+Kok, Nils, Eija-Leena Koponen, and Carmen~Adriana Mart{\'\i}nez-Barbosa. 2017.
+\newblock Big data in real estate? from manual appraisal to automated
+  valuation.
+\newblock {\em The Journal of Portfolio Management\/}~{\em 43\/}(6), 202--211.
+
 \bibitem[\protect\citeauthoryear{Larriva and Linneman}{Larriva and
   Linneman}{2021}]{larriva2021determinants}
 Larriva, Matt and Peter Linneman. 2021.
 \newblock The determinants of capitalization rates: Evidence from the us real
   estate markets.
 \newblock {\em Journal of Property Investment \& Finance\/}.
+
+\bibitem[\protect\citeauthoryear{Li and Xiaoli}{Li and
+  Xiaoli}{2020}]{li2020beyond}
+Li, Jun and Liang Xiaoli. 2020.
+\newblock Beyond the cap rate: Valuation of multifamily properties.
+\newblock {\em Journal of Real Estate Finance and Economics\/}~{\em 60\/}(1-2),
+  99--110.
 
 \bibitem[\protect\citeauthoryear{Linneman}{Linneman}{1986}]{linneman_1986}
 Linneman, Peter. 1986.
