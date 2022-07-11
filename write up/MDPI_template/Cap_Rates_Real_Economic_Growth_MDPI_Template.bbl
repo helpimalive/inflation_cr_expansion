@@ -13,6 +13,13 @@ Aizenman, Joshua and Yothin Jinjarak. 2009.
 \newblock Current account patterns and national real estate markets.
 \newblock {\em Journal of Urban Economics\/}~{\em 66\/}(2), 75--89.
 
+\bibitem[\protect\citeauthoryear{Büchler, v.~Ehrlich, and Schöni}{Büchler
+  et~al.}{2021}]{BUCHLER2021103370}
+Büchler, Simon, Maximilian v.~Ehrlich, and Olivier Schöni. 2021.
+\newblock The amplifying effect of capitalization rates on housing supply.
+\newblock {\em Journal of Urban Economics\/}~{\em 126}, 103370.
+\newblock {\url{https://doi.org/https://doi.org/10.1016/j.jue.2021.103370}}.
+
 \bibitem[\protect\citeauthoryear{Case, Goetzmann, and Rouwenhorst}{Case
   et~al.}{2000}]{case2000global}
 Case, Bradford, William~N Goetzmann, and K~Geert Rouwenhorst. 2000.
@@ -40,9 +47,23 @@ Chawla, N.~V., K.~W. Bowyer, L.~O. Hall, and W.~P. Kegelmeyer. 2002, Jun.
 \newblock {\url{https://doi.org/10.1613/jair.953}}.
 
 \bibitem[\protect\citeauthoryear{Christopoulos, Barratt, and
+  Ilut}{Christopoulos et~al.}{2022}]{christopoulos2022national}
+Christopoulos, Andreas, Joshua Barratt, and Daniel Ilut. 2022.
+\newblock National cap rates and the macroeconomy.
+\newblock {\em Available at SSRN\/}.
+
+\bibitem[\protect\citeauthoryear{Christopoulos, Barratt, and
   Ilut}{Christopoulos et~al.}{2020}]{christopoulos2020synthetic}
 Christopoulos, Andreas~D, Joshua~G Barratt, and Daniel~C Ilut. 2020.
 \newblock A synthetic cap rate methodology.
+
+\bibitem[\protect\citeauthoryear{Devaney, Livingstone, McAllister, and
+  Nanda}{Devaney et~al.}{2019}]{DEVANEY2019100469}
+Devaney, Steven, Nicola Livingstone, Pat McAllister, and Anupam Nanda. 2019.
+\newblock Capitalization rates and transaction activity in international office
+  markets: A global perspective.
+\newblock {\em Global Finance Journal\/}~{\em 42}, 100469.
+\newblock {\url{https://doi.org/https://doi.org/10.1016/j.gfj.2019.04.003}}.
 
 \bibitem[\protect\citeauthoryear{Duca, Hendershott, and Ling}{Duca
   et~al.}{2017}]{duca2017taxes}
@@ -57,6 +78,13 @@ Fisher, Gregg, Eva Steiner, Sheridan Titman, and Ashvin Viswanathan. 2022.
 \newblock Location density, systematic risk, and cap rates: Evidence from
   reits.
 \newblock {\em Real Estate Economics\/}~{\em 50\/}(2), 366--400.
+
+\bibitem[\protect\citeauthoryear{Francke and Van~de Minne}{Francke and Van~de
+  Minne}{2021}]{francke2021daily}
+Francke, Marc and Alex Van~de Minne. 2021.
+\newblock Daily appraisal of commercial real estate a new mixed frequency
+  approach.
+\newblock {\em Real Estate Economics\/}.
 
 \bibitem[\protect\citeauthoryear{Froland}{Froland}{1987}]{froland1987determines}
 Froland, Charles. 1987.
@@ -110,6 +138,12 @@ Larriva, Matt and Peter Linneman. 2021.
 \newblock The determinants of capitalization rates: Evidence from the us real
   estate markets.
 \newblock {\em Journal of Property Investment \& Finance\/}.
+
+\bibitem[\protect\citeauthoryear{Letdin, Sirmans, Smersh, and Zhou}{Letdin
+  et~al.}{2022}]{letdin2022role}
+Letdin, Mariya, G~Stacy Sirmans, Greg Smersh, and Tingyu Zhou. 2022.
+\newblock The role of tenant characteristics in retail cap rate variation.
+\newblock {\em Available at SSRN 4119899\/}.
 
 \bibitem[\protect\citeauthoryear{Li and Xiaoli}{Li and
   Xiaoli}{2020}]{li2020beyond}

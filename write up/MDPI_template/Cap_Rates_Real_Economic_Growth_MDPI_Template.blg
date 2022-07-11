@@ -5,7 +5,7 @@ Reallocating 'name_of_file' (item size: 1) to 21 items.
 The style file: Definitions/chicago2.bst
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: bib.bib
-Repeated entry---line 546 of file bib.bib
+Repeated entry---line 590 of file bib.bib
  : @article{kok2017big
  :                    ,
 I'm skipping whatever remains of this entry
@@ -13,51 +13,57 @@ Warning--no number and no volume in abraham_hendershott_1994
 Warning--page numbers missing in abraham_hendershott_1994
 Warning--no number and no volume in case_shiller_1990
 Warning--page numbers missing in case_shiller_1990
+Warning--no number and no volume in christopoulos2022national
+Warning--page numbers missing in christopoulos2022national
 Warning--no journal in christopoulos2020synthetic
 Warning--no number and no volume in christopoulos2020synthetic
 Warning--page numbers missing in christopoulos2020synthetic
+Warning--no number and no volume in francke2021daily
+Warning--page numbers missing in francke2021daily
 Warning--no number and no volume in ghysels_plazzi_valkanov_torous_2013
 Warning--no number and no volume in larriva2021determinants
 Warning--page numbers missing in larriva2021determinants
-You've used 25 entries,
+Warning--no number and no volume in letdin2022role
+Warning--page numbers missing in letdin2022role
+You've used 30 entries,
             2898 wiz_defined-function locations,
-            780 strings with 9270 characters,
-and the built_in function-call counts, 17099 in all, are:
-= -- 1412
-> -- 1266
+            807 strings with 10193 characters,
+and the built_in function-call counts, 20783 in all, are:
+= -- 1699
+> -- 1596
 < -- 0
-+ -- 380
-- -- 434
-* -- 1528
-:= -- 3124
-add.period$ -- 102
-call.type$ -- 25
-change.case$ -- 181
-chr.to.int$ -- 25
-cite$ -- 35
-duplicate$ -- 456
-empty$ -- 1052
-format.name$ -- 498
-if$ -- 3148
++ -- 484
+- -- 538
+* -- 1887
+:= -- 3801
+add.period$ -- 124
+call.type$ -- 30
+change.case$ -- 222
+chr.to.int$ -- 30
+cite$ -- 46
+duplicate$ -- 543
+empty$ -- 1248
+format.name$ -- 622
+if$ -- 3832
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 21
-newline$ -- 130
-num.names$ -- 250
-pop$ -- 142
+missing$ -- 26
+newline$ -- 157
+num.names$ -- 300
+pop$ -- 171
 preamble$ -- 1
-purify$ -- 332
+purify$ -- 403
 quote$ -- 0
-skip$ -- 461
+skip$ -- 551
 stack$ -- 0
-substring$ -- 877
-swap$ -- 137
+substring$ -- 1017
+swap$ -- 162
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 500
-warning$ -- 10
-while$ -- 240
+type$ -- 600
+warning$ -- 16
+while$ -- 276
 width$ -- 0
-write$ -- 331
+write$ -- 400
 (There was 1 error message)
