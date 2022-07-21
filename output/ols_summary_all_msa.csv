@@ -1,3 +1,20 @@
-,Coef.,Std.Err.,Z,${P>|z|}$,[0.025,0.975]
-HH Growth,-2.6971,1.36,-1.983,0.063,-5.554,0.16
-Intercept,0.6481,0.222,2.924,0.009,0.182,1.114
+                      OLS Regression Results                     
+Dep. Variable:   ,y               ,  R-squared:         ,   0.179
+Model:           ,OLS             ,  Adj. R-squared:    ,   0.134
+Method:          ,Least Squares   ,  F-statistic:       ,   3.933
+Date:            ,Thu, 21 Jul 2022,  Prob (F-statistic):,0.0628  
+Time:            ,13:44:33        ,  Log-Likelihood:    , -16.255
+No. Observations:,    20          ,  AIC:               ,   36.51
+Df Residuals:    ,    18          ,  BIC:               ,   38.50
+Df Model:        ,     1          ,                     ,        
+Covariance Type: ,nonrobust       ,                     ,        
+     ,   coef   , std err ,    t    ,P>|t| ,  [0.025 ,  0.975] 
+x1   ,   -2.6971,    1.360,   -1.983, 0.063,   -5.554,    0.160
+const,    0.6481,    0.222,    2.924, 0.009,    0.182,    1.114
+Omnibus:      , 9.852,  Durbin-Watson:     ,   2.095
+Prob(Omnibus):, 0.007,  Jarque-Bera (JB):  ,   7.459
+Skew:         , 1.119,  Prob(JB):          ,  0.0240
+Kurtosis:     , 4.985,  Cond. No.          ,    10.8
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
